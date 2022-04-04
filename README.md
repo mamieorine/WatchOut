@@ -3,7 +3,7 @@
 
 ### Clone the project
 ```
-https://github.com/mamieorine/ODIProject.git
+git clone https://github.com/mamieorine/ODIProject.git
 ```
 
 
@@ -18,7 +18,9 @@ npm install
 npm start
 ```
 
-### 3. Download Expo application from the App Store
+### 3. Download **Expo Go** application from the App Store
 
 
-### 4. Open the Expo application and you will see your recently project in the development environment
+### 4. Open the **Expo Go** application
+
+### 5. Click recently project in the development environment, which running on Localhost server.
