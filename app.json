@@ -19,7 +19,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.odi.ODIProject",
+      "config": {
+        "googleMapsApiKey": "AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo"
+      },
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "App requires geolocation to improve the quality of the service"
+      }
     },
     "android": {
       "adaptiveIcon": {
