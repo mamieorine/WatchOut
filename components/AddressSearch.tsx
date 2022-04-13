@@ -21,10 +21,9 @@ const GooglePlacesInput = (props: { geometry: Geometry; onDestinationChange: any
 			minLength={2}
 			onFail={error => console.log('error' + error)}
 			fetchDetails={true}
-			currentLocation={true}
+			// currentLocation={true}
 			onPress={(data, details = null) => {
 				if (!details) return;
-
 				onGeometryChange({
 					latitude: details.geometry.location.lat,
 					longitude: details.geometry.location.lng

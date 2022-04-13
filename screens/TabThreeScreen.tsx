@@ -63,14 +63,14 @@ export default function TabThreeScreen() {
             <Image source={require('../assets/images/crime.png')} style={{height: 30, width:30}} />
           </Marker>
         ))}
-        <MapViewDirections
+        {/* <MapViewDirections
           origin={origin}
           destination={destination}
           apikey={GOOGLE_MAPS_APIKEY}
           strokeWidth={4}
           strokeColor="hotpink"
           mode="DRIVING"
-        />
+        />  */}
       </MapView>
     </View>
   );
