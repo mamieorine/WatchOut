@@ -9,8 +9,8 @@ export type Geometry = {
 
 const GooglePlacesInput = (props: { geometry: Geometry; onDestinationChange: any; }) => {
 	const [geometry, onGeometryChange] = useState({
-		latitude: 51.2419894,
-		longitude: -0.7035547
+		latitude: 50.9044082,
+		longitude: -1.405594
 	});
 
 	props.onDestinationChange(geometry);

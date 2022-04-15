@@ -2,42 +2,75 @@ import { StyleSheet } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const baseUrl = 'https://data.police.uk/api';
+const getAllCrimesPoly = '/stops-street?poly=52.2,0.5:52.8,0.2:52.1,0.88';
+const getAllCrimesLocation = '/crimes-street/all-crime?lat=51.2419894&lng=-0.7035547';
+
+export interface Crimes {
+  category: string;
+  crimes: Crime[];
+}
+
+export interface Crime {
+  id: number,
+  latitude: string,
+  longitude: string,
+  dateTime: string,
+  location: string,
+}
+
+function separateCrimeTypes(crimes: any[]): Crimes[] {
+  const allCrimes: any[] = [];
+
+  crimes.forEach((crime: any) => {
+    allCrimes.push({
+      category: crime.category,
+      crime: {
+        id: crime.id,
+        dateTime: crime.month,
+        location: crime.location.streetName,
+        latitude: crime.location.latitude,
+        longitude: crime.location.longitude,
+      }
+    })
+  })
+
+  const result = allCrimes.reduce((acc, d) => {
+    const found = acc.find((a: Crimes) => a.category === d.category);
+    const value = d.crime;
+
+    if (!found) {
+      acc.push({ category: d.category, crimes: [value]});
+    }
+    else {
+      found.crimes.push(value)
+    }
+    return acc;
+  }, []);
+
+  return result;
+}
 
 export default function TabTwoScreen() {
-  const [region, onRegionChange] = useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
+  const [region] = useState({
+		latitude: 50.9351092,
+		longitude: -1.3957594,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05,
   });
 
-  const [markers] = useState([
-    {
-      latlng: {
-        latitude: 37.78825,
-        longitude: -122.4325
-      },
-      title: 'Test',
-      description: 'test'
-    },
-    {
-      latlng: {
-        latitude: 37.7883,
-        longitude: -122.4624
-      },
-      title: 'Test2',
-      description: 'test2'
-    },
-    {
-      latlng: {
-        latitude: 37.7504,
-        longitude: -122.4604
-      },
-      title: 'Test3',
-      description: 'test3'
-    }
-  ]);
+  const [crimes, initialCrimes] = useState<Crimes[]>([]);
+
+  useEffect(() => {
+    axios.get(`${baseUrl}/${getAllCrimesLocation}`)
+        .then(response => {
+          const crimes: Crimes[] = separateCrimeTypes(response.data);
+          initialCrimes(crimes);
+        });
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -45,13 +78,19 @@ export default function TabTwoScreen() {
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 
       <MapView  style={{height: '50%', width: '100%'}} region={region} provider={PROVIDER_GOOGLE}>
-        {markers.map((marker, index) => (
-          <Marker
-            key={index}
-            coordinate={marker.latlng}
-            title={marker.title}
-            description={marker.description}
-          />
+        {crimes.map((crimeTypes: Crimes, index) => (
+          crimeTypes.crimes.map((crime: Crime, d) => {
+            console.log(crime, crimeTypes.category, index);
+            return <Marker
+              key={index + d}
+              coordinate={{
+                latitude: parseFloat(crime.latitude),
+                longitude: parseFloat(crime.longitude),
+              }}
+              title={crimeTypes.category}
+              description={crime.dateTime}
+            />
+          })
         ))}
       </MapView>
     </View>

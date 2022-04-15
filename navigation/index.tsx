@@ -56,22 +56,22 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         })}
       />
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
         options={{
           title: 'Custom Markers',
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
         }}
-      />
-      <BottomTab.Screen
+      /> */}
+      {/* <BottomTab.Screen
         name="TabThree"
         component={TabThreeScreen}
         options={{
           title: 'Routes',
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
         }}
-      />
+      /> */}
       {/* <BottomTab.Screen
         name="TabFour"
         component={TabTwoScreen}
