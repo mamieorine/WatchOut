@@ -19,7 +19,7 @@ const GooglePlacesInput = (props: { geometry: Geometry; onDestinationChange: any
 		<GooglePlacesAutocomplete
 			placeholder='Search destination'
 			minLength={1}
-			onFail={error => console.log('error' + error)}
+			// onFail={error => console.log('error' + error)}
 			fetchDetails={true}
 			// currentLocation={true}
 			onPress={(data, details = null) => {

@@ -1,60 +1,18 @@
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { Text, View } from '../components/Themed';
-import GooglePlacesInput from '../components/AddressSearch';
+import GooglePlacesInput from '../components/DestinationSearch';
+import { separateCrimeTypes, Crimes, Crime } from '../functions/helper';
 import MapViewDirections from 'react-native-maps-directions';
 import MapView, { Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import axios from 'axios';
 
 const baseUrl = 'https://data.police.uk/api';
-const getAllCrimesPoly = '/stops-street?poly=52.2,0.5:52.8,0.2:52.1,0.88';
-const getAllCrimesLocation = '/crimes-street/all-crime?lat=50.9351092&lng=-1.3957594';
-
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
 
-export interface Crimes {
-  category: string;
-  crimes: Crime[];
-}
-
-export interface Crime {
-  id: number,
-  latitude: string,
-  longitude: string,
-  dateTime: string,
-  location: string,
-}
-
-function separateCrimeTypes(crimes: any[]): Crimes[] {
-  const allCrimes: any[] = [];
-
-  crimes.forEach((crime: any) => {
-    allCrimes.push({
-      category: crime.category,
-      crime: {
-        id: crime.id,
-        dateTime: crime.month,
-        location: crime.location.streetName,
-        latitude: crime.location.latitude,
-        longitude: crime.location.longitude,
-      }
-    })
-  })
-
-  const result = allCrimes.reduce((acc, d) => {
-    const found = acc.find((a: Crimes) => a.category === d.category);
-    const value = d.crime;
-
-    if (!found) {
-      acc.push({ category: d.category, crimes: [value]});
-    }
-    else {
-      found.crimes.push(value)
-    }
-    return acc;
-  }, []);
-
-  return result;
+interface Coordinate {
+  latitude: number,
+  longitude: number
 }
 
 export default function TabOneScreen() {
@@ -75,6 +33,15 @@ export default function TabOneScreen() {
 		longitude: -1.405594
 	});
 
+  const [polyGeometry, onPolyGeometryChange] = useState([
+		{ latitude: 50.9044082, longitude: -1.405594 },
+  	{ latitude: 50.9044082, longitude: -1.405594 },
+  	{ latitude: 50.9044082, longitude: -1.405594 },
+  	{ latitude: 50.9044082, longitude: -1.405594 },
+  	{ latitude: 50.9044082, longitude: -1.405594 },
+  	{ latitude: 50.9044082, longitude: -1.405594 }
+  ]);
+
   const [currentGeometry, onCurrentGeometryChange] = useState({
 		latitude: 50.9044082,
 		longitude: -1.405594
@@ -93,12 +60,41 @@ export default function TabOneScreen() {
 
   const [crimes, initialCrimes] = useState<Crimes[]>([]);
   useEffect(() => {
-    axios.get(`${baseUrl}/crimes-street/all-crime?lat=${centerGeometry.latitude}&lng=${centerGeometry.longitude}`)
+    let polyStr = '';
+    if (polyGeometry.length == 1) {
+      polyStr = '50.904784,-1.408083:50.90271,-1.403046:50.912051,-1.4029:50.913540,-1.397047';
+    }
+    else {
+      polyGeometry.forEach((coordinate: Coordinate, index: number) => {
+        polyStr = `${polyStr}${coordinate.latitude},${coordinate.longitude}`;
+        if (index != polyGeometry.length-1) {
+          polyStr = `${polyStr}:`;
+        }
+      });
+    }
+
+    axios.get(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`)
         .then(response => {
           const crimes: Crimes[] = separateCrimeTypes(response.data);
           initialCrimes(crimes);
         });
-  }, [geometry]);
+
+    console.log("DirectionsService 1");
+
+    // const options: any = {
+    //   origin: `${currentGeometry.latitude},${currentGeometry.longitude}`,
+    //   destination: `${geometry.latitude},${geometry.longitude}`,
+    //   waypoints: [],
+    //   optimizeWaypoints: true,
+    //   travelMode: google.maps.TravelMode.WALKING,
+    //   provideRouteAlternatives: true,
+    // }
+    // new DirectionsService(options, (result: any) => {
+    //   console.log("DirectionsService 2");
+    //   console.log(result);
+    // });
+  }, [geometry, polyGeometry]);
+
 
   return (
     <View style={styles.container}>
@@ -113,7 +109,6 @@ export default function TabOneScreen() {
         onUserLocationChange={(e: EventUserLocation) => {
           const lat = e.nativeEvent.coordinate.latitude;
           const lng = e.nativeEvent.coordinate.longitude;
-
           if (lat.toFixed(3) == currentGeometry.latitude.toFixed(3) ||
           lng.toFixed(3) == currentGeometry.longitude.toFixed(3)) return;
 
@@ -124,12 +119,27 @@ export default function TabOneScreen() {
         }}
         >
 
+        {/* {<DirectionsService options={{
+          origin: `${currentGeometry.latitude},${currentGeometry.longitude}`,
+          destination: `${geometry.latitude},${geometry.longitude}`,
+          waypoints: [],
+          optimizeWaypoints: true,
+          travelMode: google.maps.TravelMode.WALKING,
+          provideRouteAlternatives: true,
+        }} callback={(result: any) => console.log(result)} /> }; */}
+
         <Marker key={1000} coordinate={currentGeometry} />
         <Marker key={2000} coordinate={geometry} />
 
+        <Marker key={1001} coordinate={polyGeometry[0]} pinColor={'red'} />
+        <Marker key={1002} coordinate={polyGeometry[1]} pinColor={'pink'} />
+        <Marker key={1003} coordinate={polyGeometry[2]} pinColor={'blue'} />
+        <Marker key={1004} coordinate={polyGeometry[3]} pinColor={'yellow'} />
+        <Marker key={1005} coordinate={polyGeometry[4]} pinColor={'purple'} />
+        <Marker key={1006} coordinate={polyGeometry[5]} pinColor={'orange'} />
+
         {crimes.map((crimeTypes: Crimes, index) => (
           crimeTypes.crimes.map((crime: Crime, d) => {
-            console.log(crime, crimeTypes.category, index);
             return <Marker
               key={index + d}
               coordinate={{
@@ -137,7 +147,7 @@ export default function TabOneScreen() {
                 longitude: parseFloat(crime.longitude),
               }}
               title={crimeTypes.category}
-              description={crime.dateTime}
+              description={crime.latitude + crime.longitude}
               pinColor={'linen'}
             />
           })
@@ -147,6 +157,7 @@ export default function TabOneScreen() {
           origin={currentGeometry}
           destination={geometry}
           apikey={GOOGLE_MAPS_APIKEY}
+          // waypoints={[{latitude: 50.9044082, longitude: -1.405694}, {latitude: 50.9134082, longitude: -1.415594}]}
           strokeWidth={5}
           strokeColor="hotpink"
           mode="WALKING"
@@ -154,16 +165,49 @@ export default function TabOneScreen() {
           onStart={(params) => {}}
           onReady={result => {
             const deltaPerDist = 100;
-            const ratioDist = result.distance/deltaPerDist;
+            let ratioDist = result.distance/deltaPerDist;
             onDeltaChange({
               latitudeDelta: ratioDist,
               longitudeDelta: ratioDist
             })
 
+            const centerIndex = Math.floor(result.coordinates.length/2);
+            const centerCoordinates = result.coordinates[centerIndex];
+            const originCoord = result.coordinates[0];
+            const destinationCoord = result.coordinates[result.coordinates.length-1];
+
+            ratioDist = Math.min(0.010, ratioDist);
+            onPolyGeometryChange([
+              {latitude: originCoord.latitude, longitude: originCoord.longitude + ratioDist/2},
+              {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude + ratioDist/2},
+              {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude + ratioDist/2},
+              {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude - ratioDist/2},
+              {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude - ratioDist/2},
+              {latitude: originCoord.latitude, longitude: originCoord.longitude - ratioDist/2},
+            ]);
+
             onCenterGeometryChange({
-              latitude: (currentGeometry.latitude + geometry.latitude) / 2,
-              longitude: (currentGeometry.longitude + geometry.longitude) / 2
+              latitude: (centerCoordinates.latitude),
+              longitude: (centerCoordinates.longitude)
             })
+          }}
+          onError={(errorMessage) => {
+            console.log(errorMessage);
+          }}
+        />
+
+        <MapViewDirections
+          origin={currentGeometry}
+          destination={geometry}
+          apikey={GOOGLE_MAPS_APIKEY}
+          // waypoints={[{latitude: 50.9044082, longitude: -1.405694}, {latitude: 50.9134082, longitude: -1.415594}]}
+          strokeWidth={5}
+          strokeColor="blue"
+          mode="BICYCLING"
+          optimizeWaypoints={true}
+          onStart={(params) => {}}
+          onReady={result => {
+
           }}
           onError={(errorMessage) => {
             console.log(errorMessage);

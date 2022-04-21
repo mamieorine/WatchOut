@@ -80,7 +80,6 @@ export default function TabTwoScreen() {
       <MapView  style={{height: '50%', width: '100%'}} region={region} provider={PROVIDER_GOOGLE}>
         {crimes.map((crimeTypes: Crimes, index) => (
           crimeTypes.crimes.map((crime: Crime, d) => {
-            console.log(crime, crimeTypes.category, index);
             return <Marker
               key={index + d}
               coordinate={{
