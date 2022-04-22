@@ -10,7 +10,6 @@ import useColorScheme from '../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import TabThreeScreen from '../screens/TabThreeScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -31,11 +30,7 @@ function RootNavigator(navigationRef: any) {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={TabOneScreen} options={{headerShown: true }}  />
-      <Stack.Screen name="Test" component={TabTwoScreen} options={{
-          // title: 'Routes',
-          // headerLeft: () => <TabBarIcon name="angle-left" color='white' />
-          headerShown: true
-        }}  />
+      <Stack.Screen name="Test" component={TabTwoScreen} options={{headerShown: true }}  />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
       </Stack.Group>
