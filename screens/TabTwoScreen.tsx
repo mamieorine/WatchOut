@@ -1,121 +1,99 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 import { Text, View } from '../components/Themed';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { Card } from 'react-native-elements';
+import { useAtom } from 'jotai';
+import { routesAtom } from '../functions/atom';
 
-const baseUrl = 'https://data.police.uk/api';
-const getAllCrimesPoly = '/stops-street?poly=52.2,0.5:52.8,0.2:52.1,0.88';
-const getAllCrimesLocation = '/crimes-street/all-crime?lat=51.2419894&lng=-0.7035547';
+export default function TabTwoScreen(props: { routes: any; origin: string; destination: string, onSelect: any }) {
+  const navigation = useNavigation();
+  const location = useRoute();
+  const TabBarIcon = (props: {
+    name: React.ComponentProps<typeof FontAwesome>['name'];
+    color: string; }) => {
+    return <FontAwesome size={24} style={{ marginTop: 20, marginLeft: 10 }} {...props} />;
+  }
 
-export interface Crimes {
-  category: string;
-  crimes: Crime[];
-}
+  const params: any = location.params;
+  const [routes, onRoutesUpdate] = useAtom(routesAtom)
 
-export interface Crime {
-  id: number,
-  latitude: string,
-  longitude: string,
-  dateTime: string,
-  location: string,
-}
-
-function separateCrimeTypes(crimes: any[]): Crimes[] {
-  const allCrimes: any[] = [];
-
-  crimes.forEach((crime: any) => {
-    allCrimes.push({
-      category: crime.category,
-      crime: {
-        id: crime.id,
-        dateTime: crime.month,
-        location: crime.location.streetName,
-        latitude: crime.location.latitude,
-        longitude: crime.location.longitude,
-      }
-    })
-  })
-
-  const result = allCrimes.reduce((acc, d) => {
-    const found = acc.find((a: Crimes) => a.category === d.category);
-    const value = d.crime;
-
-    if (!found) {
-      acc.push({ category: d.category, crimes: [value]});
+  const data = [{
+      select: false,
+      distance: 0.963,
+      duration: 12.066666666666666,
+      waypoints: [],
+    }, {
+      select: false,
+      distance: 1.056,
+      duration: 4.266666666666667,
+      waypoints: [],
     }
-    else {
-      found.crimes.push(value)
-    }
-    return acc;
-  }, []);
-
-  return result;
-}
-
-export default function TabTwoScreen() {
-  const [region] = useState({
-		latitude: 50.9351092,
-		longitude: -1.3957594,
-    latitudeDelta: 0.05,
-    longitudeDelta: 0.05,
-  });
-
-  const [crimes, initialCrimes] = useState<Crimes[]>([]);
-
-  useEffect(() => {
-    axios.get(`${baseUrl}/${getAllCrimesLocation}`)
-        .then(response => {
-          const crimes: Crimes[] = separateCrimeTypes(response.data);
-          initialCrimes(crimes);
-        });
-  }, []);
+  ]
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Overview crimes occurs</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-
-      <MapView  style={{height: '50%', width: '100%'}} region={region} provider={PROVIDER_GOOGLE}>
-        {crimes.map((crimeTypes: Crimes, index) => (
-          crimeTypes.crimes.map((crime: Crime, d) => {
-            return <Marker
-              key={index + d}
-              coordinate={{
-                latitude: parseFloat(crime.latitude),
-                longitude: parseFloat(crime.longitude),
-              }}
-              title={crimeTypes.category}
-              description={crime.dateTime}
-            />
-          })
-        ))}
-      </MapView>
+    <View style={{ height: 100 }}>
+      <View style={{ padding: 10 }}>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={params.origin ?? 'origin'}
+        />
+        <TextInput
+          style={styles.input}
+          editable={false}
+          value={params.destination ?? 'destination'}
+        />
+      </View>
+      <TouchableOpacity onPress={() => {
+          routes.indexSelected = 0;
+          onRoutesUpdate(routes);
+          console.log("onRoutesUpdate(routes)");
+          navigation.goBack();
+        }}>
+        <Card containerStyle={{borderRadius: 10, borderColor: '#eee', borderWidth: 0, margin: 15}}>
+          <Text style={{marginBottom: 10, fontSize: 18, fontWeight: 'bold'}}>
+            Option 1
+          </Text>
+          <Text style={{marginBottom: 10, fontSize: 16}}> Distance: {data[0].distance} </Text>
+          <Text style={{marginBottom: 10, fontSize: 16}}> Duration: {data[0].duration} </Text>
+        </Card>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => {
+          routes.indexSelected = 1;
+          onRoutesUpdate(routes);
+          navigation.goBack();
+        }}>
+        <Card containerStyle={{borderRadius: 10, borderColor: '#eee'}}>
+          <Text style={{marginBottom: 10, fontSize: 18, fontWeight: 'bold'}}>
+            Option 1
+          </Text>
+          <Text style={{marginBottom: 10, fontSize: 16}}> Distance: {data[1].distance} </Text>
+          <Text style={{marginBottom: 10, fontSize: 16}}> Duration: {data[1].duration} </Text>
+        </Card>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  getStartedText: {
-    fontSize: 17,
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  input: {
+    height: 45,
+    width: 355,
+    margin: 5,
+    borderWidth: 1,
+    borderColor: '#eee',
+    borderRadius: 10,
+    padding: 10,
   },
 });
+
 
 

@@ -19,17 +19,23 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
     <NavigationContainer
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootNavigator />
+      <RootNavigator/>
     </NavigationContainer>
   );
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator() {
+function RootNavigator(navigationRef: any) {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="Home" component={TabOneScreen} options={{headerShown: true }}  />
+      <Stack.Screen name="Test" component={TabTwoScreen} options={{
+          // title: 'Routes',
+          // headerLeft: () => <TabBarIcon name="angle-left" color='white' />
+          headerShown: true
+        }}  />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
       </Stack.Group>
@@ -56,14 +62,15 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         })}
       />
-      {/* <BottomTab.Screen
+      <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
         options={{
           title: 'Custom Markers',
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
+          headerShown: false
         }}
-      /> */}
+      />
       {/* <BottomTab.Screen
         name="TabThree"
         component={TabThreeScreen}

@@ -17,6 +17,19 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
+  Test: TestParams;
+  Home: HomeParams;
+};
+
+export type HomeParams = {
+  id: string;
+};
+
+export type TestParams = {
+  routes: any;
+  origin: string;
+  destination: string;
+  onSelect: any;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

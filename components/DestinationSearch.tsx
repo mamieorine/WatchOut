@@ -7,57 +7,59 @@ export type Geometry = {
 	longitude: Number
 }
 
-const GooglePlacesInput = (props: { geometry: Geometry; onDestinationChange: any; }) => {
-	const [geometry, onGeometryChange] = useState({
-		latitude: 50.9044082,
-		longitude: -1.405594
-	});
-
-	props.onDestinationChange(geometry);
-
+const GooglePlacesInput = (props: { onDestinationChange: any; isDestinationChanged: any; isFirstVisited: any; }) => {
   return (
 		<GooglePlacesAutocomplete
 			placeholder='Search destination'
 			minLength={1}
-			// onFail={error => console.log('error' + error)}
 			fetchDetails={true}
-			// currentLocation={true}
 			onPress={(data, details = null) => {
 				if (!details) return;
-				onGeometryChange({
+
+				const destinationData: any = {
+					place_id: details.place_id,
+					name: details.name,
+					address: details.formatted_address,
 					latitude: details.geometry.location.lat,
-					longitude: details.geometry.location.lng
-				})
+					longitude: details.geometry.location.lng,
+				}
+
+				props.isFirstVisited(false);
+				props.isDestinationChanged(true);
+				props.onDestinationChange(destinationData);
 			}}
+			numberOfLines={10}
+			listViewDisplayed={true}
 			styles={{
 				container: {
 					zIndex: 10,
 					paddingBottom: 0,
-					flexGrow: 1
+					flexGrow: 1,
 				},
 				textInputContainer: {
-				  backgroundColor: 'grey',
 				  width: '100%',
 				  padding: 10,
 				},
 				textInput: {
-				  height: 45,
+				  height: 50,
 				  color: '#5d5d5d',
 				  fontSize: 16,
+				  borderWidth: 1,
+				  borderColor: '#ddd'
 				},
 				predefinedPlacesDescription: {
 				  color: '#1faadb',
 				},
 				listView: {
 					position: 'absolute',
-					top: 60,
+					top: 65,
 					left: 10,
 					right: 10,
 					backgroundColor: 'white',
 					borderRadius: 5,
 					flex: 1,
 					elevation: 3,
-					zIndex: 10
+					zIndex: 10,
 				},
 			}}
 			query={{
