@@ -1,18 +1,16 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import { Text, View } from '../components/Themed';
 import GooglePlacesInput from '../components/DestinationSearch';
-import DestinationPopup from '../components/BottomSheet';
 import { separateCrimeTypes, Crimes, Crime } from '../functions/helper';
 import MapViewDirections, { MapViewDirectionsMode } from 'react-native-maps-directions';
-import MapView, { Callout, Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
-import { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import MapView, { Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
+import { useState, useLayoutEffect, useRef, useEffect, useMemo, useCallback } from 'react';
 import axios from 'axios';
+import { BottomSheet, Button } from 'react-native-elements';
+import { useFocusEffect } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { useAtom } from 'jotai'
 import { routesAtom } from '../functions/atom';
-import { Popover, Button, Actionsheet, Box, useDisclose } from 'native-base';
-import MarkerPopup from '../components/Marker';
-import { background } from 'native-base/lib/typescript/theme/styled-system';
-import { useNavigation } from '@react-navigation/native';
 
 const baseUrl = 'https://data.police.uk/api';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
@@ -22,14 +20,15 @@ interface Coordinate {
   longitude: number
 }
 
-export default function TabOneScreen({}) {
-  const h1Ref = useRef<MapView>(null);
-	const navigation = useNavigation();
+interface Routes {
+  indexSelected: number,
+  allRoutes: any[]
+}
 
+export default function TabOneScreen({}) {
+  const navigation = useNavigation();
+  const h1Ref = useRef<MapView>(null);
   const [isFirstVisit, setFirstVisit] = useState(true);
-  const [crimes, initialCrimes] = useState<Crimes[]>([]);
-  const [isRouteStart, setRouteStart] = useState(null)
-  const [routes, onRoutesUpdate] = useAtom(routesAtom)
 
   const [delta, onDeltaChange] = useState({
 		latitudeDelta: 0,
@@ -37,12 +36,6 @@ export default function TabOneScreen({}) {
 	});
 
   const [geometry, onGeometryChange] = useState({
-    place_id: '', name: '', address: '',
-    latitude: 50.9044082,
-    longitude: -1.405594
-	});
-
-  const [destination, onDestinationChange] = useState({
     place_id: '', name: '', address: '',
     latitude: 50.9044082,
     longitude: -1.405594
@@ -67,6 +60,8 @@ export default function TabOneScreen({}) {
 		longitude: -1.405594
 	});
 
+  const [routes, onRoutesUpdate] = useAtom(routesAtom)
+
   useLayoutEffect(() => {
     if (!h1Ref.current) return;
 
@@ -77,6 +72,9 @@ export default function TabOneScreen({}) {
       longitudeDelta: isFirstVisit ? 0.02 : delta.longitudeDelta,
     }, 2000)
   })
+
+  const [crimes, initialCrimes] = useState<Crimes[]>([]);
+  const [test, setTest] = useState(100);
 
   useEffect(() => {
     let polyStr = '';
@@ -92,7 +90,11 @@ export default function TabOneScreen({}) {
       });
     }
 
-    console.log(polyStr);
+    axios.get('https://maps.googleapis.com/maps/api/directions/json?origin=Mango+Thai+Tapas+Bar+%26+Restaurant+%E2%80%93+Portswood&destination=University+of+Southampton&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=bicycling')
+        .then((response: any) => {
+          console.log(response);
+        });
+
     axios.get(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`)
         .then(response => {
           const crimes: Crimes[] = separateCrimeTypes(response.data);
@@ -100,32 +102,9 @@ export default function TabOneScreen({}) {
         });
   }, [polyGeometry]);
 
-  useEffect(() => {
-    onCenterGeometryChange({
-      latitude: destination.latitude,
-      longitude: destination.longitude
-    });
-
-    onDeltaChange({
-      latitudeDelta: 0.01,
-      longitudeDelta: 0.01
-    });
-
-    console.log("=====")
-
-    onPolyGeometryChange([
-      {latitude: destination.latitude, longitude: destination.longitude - 0.005},
-      {latitude: destination.latitude - 0.005, longitude: destination.longitude},
-      {latitude: destination.latitude, longitude: destination.longitude + 0.005},
-      {latitude: destination.latitude + 0.005, longitude: destination.longitude},
-    ]);
-
-    // axios.get(`${baseUrl}/crimes-street/all-crime?lat=${destination.latitude}&lng=${destination.longitude}`)
-    // .then(response => {
-    //   const crimes: Crimes[] = separateCrimeTypes(response.data);
-    //   initialCrimes(crimes);
-    // });
-  }, [destination]);
+  useFocusEffect(() => {
+    setTest(routes.indexSelected);
+  });
 
   const [isBottomSheetVisible, setBottomSheetVisible] = useState(false);
 
@@ -151,20 +130,23 @@ export default function TabOneScreen({}) {
           longitudeDelta: ratioDist
         })
 
+
         const centerIndex = Math.floor(result.coordinates.length/2);
         const centerCoordinates = result.coordinates[centerIndex];
         const originCoord = result.coordinates[0];
         const destinationCoord = result.coordinates[result.coordinates.length-1];
 
         ratioDist = Math.min(0.010, ratioDist);
-        onPolyGeometryChange([
-          {latitude: originCoord.latitude, longitude: originCoord.longitude + ratioDist/2},
-          {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude + ratioDist/2},
-          {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude + ratioDist/2},
-          {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude - ratioDist/2},
-          {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude - ratioDist/2},
-          {latitude: originCoord.latitude, longitude: originCoord.longitude - ratioDist/2},
-        ]);
+        if (test !== 100) {
+          onPolyGeometryChange([
+            {latitude: originCoord.latitude, longitude: originCoord.longitude + ratioDist/2},
+            {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude + ratioDist/2},
+            {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude + ratioDist/2},
+            {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude - ratioDist/2},
+            {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude - ratioDist/2},
+            {latitude: originCoord.latitude, longitude: originCoord.longitude - ratioDist/2},
+          ]);
+        }
 
         const centerLatFocus = (currentGeometry.latitude + geometry.latitude) / 2;
         const centerLngFocus = (currentGeometry.longitude + geometry.longitude) / 2;
@@ -172,6 +154,20 @@ export default function TabOneScreen({}) {
           latitude: centerLatFocus,
           longitude: centerLngFocus
         })
+
+        if (isBottomSheetVisible) {
+          const updated = {
+            indexSelected: 100,
+            allRoutes: routes.allRoutes
+          }
+          updated.allRoutes.push({
+            duration: result.duration,
+            distance: result.distance,
+            waypoints: result.coordinates,
+            selected: false,
+          });
+          onRoutesUpdate(updated);
+        }
       }}
       onError={(errorMessage) => {
         console.log(errorMessage);
@@ -179,28 +175,50 @@ export default function TabOneScreen({}) {
     />
   }
 
-  const {
-    isOpen,
-    onOpen,
-    onClose
-  } = useDisclose();
-
-  function openActionSheet() {
-    return <Actionsheet isOpen={isBottomSheetVisible} onClose={() => {}} disableOverlay >
-      <Actionsheet.Content>
-          <DestinationPopup
-            isBottomSheetVisible={isBottomSheetVisible}
-            setBottomSheetVisible={setBottomSheetVisible}
-            geometry={destination}
-            navigation={navigation}
-          ></DestinationPopup>
-        </Actionsheet.Content>
-      </Actionsheet>
-  }
-
   return (
     <View style={styles.container}>
-      <GooglePlacesInput onDestinationChange={onDestinationChange} isDestinationChanged={setBottomSheetVisible} isFirstVisited={setFirstVisit}/>
+      <GooglePlacesInput onDestinationChange={onGeometryChange} isDestinationChanged={setBottomSheetVisible} isFirstVisited={setFirstVisit}/>
+      <BottomSheet
+          isVisible={isBottomSheetVisible}
+          containerStyle={{
+            backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
+          }} >
+        <View style={styles.modal}>
+          <Text style={styles.modalTitle}>{geometry.name}</Text>
+          <Text style={styles.modalSubTitle}>{geometry.address}</Text>
+          <Button icon={{}}
+            title="Direction"
+            titleStyle= {{fontSize: 18}}
+            buttonStyle={{paddingRight: 30, paddingLeft: 20, paddingTop: 10, paddingBottom: 10, borderRadius: 50}}
+            onPress={() => {
+              // setBottomSheetVisible(false);
+              // navigation.navigate('Test', {
+              //   routes: routes,
+              //   origin: 'Current Location',
+              //   destination: geometry.name,
+              //   onSelect: onRoutesUpdate
+              // });
+            }} />
+        </View>
+      </BottomSheet>
+
+      <BottomSheet
+          isVisible={isBottomSheetVisible}
+          containerStyle={{
+            backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
+          }} >
+        <View style={styles.modal}>
+          <Text style={styles.modalTitle}>{geometry.name}</Text>
+          <Text style={styles.modalSubTitle}>{geometry.address}</Text>
+          <Button icon={{}}
+            title="Direction"
+            titleStyle= {{fontSize: 18}}
+            buttonStyle={{paddingRight: 30, paddingLeft: 20, paddingTop: 10, paddingBottom: 10, borderRadius: 50}}
+            onPress={() => {
+              setBottomSheetVisible(false);
+            }} />
+        </View>
+      </BottomSheet>
 
       <MapView region={{... isFirstVisit ? currentGeometry : centerGeometry, latitudeDelta: delta.latitudeDelta, longitudeDelta: delta.longitudeDelta}}
         style={{margin: 0, height: '100%', width: '100%'}}
@@ -220,41 +238,27 @@ export default function TabOneScreen({}) {
         }}
         >
         <Marker key={1000} coordinate={currentGeometry} />
-        <Marker key={2000} coordinate={isFirstVisit ? currentGeometry : {
-          latitude: destination.latitude,
-          longitude: destination.longitude
-        }} />
-
-        {destination ? openActionSheet() : <></>}
+        <Marker key={2000} coordinate={isFirstVisit ? currentGeometry : geometry} />
 
         {crimes.map((crimeTypes: Crimes, index) => (
           crimeTypes.crimes.map((crime: Crime, d) => {
             return <Marker
-                key={index + d}
-                coordinate={{
-                  latitude: parseFloat(crime.latitude),
-                  longitude: parseFloat(crime.longitude),
-                }}
-                onPress={() => { onOpen() }}
-                pinColor={crimeTypes.icon}
-            >
-              <Callout
-                tooltip
-                style={{ borderRadius: 20}}>
-                <View style={styles.bubble}>
-                  <View style={{width: 45, height: 45, backgroundColor: "#eee", borderRadius: 50, marginRight: 10 }}></View>
-                  <View>
-                    <Text style={{fontSize: 16, marginBottom: 5, textTransform: 'capitalize', fontWeight: '500'}}>{crimeTypes.category}</Text>
-                    <Text>Location: {crime.location} location of crime ocurred</Text>
-                    <Text>Date: {crime.dateTime}</Text>
-                  </View>
-                </View>
-              </Callout>
-          </Marker>
+              key={index + d}
+              coordinate={{
+                latitude: parseFloat(crime.latitude),
+                longitude: parseFloat(crime.longitude),
+              }}
+              title={crimeTypes.category}
+              description={crime.latitude + crime.longitude}
+              pinColor={crimeTypes.icon}
+            />
           })
         ))}
 
-        {isRouteStart ? getMapDirection("grey", 'BICYCLING', []) : <></>}
+        { test == 100 && getMapDirection("grey", 'BICYCLING', [])}
+        { test == 100 && getMapDirection("grey", 'WALKING', []) }
+        { test == 0 && getMapDirection("hotpink", 'WALKING', [])}
+        { test == 1 && getMapDirection("hotpink", 'BICYCLING', [])}
       </MapView>
     </View>
   );
@@ -265,15 +269,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-  },
-  bubble: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 20
   },
   modal: {
     flex: 1,

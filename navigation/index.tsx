@@ -1,15 +1,17 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 
+import BottomSheet from '../components/BottomSheet';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import TestScreen from '../screens/TestScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -29,7 +31,7 @@ function RootNavigator(navigationRef: any) {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="Home" component={TabOneScreen} options={{headerShown: true }}  />
+      {/* <Stack.Screen name="Home" component={TabOneScreen} options={{headerShown: true }}  /> */}
       <Stack.Screen name="Test" component={TabTwoScreen} options={{headerShown: true }}  />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
@@ -45,7 +47,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="TabTwo"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
@@ -66,14 +68,14 @@ function BottomTabNavigator() {
           headerShown: false
         }}
       />
-      {/* <BottomTab.Screen
+      <BottomTab.Screen
         name="TabThree"
-        component={TabThreeScreen}
+        component={TestScreen}
         options={{
           title: 'Routes',
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
         }}
-      /> */}
+      />
       {/* <BottomTab.Screen
         name="TabFour"
         component={TabTwoScreen}

@@ -27,7 +27,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           },
           TabThree: {
             screens: {
-              TabThreeScreen: 'three',
+              TestScreen: 'three',
             },
           },
         },
