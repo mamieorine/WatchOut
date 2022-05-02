@@ -1,10 +1,10 @@
 import { StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 
 import { Text, View,  } from '../components/Themed';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { Card, Chip } from 'react-native-elements';
-import { Box, Flex, HStack, Row, ScrollView, Spinner } from 'native-base';
+import { Box, Flex, HStack, ScrollView, Spinner } from 'native-base';
 import axios from 'axios';
 import { Crimes, getCrimeGrouping, separateCrimeTypes } from '../functions/helper';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -12,7 +12,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 const baseUrl = 'https://data.police.uk/api';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
 
-export default function TabTwoScreen(props: { destination: any, origin: any, crimes: any }) {
+export default function TabTwoScreen(props: { destination: any, origin: any, crimes: any, filterCrimes: any[] }) {
   const navigation = useNavigation();
   const location = useRoute();
   const TabBarIcon = (props: {
@@ -24,6 +24,7 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
   const params: any = location.params;
   const destination = params?.destination;
   const crimes = params?.crimes;
+  // const filterCrimes = params?.filterCrimes;
   const latLongOrigin = `${params?.origin.latitude},${params?.origin.longitude}`
   const latLongDestination = `${params?.destination.latitude},${params?.destination.longitude}`
 
@@ -37,6 +38,9 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
   const [isSelectedTransit, setSelectedTransit] = useState(true)
   const [isSelectedBicycle, setSelectedBicycle] = useState(true)
   const [isSelectedWalking, setSelectedWalking] = useState(true)
+
+  const [filterCrimes, onFilterCrimesChange] = useState<any>(['Violence Against The Person',
+  'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
 
   function getDirection(data: any) {
     const busIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
@@ -105,11 +109,10 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
     .then(response => {
       const crimes: Crimes[] = separateCrimeTypes(response.data);
       const highestCrime = {name: '', value: 0};
-      crimes.forEach((crime: any) => {
-        const crimes: Crimes[] = separateCrimeTypes(response.data);
 
+      crimes.forEach((crime: any) => {
         if (!highestCrime.name || highestCrime.value < crime.crimes.length) {
-          highestCrime.name = getCrimeGrouping(crime.category);
+          highestCrime.name = crime.category;
           highestCrime.value = crime.crimes.length;
         }
       })
@@ -117,7 +120,7 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
       highestCrimeList.push(highestCrime)
       onHighestCrimesChange(crimes)
 
-      return highestCrime;
+      return {detail: crimes, highest: highestCrime};
     })
     .catch(function (error) {
       return Promise.reject(error)
@@ -152,7 +155,8 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
                 mode: 'WALKING',
                 waypoints: waypoint,
                 directions: direction,
-                crimes: result
+                crimes: result.highest,
+                crimesDetail: result.detail
               }
 
               const isDuplicated = routeData.filter((route: any) =>  {
@@ -211,7 +215,8 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
                 mode: 'BICYCLING',
                 waypoints: waypoint,
                 directions: direction,
-                crimes: result
+                crimes: result.highest,
+                crimesDetail: result.detail
               }
 
               const isDuplicated = routeData.filter((route: any) =>  {
@@ -273,7 +278,8 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
                 mode: 'TRANSIT',
                 waypoints: waypoint,
                 directions: direction,
-                crimes: result
+                crimes: result.highest,
+                crimesDetail: result.detail
               }
 
               const isDuplicated = routeData.filter((route: any) =>  {
@@ -355,7 +361,19 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
 			  {crimes.map((crime: any) => {
 				  return <Chip containerStyle={styles.chip} title={crime.category}
 					titleStyle={{ color: '#000' }}
-					buttonStyle={{ backgroundColor: '#FF47734D'}}
+					buttonStyle={{backgroundColor: filterCrimes.includes(crime.category) ? '#FF47734D' : '#ccc' }}
+          onPress={() => {
+            let filtered = [...filterCrimes];
+						if (filterCrimes.includes(crime.category)) {
+							filtered = filtered.filter((cat) => {
+								return cat !== crime.category;
+							})
+							onFilterCrimesChange(filtered);
+						} else {
+							filtered.push(crime.category);
+							onFilterCrimesChange(filtered);
+						}
+          }}
 					/>
 			  })}
 
@@ -388,30 +406,39 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
       {walking && bicycling && transit ?
       <ScrollView>
       {routeData.map((data: any, index: number) => {
+        let hasCrimes = false;
+        data.crimesDetail.map((crime: any) => {
+          if (!filterCrimes.includes(crime.category)) {
+            hasCrimes = true;
+          }
+        })
+
+        if (hasCrimes) return <></>
+
         return <TouchableOpacity onPress={() => {
-            navigation.navigate('TabOne', {
-              destination: {
-                latitude: data.waypoints[data.waypoints.length-1].latitude,
-                longitude: data.waypoints[data.waypoints.length-1].longitude
-              },
-              dataRoutes: data
-            });
-          }} key={index}>
-           <Card>
-            <Flex justifyContent={'flex-start'} direction={'row'} alignItems={'center'} style={{ paddingRight: 10 }}>
-              <View style={{ width: '22%' }}>
-                <Box style={[styles.box, {backgroundColor: data?.crimes?.value < 20 ? '#007AFF' : '#FF4773'}]}>
-                  <Text style={{color: 'white', fontSize: 14, fontWeight: '600'}}>{data?.crimes?.value}</Text>
-                </Box>
-                <Text>{data.duration}</Text>
-              </View>
-              <View style={{ width: '78%' }}>
-                  {getDirection(data)}
-                  <Text style={{ marginTop: 10 }}>{data?.crimes?.name}: {data?.crimes?.value} times occurred</Text>
-              </View>
-              <FontAwesome size={24} style={{ color: '#aaa', paddingRight: 15 }} name="angle-right" />
-            </Flex>
-            </Card>
+          navigation.navigate('TabOne', {
+            destination: {
+              latitude: data.waypoints[data.waypoints.length-1].latitude,
+              longitude: data.waypoints[data.waypoints.length-1].longitude
+            },
+            dataRoutes: data
+          });
+        }} key={index}>
+         <Card>
+          <Flex justifyContent={'flex-start'} direction={'row'} alignItems={'center'} style={{ paddingRight: 10 }}>
+            <View style={{ width: '22%' }}>
+              <Box style={[styles.box, {backgroundColor: data?.crimes?.value < 20 ? '#007AFF' : '#FF4773'}]}>
+                <Text style={{color: 'white', fontSize: 14, fontWeight: '600'}}>{data?.crimes?.value}</Text>
+              </Box>
+              <Text>{data.duration}</Text>
+            </View>
+            <View style={{ width: '78%' }}>
+                {getDirection(data)}
+                <Text style={{ marginTop: 10 }}>{data?.crimes?.name}: {data?.crimes?.value} times occurred</Text>
+            </View>
+            <FontAwesome size={24} style={{ color: '#aaa', paddingRight: 15 }} name="angle-right" />
+          </Flex>
+          </Card>
         </TouchableOpacity>
       })}
       </ScrollView>

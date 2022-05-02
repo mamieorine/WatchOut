@@ -14,9 +14,9 @@ const DestinationPopup = (props: {
 	navigation: any;
 	origin: any;
 	crimes: any;
+	filterCrimes: any[];
+	onFilterCrimesChange: any;
 	geometry: any; }) => {
-	const [test, setTest] = useState<any>(['Violence Against The Person', 'Vehicle',
-	'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
 	// const [isSelectedTransit, setSelectedTransit] = useState(true)
 	// const [isSelectedBicycle, setSelectedBicycle] = useState(true)
 	// const [isSelectedWalking, setSelectedWalking] = useState(true)
@@ -29,17 +29,17 @@ const DestinationPopup = (props: {
 			  {props.crimes.map((crime: any) => {
 				  return <Chip containerStyle={styles.chip} title={crime.category}
 					titleStyle={{ color: '#000' }}
-					buttonStyle={{ backgroundColor: test.includes(crime.category) ? '#007AFF4D' : '#ccc' }}
+					buttonStyle={{ backgroundColor: props.filterCrimes.includes(crime.category) ? '#FF47734D' : '#ccc' }}
 					onPress={() => {
-						let filtered = [...test];
-						if (test.includes(crime.category)) {
+						let filtered = [...props.filterCrimes];
+						if (props.filterCrimes.includes(crime.category)) {
 							filtered = filtered.filter((cat) => {
 								return cat !== crime.category;
 							})
-							setTest(filtered);
+							props.onFilterCrimesChange(filtered);
 						} else {
 							filtered.push(crime.category);
-							setTest(filtered);
+							props.onFilterCrimesChange(filtered);
 						}
 					}}
 					/>
@@ -56,6 +56,7 @@ const DestinationPopup = (props: {
 					destination: props.geometry,
 					origin: props.origin,
 					crimes: props.crimes,
+					filterCrimes: props.filterCrimes
 				});
 			}} />
 		  </View>

@@ -27,6 +27,7 @@ export type RouteScreenParams = {
   destination: any;
   origin: any;
   crimes: any;
+  filterCrimes: any[];
 };
 
 export type TabOneParams = {

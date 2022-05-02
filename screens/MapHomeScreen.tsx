@@ -7,8 +7,6 @@ import MapViewDirections, { MapViewDirectionsMode } from 'react-native-maps-dire
 import MapView, { Callout, Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { useAtom } from 'jotai'
-import { routesAtom } from '../functions/atom';
 import { Actionsheet, useDisclose } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
@@ -27,10 +25,14 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 
   const [isFirstVisit, setFirstVisit] = useState(true);
   const [crimes, initialCrimes] = useState<Crimes[]>([]);
+  const [rawCrimesData, onCrimesRawDataChange] = useState<Crimes[]>([]);
 
   const params: any = location.params;
   const destinationRoute = params?.destination;
   const routesData = params?.dataRoutes
+
+	const [filterCrimes, onFilterCrimesChange] = useState<any>(['Violence Against The Person',
+  'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
 
   const [delta, onDeltaChange] = useState({
 		latitudeDelta: 0,
@@ -92,6 +94,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         .then(response => {
           const crimes: Crimes[] = separateCrimeTypes(response.data);
           initialCrimes(crimes);
+          onCrimesRawDataChange(crimes);
         });
   }, [polyGeometry]);
 
@@ -113,11 +116,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       {latitude: destination.latitude + 0.005, longitude: destination.longitude},
     ]);
 
-    // axios.get(`${baseUrl}/crimes-street/all-crime?lat=${destination.latitude}&lng=${destination.longitude}`)
-    // .then(response => {
-    //   const crimes: Crimes[] = separateCrimeTypes(response.data);
-    //   initialCrimes(crimes);
-    // });
     if (routesData) {
       setFirstVisit(false)
     }
@@ -189,8 +187,10 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
             setBottomSheetVisible={setBottomSheetVisible}
             geometry={destination}
             origin={currentGeometry}
-            crimes={crimes}
+            crimes={rawCrimesData}
             navigation={navigation}
+            filterCrimes={filterCrimes}
+            onFilterCrimesChange={onFilterCrimesChange}
           ></DestinationPopup>
         </Actionsheet.Content>
       </Actionsheet>
@@ -227,6 +227,9 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 
         {crimes.map((crimeTypes: Crimes, index) => (
           crimeTypes.crimes.map((crime: Crime, d) => {
+            if (!filterCrimes.includes(crimeTypes.category)) {
+              return <></>
+            }
             return <Marker
                 key={index + d}
                 coordinate={{
