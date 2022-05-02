@@ -25,7 +25,7 @@ interface Routes {
   allRoutes: any[]
 }
 
-export default function TabOneScreen({}) {
+export default function MapHomeScreen({}) {
   const navigation = useNavigation();
   const h1Ref = useRef<MapView>(null);
   const [isFirstVisit, setFirstVisit] = useState(true);
@@ -74,7 +74,7 @@ export default function TabOneScreen({}) {
   })
 
   const [crimes, initialCrimes] = useState<Crimes[]>([]);
-  const [test, setTest] = useState(100);
+  const [test, setRouteScreen] = useState(100);
 
   useEffect(() => {
     let polyStr = '';
@@ -103,7 +103,7 @@ export default function TabOneScreen({}) {
   }, [polyGeometry]);
 
   useFocusEffect(() => {
-    setTest(routes.indexSelected);
+    setRouteScreen(routes.indexSelected);
   });
 
   const [isBottomSheetVisible, setBottomSheetVisible] = useState(false);
@@ -192,7 +192,7 @@ export default function TabOneScreen({}) {
             buttonStyle={{paddingRight: 30, paddingLeft: 20, paddingTop: 10, paddingBottom: 10, borderRadius: 50}}
             onPress={() => {
               // setBottomSheetVisible(false);
-              // navigation.navigate('Test', {
+              // navigation.navigate('RouteScreen', {
               //   routes: routes,
               //   origin: 'Current Location',
               //   destination: geometry.name,

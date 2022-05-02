@@ -6,13 +6,13 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Card, Chip } from 'react-native-elements';
 import { Box, Flex, HStack, Row, ScrollView, Spinner } from 'native-base';
 import axios from 'axios';
-import { Crimes, separateCrimeTypes } from '../functions/helper';
+import { Crimes, getCrimeGrouping, separateCrimeTypes } from '../functions/helper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 const baseUrl = 'https://data.police.uk/api';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
 
-export default function TabTwoScreen(props: { destination: string }) {
+export default function TabTwoScreen(props: { destination: any, origin: any, crimes: any }) {
   const navigation = useNavigation();
   const location = useRoute();
   const TabBarIcon = (props: {
@@ -22,14 +22,21 @@ export default function TabTwoScreen(props: { destination: string }) {
   }
 
   const params: any = location.params;
-  const destination = params?.destination ?? 'Solent+University';
+  const destination = params?.destination;
+  const crimes = params?.crimes;
+  const latLongOrigin = `${params?.origin.latitude},${params?.origin.longitude}`
+  const latLongDestination = `${params?.destination.latitude},${params?.destination.longitude}`
 
   const [highestCrimeList, onHighestCrimesChange] = useState<any>([]);
   const [routeData, onRouteDataChange] = useState<any>([]);
-  const [isLoad, setIsLoad] = useState<boolean>(false);
+  const [rawData, onRawDataChange] = useState<any>([]);
   const [transit, setTransit] = useState(false)
   const [bicycling, setBicycling] = useState(false)
   const [walking, setWalking] = useState(false)
+
+  const [isSelectedTransit, setSelectedTransit] = useState(true)
+  const [isSelectedBicycle, setSelectedBicycle] = useState(true)
+  const [isSelectedWalking, setSelectedWalking] = useState(true)
 
   function getDirection(data: any) {
     const busIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
@@ -99,8 +106,10 @@ export default function TabTwoScreen(props: { destination: string }) {
       const crimes: Crimes[] = separateCrimeTypes(response.data);
       const highestCrime = {name: '', value: 0};
       crimes.forEach((crime: any) => {
+        const crimes: Crimes[] = separateCrimeTypes(response.data);
+
         if (!highestCrime.name || highestCrime.value < crime.crimes.length) {
-          highestCrime.name = crime.category;
+          highestCrime.name = getCrimeGrouping(crime.category);
           highestCrime.value = crime.crimes.length;
         }
       })
@@ -115,25 +124,11 @@ export default function TabTwoScreen(props: { destination: string }) {
    });
   }
 
-  function crimesOrdering() {
-    const routes = [...routeData];
-
-    if (routes.length > 1) {
-      routes.sort((a: any, b: any) => a.crimes.value - b.crimes.value);
-    };
-
-    onRouteDataChange(routes);
-  }
-
-  // useEffect(() => {
-  //   crimesOrdering();
-  // }, [walking])
-
   useEffect(() => {
-    axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=Mango+Thai+Tapas+Bar+%26+Restaurant+%E2%80%93+Portswood&destination=University+of+Southampton&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=walking`)
+    axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=walking`)
       .then((response: any) => {
         response.data.routes.forEach((route: any, index: number) => {
-          const waypoint = route.legs[0].steps.map((step: any): any => {
+          const waypoint = route.legs[0].steps.map((step: any, index: number): any => {
             return {
               latitude: step.end_location.lat,
               longitude: step.end_location.lng
@@ -154,6 +149,7 @@ export default function TabTwoScreen(props: { destination: string }) {
                 distance: route.legs[0].distance.text,
                 duration: route.legs[0].duration.text,
                 road: route.summary,
+                mode: 'WALKING',
                 waypoints: waypoint,
                 directions: direction,
                 crimes: result
@@ -166,7 +162,6 @@ export default function TabTwoScreen(props: { destination: string }) {
                 return isSameRoad && isSameCrimes && isSameDist;
               });
 
-              console.log(isDuplicated.length)
               if (isDuplicated.length === 0) {
                 routeData.push(response);
                 routeData.sort((a: any, b: any) => a.crimes.value - b.crimes.value);
@@ -176,20 +171,28 @@ export default function TabTwoScreen(props: { destination: string }) {
 
           getHighestCrimes();
         })
+        onRouteDataChange(routeData);
+        onRawDataChange(routeData);
         setWalking(true);
-        // crimesOrdering();
       });
   }, [walking]);
 
   useEffect(() => {
-      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=Mango+Thai+Tapas+Bar+%26+Restaurant+%E2%80%93+Portswood&destination=University+of+Southampton&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=bicycling`)
+      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=bicycling`)
       .then((response: any) => {
         response.data.routes.forEach((route: any, index: number) => {
-          const waypoint = route.legs[0].steps.map((step: any): any => {
-            return {
-              latitude: step.end_location.lat,
-              longitude: step.end_location.lng
-            };
+          const waypoint = route.legs[0].steps.map((step: any, index: number): any => {
+            if (step.end_location.lat && step.end_location.lng) {
+              return {
+                latitude: step.end_location.lat,
+                longitude: step.end_location.lng
+              };
+            } else {
+              return {
+                latitude: route.legs[0].steps[index-1].end_location.lat,
+                longitude: route.legs[0].steps[index-1].end_location.lng
+              };
+            }
           })
 
           const direction: any[] = [];
@@ -205,6 +208,7 @@ export default function TabTwoScreen(props: { destination: string }) {
                 distance: route.legs[0].distance.text,
                 duration: route.legs[0].duration.text,
                 road: route.summary,
+                mode: 'BICYCLING',
                 waypoints: waypoint,
                 directions: direction,
                 crimes: result
@@ -227,19 +231,27 @@ export default function TabTwoScreen(props: { destination: string }) {
           getHighestCrimes();
         })
         setBicycling(true)
-        // crimesOrdering();
+        onRouteDataChange(routeData);
+        onRawDataChange(routeData);
       });
   }, [bicycling]);
 
   useEffect(() => {
-      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=Mango+Thai+Tapas+Bar+%26+Restaurant+%E2%80%93+Portswood&destination=University+of+Southampton&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=transit`)
+      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=transit`)
       .then((response: any) => {
         response.data.routes.forEach((route: any, index: number) => {
-          const waypoint = route.legs[0].steps.map((step: any): any => {
-            return {
-              latitude: step.end_location.lat,
-              longitude: step.end_location.lng
-            };
+          const waypoint = route.legs[0].steps.map((step: any, index: number): any => {
+            if (step.end_location.lat && step.end_location.lng) {
+              return {
+                latitude: step.end_location.lat,
+                longitude: step.end_location.lng
+              };
+            } else {
+              return {
+                latitude: route.legs[0].steps[index-1].end_location.lat,
+                longitude: route.legs[0].steps[index-1].end_location.lng
+              };
+            }
           })
 
           const direction: any[] = [];
@@ -258,6 +270,7 @@ export default function TabTwoScreen(props: { destination: string }) {
                 distance: route.legs[0].distance.text,
                 duration: route.legs[0].duration.text,
                 road: route.summary,
+                mode: 'TRANSIT',
                 waypoints: waypoint,
                 directions: direction,
                 crimes: result
@@ -279,8 +292,31 @@ export default function TabTwoScreen(props: { destination: string }) {
           getHighestCrimes();
         })
         setTransit(true)
+        onRouteDataChange(routeData);
+        onRawDataChange(routeData);
       });
   }, [transit]);
+
+  useEffect(() => {
+    let filtered = [...rawData]
+    if (isSelectedTransit && isSelectedWalking && isSelectedBicycle) {
+      onRouteDataChange(rawData)
+      return;
+    } if (!isSelectedTransit) {
+      filtered = filtered.filter((route: any) => {
+        return route.mode !== 'TRANSIT'
+      });
+    } if (!isSelectedWalking) {
+      filtered = filtered.filter((route: any) => {
+        return route.mode !== 'WALKING'
+      });
+    } if (!isSelectedBicycle) {
+      filtered = filtered.filter((route: any) => {
+        return route.mode !== 'BICYCLING'
+      });
+    }
+    onRouteDataChange(filtered)
+  }, [isSelectedTransit, isSelectedWalking, isSelectedBicycle]);
 
   return (
     <View style={{ height: '100%', backgroundColor: '#fff', paddingTop: 5 }}>
@@ -310,32 +346,56 @@ export default function TabTwoScreen(props: { destination: string }) {
           <TextInput
             style={styles.input}
             editable={false}
-            value={destination}
+            value={destination.name}
           />
         </Flex>
       </View>
 
       <View style={styles.chipContainer}>
-        <Chip containerStyle={styles.chip} title="Solid"
-        titleStyle={{ color: '#000' }}
-        buttonStyle={{ backgroundColor: '#FF47734D'}}
+			  {crimes.map((crime: any) => {
+				  return <Chip containerStyle={styles.chip} title={crime.category}
+					titleStyle={{ color: '#000' }}
+					buttonStyle={{ backgroundColor: '#FF47734D'}}
+					/>
+			  })}
+
+		  </View>
+      <View style={styles.chipContainer}>
+        <Text style={{marginRight: 5}}>Travel Mode: </Text>
+        <Chip containerStyle={styles.chipMode} title="Bus"
+          titleStyle={{ color: '#000' }}
+          buttonStyle={{ backgroundColor: isSelectedTransit ? '#007AFF4D' : '#ccc'}}
+          onPress={() => {
+            setSelectedTransit(!isSelectedTransit);
+          }}
         />
-        <Chip containerStyle={styles.chip} disabled={true} title="Chip"
-          buttonStyle={{ backgroundColor: '#FF47734D'}}
+        <Chip containerStyle={styles.chipMode} title="Bicycle"
+          titleStyle={{ color: '#000' }}
+          buttonStyle={{ backgroundColor: isSelectedBicycle ? '#007AFF4D' : '#ccc'}}
+          onPress={() => {
+            setSelectedBicycle(!isSelectedBicycle);
+          }}
           />
-        <Chip containerStyle={styles.chip} disabled={true} title="Solihip"
-          buttonStyle={{ backgroundColor: 'r##FF47734D'}}
+        <Chip containerStyle={styles.chipMode} title="Walk"
+          titleStyle={{ color: '#000' }}
+          buttonStyle={{ backgroundColor: isSelectedWalking ? '#007AFF4D' : '#ccc'}}
+          onPress={() => {
+            setSelectedWalking(!isSelectedWalking);
+          }}
           />
-        <Chip containerStyle={styles.chip} disabled={true} title="Solid Chip"
-          buttonStyle={{ backgroundColor: '#FF47734D'}}
-        />
 		  </View>
 
       {walking && bicycling && transit ?
       <ScrollView>
       {routeData.map((data: any, index: number) => {
         return <TouchableOpacity onPress={() => {
-            navigation.goBack();
+            navigation.navigate('TabOne', {
+              destination: {
+                latitude: data.waypoints[data.waypoints.length-1].latitude,
+                longitude: data.waypoints[data.waypoints.length-1].longitude
+              },
+              dataRoutes: data
+            });
           }} key={index}>
            <Card>
             <Flex justifyContent={'flex-start'} direction={'row'} alignItems={'center'} style={{ paddingRight: 10 }}>
@@ -394,6 +454,7 @@ const styles = StyleSheet.create({
     flex: 0,
     flexWrap: 'wrap',
     flexDirection: 'row',
+    alignItems: 'center',
     padding: 15,
     paddingTop: 5,
     paddingBottom: 5,
@@ -401,7 +462,14 @@ const styles = StyleSheet.create({
   },
 	chip: {
 		marginRight: 5,
+    marginBottom: 5,
 		color: '#000'
+	},
+  chipMode: {
+		marginRight: 5,
+    marginBottom: 5,
+		color: '#000',
+    width: 75,
 	},
 });
 

@@ -5,15 +5,16 @@ import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 
-import BottomSheet from '../components/BottomSheet';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
+import MapHomeScreen from '../screens/MapHomeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import TestScreen from '../screens/TestScreen';
+import RouteScreen from '../screens/RouteScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import HomeScreen from '../screens/HomeScreen';
+import AgreementScreen from '../screens/AgreementScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -30,9 +31,13 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator(navigationRef: any) {
   return (
     <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Agreement" component={AgreementScreen}
+        options={{ headerShown: true, title: 'Terms and conditions' }}
+      />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      {/* <Stack.Screen name="Home" component={TabOneScreen} options={{headerShown: true }}  /> */}
-      <Stack.Screen name="Test" component={TabTwoScreen} options={{headerShown: true }}  />
+      <Stack.Screen name="RouteScreen" component={TabTwoScreen} options={{headerShown: true }}  />
+      <Stack.Screen name="TabOne" component={MapHomeScreen} options={{headerShown: false }}  />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
       </Stack.Group>
@@ -47,17 +52,18 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabTwo"
+      initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
+        component={MapHomeScreen}
+        options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-        })}
+          tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
+          headerShown: true
+        }}
       />
       <BottomTab.Screen
         name="TabTwo"
@@ -70,7 +76,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabThree"
-        component={TestScreen}
+        component={RouteScreen}
         options={{
           title: 'Routes',
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,

@@ -1,9 +1,7 @@
 import { StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Chip } from 'react-native-elements';
 import { Text, View } from '../components/Themed';
-
-// import { useNavigation } from '@react-navigation/native';
 
 export type Geometry = {
 	latitude: Number;
@@ -14,39 +12,50 @@ const DestinationPopup = (props: {
 	isBottomSheetVisible: boolean;
 	setBottomSheetVisible: any;
 	navigation: any;
+	origin: any;
+	crimes: any;
 	geometry: any; }) => {
-
-	// const navigation = useNavigation();
+	const [test, setTest] = useState<any>(['Violence Against The Person', 'Vehicle',
+	'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
+	// const [isSelectedTransit, setSelectedTransit] = useState(true)
+	// const [isSelectedBicycle, setSelectedBicycle] = useState(true)
+	// const [isSelectedWalking, setSelectedWalking] = useState(true)
 
 	return (
         <View style={styles.modal}>
           <Text style={styles.modalTitle}>{props.geometry.name}</Text>
           <Text style={styles.modalSubTitle}>{props.geometry.address}</Text>
 		  <View style={{ flex: 0, flexWrap: 'wrap', flexDirection: 'row', marginTop: 5, backgroundColor: 'transparent' }}>
-		  	  <Chip containerStyle={styles.chip} title="Solid"
-				titleStyle={{ color: '#000' }}
-				buttonStyle={{ backgroundColor: '#FF47734D'}}
-				/>
-			  <Chip containerStyle={styles.chip} disabled={true} title="Chip"
-			  	buttonStyle={{ backgroundColor: '#FF47734D'}}
-			  	/>
-			  <Chip containerStyle={styles.chip} disabled={true} title="Solihip"
-			  	buttonStyle={{ backgroundColor: 'r##FF47734D'}}
-			  	/>
-			  <Chip containerStyle={styles.chip} disabled={true} title="Solid Chip"
-			  	buttonStyle={{ backgroundColor: '#FF47734D'}}
-			  />
+			  {props.crimes.map((crime: any) => {
+				  return <Chip containerStyle={styles.chip} title={crime.category}
+					titleStyle={{ color: '#000' }}
+					buttonStyle={{ backgroundColor: test.includes(crime.category) ? '#007AFF4D' : '#ccc' }}
+					onPress={() => {
+						let filtered = [...test];
+						if (test.includes(crime.category)) {
+							filtered = filtered.filter((cat) => {
+								return cat !== crime.category;
+							})
+							setTest(filtered);
+						} else {
+							filtered.push(crime.category);
+							setTest(filtered);
+						}
+					}}
+					/>
+			  })}
 		  </View>
           <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'flex-end', backgroundColor: 'transparent' }}>
 			<Button icon={{}}
 				title="Secure direction"
 				titleStyle= {{fontSize: 18}}
-				buttonStyle={{paddingRight: 20, paddingLeft: 10, paddingTop: 10, paddingBottom: 10, borderRadius: 50, marginTop: 15 }}
+				buttonStyle={{paddingRight: 20, paddingLeft: 10, paddingTop: 10, paddingBottom: 10, borderRadius: 50, marginTop: 10 }}
 				onPress={() => {
 				props.setBottomSheetVisible(false);
-				props.navigation.navigate('Test', {
-					destination: props.geometry.name,
-					distance: props.geometry.distance
+				props.navigation.replace('RouteScreen', {
+					destination: props.geometry,
+					origin: props.origin,
+					crimes: props.crimes,
 				});
 			}} />
 		  </View>
@@ -62,6 +71,7 @@ const styles = StyleSheet.create({
 	},
 	chip: {
 		marginRight: 5,
+		marginBottom: 5,
 		color: '#000'
 	},
 	title: {
@@ -81,6 +91,6 @@ const styles = StyleSheet.create({
 	  marginBottom: 10,
 	},
 	modalButton: {
-	  fontSize: 16
+	  fontSize: 14
 	}
   });

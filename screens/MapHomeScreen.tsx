@@ -9,10 +9,8 @@ import { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { useAtom } from 'jotai'
 import { routesAtom } from '../functions/atom';
-import { Popover, Button, Actionsheet, Box, useDisclose } from 'native-base';
-import MarkerPopup from '../components/Marker';
-import { background } from 'native-base/lib/typescript/theme/styled-system';
-import { useNavigation } from '@react-navigation/native';
+import { Actionsheet, useDisclose } from 'native-base';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const baseUrl = 'https://data.police.uk/api';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
@@ -22,24 +20,21 @@ interface Coordinate {
   longitude: number
 }
 
-export default function TabOneScreen({}) {
+export default function MapHomeScreen(props: { destination: any, dataRoutes: any }) {
   const h1Ref = useRef<MapView>(null);
 	const navigation = useNavigation();
+  const location = useRoute();
 
   const [isFirstVisit, setFirstVisit] = useState(true);
   const [crimes, initialCrimes] = useState<Crimes[]>([]);
-  const [isRouteStart, setRouteStart] = useState(null)
-  const [routes, onRoutesUpdate] = useAtom(routesAtom)
+
+  const params: any = location.params;
+  const destinationRoute = params?.destination;
+  const routesData = params?.dataRoutes
 
   const [delta, onDeltaChange] = useState({
 		latitudeDelta: 0,
 		longitudeDelta: 0
-	});
-
-  const [geometry, onGeometryChange] = useState({
-    place_id: '', name: '', address: '',
-    latitude: 50.9044082,
-    longitude: -1.405594
 	});
 
   const [destination, onDestinationChange] = useState({
@@ -80,6 +75,7 @@ export default function TabOneScreen({}) {
 
   useEffect(() => {
     let polyStr = '';
+    if (isFirstVisit) return;
     if (polyGeometry.length == 1) {
       polyStr = '50.904784,-1.408083:50.90271,-1.403046:50.912051,-1.4029:50.913540,-1.397047';
     }
@@ -92,7 +88,6 @@ export default function TabOneScreen({}) {
       });
     }
 
-    console.log(polyStr);
     axios.get(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`)
         .then(response => {
           const crimes: Crimes[] = separateCrimeTypes(response.data);
@@ -111,8 +106,6 @@ export default function TabOneScreen({}) {
       longitudeDelta: 0.01
     });
 
-    console.log("=====")
-
     onPolyGeometryChange([
       {latitude: destination.latitude, longitude: destination.longitude - 0.005},
       {latitude: destination.latitude - 0.005, longitude: destination.longitude},
@@ -125,6 +118,9 @@ export default function TabOneScreen({}) {
     //   const crimes: Crimes[] = separateCrimeTypes(response.data);
     //   initialCrimes(crimes);
     // });
+    if (routesData) {
+      setFirstVisit(false)
+    }
   }, [destination]);
 
   const [isBottomSheetVisible, setBottomSheetVisible] = useState(false);
@@ -132,12 +128,11 @@ export default function TabOneScreen({}) {
   function getMapDirection(strokeColor: string, mode: MapViewDirectionsMode, waypoints: any[]) {
     return <MapViewDirections
       origin={currentGeometry}
-      destination={isFirstVisit ? currentGeometry : geometry}
+      destination={destinationRoute ? destinationRoute : currentGeometry}
       apikey={GOOGLE_MAPS_APIKEY}
       waypoints={waypoints}
       strokeWidth={4}
       strokeColor={strokeColor}
-      lineDashPattern={[4,4]}
       lineCap="round"
       mode={mode}
       optimizeWaypoints={true}
@@ -166,12 +161,13 @@ export default function TabOneScreen({}) {
           {latitude: originCoord.latitude, longitude: originCoord.longitude - ratioDist/2},
         ]);
 
-        const centerLatFocus = (currentGeometry.latitude + geometry.latitude) / 2;
-        const centerLngFocus = (currentGeometry.longitude + geometry.longitude) / 2;
+        const centerLatFocus = (currentGeometry.latitude + destination.latitude) / 2;
+        const centerLngFocus = (currentGeometry.longitude + destination.longitude) / 2;
         onCenterGeometryChange({
           latitude: centerLatFocus,
           longitude: centerLngFocus
         })
+
       }}
       onError={(errorMessage) => {
         console.log(errorMessage);
@@ -192,6 +188,8 @@ export default function TabOneScreen({}) {
             isBottomSheetVisible={isBottomSheetVisible}
             setBottomSheetVisible={setBottomSheetVisible}
             geometry={destination}
+            origin={currentGeometry}
+            crimes={crimes}
             navigation={navigation}
           ></DestinationPopup>
         </Actionsheet.Content>
@@ -221,8 +219,8 @@ export default function TabOneScreen({}) {
         >
         <Marker key={1000} coordinate={currentGeometry} />
         <Marker key={2000} coordinate={isFirstVisit ? currentGeometry : {
-          latitude: destination.latitude,
-          longitude: destination.longitude
+          latitude: destinationRoute ? destinationRoute.latitude : destination.latitude,
+          longitude: destinationRoute ? destinationRoute.longitude : destination.longitude
         }} />
 
         {destination ? openActionSheet() : <></>}
@@ -236,7 +234,7 @@ export default function TabOneScreen({}) {
                   longitude: parseFloat(crime.longitude),
                 }}
                 onPress={() => { onOpen() }}
-                pinColor={crimeTypes.icon}
+                icon={require('../assets/images/bus-icon.png')}
             >
               <Callout
                 tooltip
@@ -254,7 +252,8 @@ export default function TabOneScreen({}) {
           })
         ))}
 
-        {isRouteStart ? getMapDirection("grey", 'BICYCLING', []) : <></>}
+        {routesData?.mode === 'TRANSIT' ? getMapDirection("hotpink", routesData?.mode, []) :
+        destinationRoute ? getMapDirection("hotpink", routesData?.mode, routesData?.waypoints) : <></>}
       </MapView>
     </View>
   );

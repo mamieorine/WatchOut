@@ -21,12 +21,39 @@ export function filterLatestCrimes(crimes: any[]): any[] {
 	return crimesFiltered;
 }
 
+export function getCrimeGrouping(category: string) {
+	switch (category) {
+		case 'anti-social-behaviour':
+		case 'public-order':
+			return 'Violence Against The Person';
+		case 'bicycle-theft':
+		case 'vehicle-crime':
+			return 'Vehicle';
+		case 'burglary':
+		case 'other-theft':
+		case 'shoplifting':
+		case 'theft-from-the-person':
+			return 'Theft';
+		case 'drugs':
+			return 'Drugs';
+		case 'possession-of-weapons':
+		case 'violent-crime':
+			return 'Violent Crime';
+		case 'robbery':
+			return 'Robbery';
+		case 'violence-and-sexual-offense':
+			return 'Sexual Offense';
+		default:
+			return 'Others';
+	}
+}
+
 export function separateCrimeTypes(crimes: any[]): Crimes[] {
 	const allCrimes: any[] = [];
 
 	crimes.forEach((crime: any) => {
 		allCrimes.push({
-		category: crime.category,
+		category: getCrimeGrouping(crime.category),
 		icon: getPinColor(crime.category),
 		crime: {
 			id: crime.id,

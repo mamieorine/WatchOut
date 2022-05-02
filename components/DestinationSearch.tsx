@@ -31,7 +31,6 @@ const GooglePlacesInput = (props: { onDestinationChange: any; isDestinationChang
 			}}
 			enablePoweredByContainer={false}
 			renderRow={results => {
-				console.log(results)
 				return <>
 				<Image source={{ uri: "https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/64/000000/external-pin-map-and-navigation-kmg-design-detailed-outline-kmg-design-2.png"}} style={{ width: 16, height: 16 }} />
 				<Text style={{ marginLeft: 5 }} >{results.description}</Text>
@@ -58,8 +57,9 @@ const GooglePlacesInput = (props: { onDestinationChange: any; isDestinationChang
 			styles={{
 				container: {
 					zIndex: 10,
-					paddingBottom: 0,
+					padding: 0,
 					flexGrow: 1,
+					top: 40
 				},
 				textInputContainer: {
 				  width: '100%',
