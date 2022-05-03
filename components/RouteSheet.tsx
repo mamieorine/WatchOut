@@ -65,7 +65,11 @@ export default RoutePopup;
 
 const styles = StyleSheet.create({
 	modal: {
-		backgroundColor: 'transparent'
+		backgroundColor: 'transparent',
+		maxWidth: 370,
+		width: '100%',
+		paddingLeft: 15,
+		paddingRight: 15
 	},
 	chip: {
 		marginRight: 5,

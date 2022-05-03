@@ -2,7 +2,7 @@ import { StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 
 import { Text, View,  } from '../components/Themed';
 import React, { useEffect, useState } from 'react';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { Card, Chip } from 'react-native-elements';
 import { Box, Flex, HStack, ScrollView, Spinner } from 'native-base';
 import axios from 'axios';
@@ -14,8 +14,8 @@ const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
 
 export function getDirection(data: any) {
   const busIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
-  const bicyclingIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
-  const walkIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
+  const bicyclingIcon = <MaterialIcons size={18} style={{ marginRight: 5, marginTop: 5 }} name="directions-bike" />
+  const walkIcon = <MaterialIcons size={18} style={{ marginRight: 5, marginTop: 5 }} name="directions-walk" />
   const rightArrow = <FontAwesome size={10} style={{ color: '#aaa', marginRight: 5, marginTop: 5 }} name="chevron-right" />
 
   if (data.directions.length === 1) {

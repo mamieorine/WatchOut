@@ -14,6 +14,8 @@ const SecureRoutePopup = (props: {
 	setSecureRouteSheetVisible: any;
 	setAlertSheetVisible: any;
 	setReportModelVisible: any;
+	setFriendModelVisible: any;
+	filterFriends: any;
 	routeDetail: any;
 	}) => {
 
@@ -28,16 +30,16 @@ const SecureRoutePopup = (props: {
 				<View style={{ backgroundColor: 'transparent' }}>
 				<Text style={styles.modalSubTitle}> Tell Friends</Text>
 				<View style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'flex-start', flexDirection: 'row', marginTop: 5, marginBottom: 10, backgroundColor: 'transparent' }}>
-					<Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >T</Box>
-					<Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box>
-					<Box style={[styles.name, { backgroundColor: '#007AFF5D' } ]} >M</Box>
-					<Box style={[styles.name, { backgroundColor: '#CC52709D' } ]} >W</Box>
+					{props.filterFriends.selected.includes('Pete') ? <Box style={[styles.name, { backgroundColor: '#007AFF5D' } ]} >P</Box> : <></> }
+					{props.filterFriends.selected.includes('Nick') ? <Box style={[styles.name, { backgroundColor: '#CC52709D' } ]} >N</Box> : <></> }
+					{props.filterFriends.selected.includes('Maya') ? <Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >M</Box> : <></> }
+					{props.filterFriends.selected.includes('Sawarin') ? <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box> : <></> }
 					<Button
 						title="+"
 						titleStyle= {{ fontSize: 30, color: '#787880' }}
 						buttonStyle={{ width: 38, height: 38, paddingLeft: 8, paddingTop: 0, borderRadius: 50, backgroundColor: '#F2F2F7' }}
 						onPress={() => {
-							props.setReportModelVisible(true)
+							props.setFriendModelVisible(true)
 					}} />
 				</View>
 				<Button icon={{}}

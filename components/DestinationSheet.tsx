@@ -47,7 +47,7 @@ const DestinationPopup = (props: {
 			<Button icon={{}}
 				title="Secure direction"
 				titleStyle= {{fontSize: 18}}
-				buttonStyle={{paddingRight: 20, paddingLeft: 10, paddingTop: 10, paddingBottom: 10, borderRadius: 50, marginTop: 10 }}
+				buttonStyle={styles.button}
 				onPress={() => {
 				props.setDestSheetVisible(false);
 				props.navigation.replace('RouteScreen', {
@@ -66,12 +66,25 @@ export default DestinationPopup;
 
 const styles = StyleSheet.create({
 	modal: {
-		backgroundColor: 'transparent'
+		backgroundColor: 'transparent',
+		maxWidth: 370,
+		width: '100%',
+		paddingLeft: 15,
+		paddingRight: 15
 	},
 	chip: {
 		marginRight: 5,
 		marginBottom: 5,
 		color: '#000'
+	},
+	button: {
+		backgroundColor: '#7A9495',
+		paddingRight: 20,
+		paddingLeft: 10,
+		paddingTop: 10,
+		paddingBottom: 10,
+		borderRadius: 50,
+		marginTop: 10
 	},
 	title: {
 	  fontSize: 20,
