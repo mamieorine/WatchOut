@@ -13,6 +13,7 @@ const SecureRoutePopup = (props: {
 	isSecureRouteSheetVisible: boolean;
 	setSecureRouteSheetVisible: any;
 	setAlertSheetVisible: any;
+	setReportModelVisible: any;
 	routeDetail: any;
 	}) => {
 
@@ -31,18 +32,19 @@ const SecureRoutePopup = (props: {
 					<Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box>
 					<Box style={[styles.name, { backgroundColor: '#007AFF5D' } ]} >M</Box>
 					<Box style={[styles.name, { backgroundColor: '#CC52709D' } ]} >W</Box>
-					<Button icon={{}}
+					<Button
 						title="+"
 						titleStyle= {{ fontSize: 30, color: '#787880' }}
-						buttonStyle={{ width: 40, height: 40, paddingLeft: 0, paddingTop: 0, borderRadius: 50, backgroundColor: '#F2F2F7' }}
+						buttonStyle={{ width: 38, height: 38, paddingLeft: 8, paddingTop: 0, borderRadius: 50, backgroundColor: '#F2F2F7' }}
 						onPress={() => {
+							props.setReportModelVisible(true)
 					}} />
 				</View>
 				<Button icon={{}}
 					title="Report Crime"
 					titleStyle= {{ fontSize: 18 }}
 					buttonStyle={{ width: 150, paddingRight: 15, paddingTop: 10, paddingBottom: 10, borderRadius: 50, marginTop: 10, backgroundColor: '#7A9495'  }}
-					onPress={() => { }} />
+					onPress={() => { props.setReportModelVisible(true) }} />
 			</View>
 
 			<Button icon={{}}
@@ -86,12 +88,13 @@ const styles = StyleSheet.create({
 	  color: "#111"
 	},
 	name: {
-		width: 40,
-		height: 40,
+		width: 38,
+		height: 38,
 		borderRadius: 50,
-		padding: 10,
-		paddingLeft: 14,
-		marginRight: 5
+		textAlign: 'center',
+		paddingTop: 8,
+		paddingLeft: 13,
+		marginRight: 4
 	},
 	modalButton: {
 	  fontSize: 14

@@ -361,9 +361,10 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
       </View>
 
       <View style={styles.chipContainer}>
-			  {crimes.map((crime: any) => {
+			  {crimes.map((crime: any, index: number) => {
 				  return <Chip containerStyle={styles.chip} title={crime.category}
 					titleStyle={{ color: '#000' }}
+          key={index}
 					buttonStyle={{backgroundColor: filterCrimes.includes(crime.category) ? '#FF47734D' : '#ccc' }}
           onPress={() => {
             let filtered = [...filterCrimes];

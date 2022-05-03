@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { View } from '../components/Themed';
 import GooglePlacesInput from '../components/DestinationSearch';
 import DestinationPopup from '../components/DestinationSheet';
@@ -7,11 +7,11 @@ import MapViewDirections, { MapViewDirectionsMode } from 'react-native-maps-dire
 import MapView, { Callout, Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { Actionsheet, Text, Modal, Row, Stack, useDisclose, VStack, Box } from 'native-base';
+import { Actionsheet, Text, Modal, Row, Stack, useDisclose, Box, Heading } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import busStop from '../assets/files/bus-stop.json';
 import RoutePopup from '../components/RouteSheet';
-import { Header, Button } from 'react-native-elements';
+import { Header, Button, Card } from 'react-native-elements';
 import SecureRoutePopup from '../components/SecureRouteSheet';
 import AlertPopup from '../components/AlertSheet';
 
@@ -73,7 +73,9 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isRouteSheetVisible, setRouteSheetVisible] = useState(false);
   const [isSecureRouteSheetVisible, setSecureRouteSheetVisible] = useState(false);
   const [isAlertSheetVisible, setAlertSheetVisible] = useState(false);
-  const [isCheckinSheetVisible, setCheckinSheetVisible] = useState(false);
+  const [isCheckedInSheetVisible, setCheckedInSheetVisible] = useState(false);
+  const [isReportModelVisible, setReportModelVisible] = useState(false);
+  const [isFriendModelVisible, setFriendModelVisible] = useState(false);
 
   useLayoutEffect(() => {
     if (!h1Ref.current) return;
@@ -230,6 +232,8 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
             setSecureRouteSheetVisible={setSecureRouteSheetVisible}
             setAlertSheetVisible={setAlertSheetVisible}
             routeDetail={routesData}
+            setReportModelVisible={setReportModelVisible}
+            setFriendModelVisible={setFriendModelVisible}
           ></SecureRoutePopup>
         </Actionsheet.Content>
       </Actionsheet>
@@ -262,9 +266,83 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       </Actionsheet>
   }
 
+  function openCheckedInSheet() {
+    return <Actionsheet isOpen={isCheckedInSheetVisible} onClose={() => {}} disableOverlay>
+      <Row style={{ flex: 1, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%', top: 120, padding: 30 }}>
+        <TouchableOpacity
+          style={[styles.alertButton, { backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center' }]}
+          onPress={() => {}}
+        >
+          <Image style={{ width: 70, height: 70 }}
+            source={require('../assets/images/checked-in.png')}
+            resizeMode='cover'
+          />
+        </TouchableOpacity>
+        <Text bold style={{ color: '#FFFFFF', fontSize: 17, textAlign: 'center', marginTop: -70 }}>This message
+          will send the alert to your selected friends to tell them that you’re in danger.</Text>
+          <View style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'flex-start', flexDirection: 'row', marginTop: 65, marginBottom: 10, backgroundColor: 'transparent' }}>
+					<Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >T</Box>
+					<Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box>
+					<Box style={[styles.name, { backgroundColor: '#007AAE' } ]} >M</Box>
+					<Box style={[styles.name, { backgroundColor: '#CC5270' } ]} >W</Box>
+				</View>
+      </Row>
+        <Actionsheet.Content>
+          <AlertPopup
+            isAlertSheetVisible={isCheckedInSheetVisible}
+            setAlertSheetVisible={setCheckedInSheetVisible}
+            routeDetail={routesData}
+          ></AlertPopup>
+        </Actionsheet.Content>
+      </Actionsheet>
+  }
+
+  const crimeTypes = ['Theft', 'Robbery', 'Drugs', 'Vehicle']
+	const [filterReport, onFilterReportChange] = useState<any>({
+    selected: '',
+  })
+
+  function openReportCrimeModel() {
+    return <Modal isOpen={isReportModelVisible} onClose={() => setReportModelVisible(false)}>
+      <Modal.Content maxWidth="500px" style={{ padding: 25, borderRadius: 15 }}>
+        <Modal.CloseButton />
+          <Heading fontSize={18} style={{ textAlign: 'center', marginTop: -5, marginBottom: 15 }}>Crime Report</Heading>
+          {crimeTypes.map((type) => {
+            return <TouchableOpacity
+              onPress={() => {
+                onFilterReportChange({selected: type});
+              }}>
+              <Card containerStyle={[styles.cardContainer, {
+                  backgroundColor: filterReport.selected === type ? '#7A949550' : '#fff',
+                  borderColor: filterReport.selected === type ? '#7A9495' : '#ddd',
+                  borderWidth: filterReport.selected === type ? 1 : 1
+                }]}>
+                <Row style={{ alignItems: 'center', justifyContent: 'flex-start' }}>
+                <Image style={{ width: 40, height: 40 }}
+                  source={require('../assets/images/bus-icon.png')} />
+                <Text style={{ fontSize: 16, marginLeft: 10,
+                  // color:  filterReport.selected === type ? '#7A9495' : '#000',
+                  fontWeight:  filterReport.selected === type ? '600' : '400'}}
+                  >
+                  {type}</Text>
+                </Row>
+              </Card>
+              </TouchableOpacity>
+          })}
+
+
+          <Button title="Report"
+            titleStyle={{ fontSize: 17 }}
+            style={{ marginTop: 10, alignItems: 'flex-end' }}
+            buttonStyle={{ width: 120, borderRadius: 10, height: 42, backgroundColor: "#7A9495" }}
+            onPress={() => { setReportModelVisible(false)}} />
+      </Modal.Content>
+    </Modal>
+  }
+
   return (
     <View style={styles.container}>
-      {isSecureRouteSheetVisible || isAlertSheetVisible ?
+      {isSecureRouteSheetVisible || isAlertSheetVisible || isCheckedInSheetVisible ?
       <Header containerStyle={{
           marginTop: 5,
           backgroundColor: '#fff',
@@ -279,13 +357,23 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
             } else if (isAlertSheetVisible) {
               setAlertSheetVisible(false);
               setSecureRouteSheetVisible(true)
+            }  else if (isCheckedInSheetVisible) {
+              setRouteSheetVisible(false);
+              setAlertSheetVisible(false);
+              setCheckedInSheetVisible(false);
+              setSecureRouteSheetVisible(true)
             }
           })
         }}
-        centerComponent={{ text: 'Secure navigation started', style: { color: '#7A9495', fontSize: 18, fontWeight: '600' } }}
+        centerComponent={{
+          text: isSecureRouteSheetVisible ? 'Secure navigation started' : isAlertSheetVisible ? 'Emergency Alert' : 'Destination Check In',
+          style: { color: '#7A9495', fontSize: 18, fontWeight: '600' } }}
         rightComponent={{ icon: 'pin-drop', color: '#7A9495', size: 28,
           onPress: () => {
-
+            setDestSheetVisible(false);
+            setSecureRouteSheetVisible(false);
+            setAlertSheetVisible(false);
+            setCheckedInSheetVisible(true);
           }
         }}
       /> :
@@ -373,12 +461,14 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         destinationRoute ? getMapDirection("hotpink", routesData?.mode, routesData?.waypoints) : <></>}
       </MapView>
 
-      {isAlertSheetVisible ? <View style={[styles.overlay, { height: '100%' }]} /> : <></>}
+      {isAlertSheetVisible || isCheckedInSheetVisible ? <View style={[styles.overlay, { height: '100%' }]} /> : <></>}
 
       {destination ? openActionSheet() : <></>}
       {routesData ? openRouteSheet() : <></>}
       {isSecureRouteSheetVisible ? openSecureRouteSheet() : <></>}
       {isAlertSheetVisible ? openAlertSOSSheet() : <></>}
+      {isCheckedInSheetVisible ? openCheckedInSheet() : <></> }
+      {isReportModelVisible ? openReportCrimeModel() : <></> }
     </View>
   );
 }
@@ -427,6 +517,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: 'bold',
   },
+  cardContainer: {
+    borderColor: '#ddd',
+    borderRadius: 10,
+    padding: 10,
+    paddingTop: 4,
+    paddingBottom: 2,
+    width: '100%',
+    margin: 0,
+    marginBottom: 8,
+    // shadowColor: '#000',
+		// shadowOffset: { width: 2, height: 2 },
+		// shadowOpacity: 0.2,
+		// shadowRadius: 1,
+  },
   modalSubTitle: {
     fontSize: 16,
     marginBottom: 10,
@@ -452,10 +556,10 @@ const styles = StyleSheet.create({
 		paddingLeft: 0,
 		borderRadius: 100,
 		backgroundColor: '#F84D3A',
-		shadowColor: '#666',
-		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.8,
-		shadowRadius: 4,
+		shadowColor: '#333',
+		shadowOffset: { width: 1, height: 1 },
+		shadowOpacity: 0.9,
+		shadowRadius: 6,
 	},
   overlay: {
     flex: 1,

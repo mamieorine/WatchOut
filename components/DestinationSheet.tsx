@@ -23,8 +23,9 @@ const DestinationPopup = (props: {
           <Text style={styles.modalTitle}>{props.geometry.name}</Text>
           <Text style={styles.modalSubTitle}>{props.geometry.address}</Text>
 		  <View style={{ flex: 0, flexWrap: 'wrap', flexDirection: 'row', marginTop: 5, backgroundColor: 'transparent' }}>
-			  {props.crimes.map((crime: any) => {
+			  {props.crimes.map((crime: any, index: number) => {
 				  return <Chip containerStyle={styles.chip} title={crime.category}
+					key={index}
 					titleStyle={{ color: '#000' }}
 					buttonStyle={{ backgroundColor: props.filterCrimes.includes(crime.category) ? '#FF47734D' : '#ccc' }}
 					onPress={() => {

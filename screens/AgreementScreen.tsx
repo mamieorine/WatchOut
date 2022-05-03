@@ -27,7 +27,7 @@ export default function AgreementScreen() {
 					<Button size="lg" _text={{ color: "#333" }} style={{backgroundColor: "#E5E5E5", borderRadius: 50, width: 100 }}
 					onPress={() => navigation.goBack() } > Back </Button>
 
-					<Button size="lg" style={{backgroundColor: "#2D77EE", borderRadius: 50, width: 100 }}
+					<Button size="lg" style={{backgroundColor: "#7A9495", borderRadius: 50, width: 100 }}
 					onPress={() => {
 						navigation.navigate('TabOne', {
 							destination: null,

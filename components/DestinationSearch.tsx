@@ -71,6 +71,7 @@ const GooglePlacesInput = (props: { onDestinationChange: any; isDestinationChang
 				  color: '#5d5d5d',
 				  fontSize: 16,
 				  borderWidth: 1,
+				  paddingRight: 60,
 				  borderColor: '#ddd',
 				  borderRadius: 50,
 				  shadowColor: "#000",

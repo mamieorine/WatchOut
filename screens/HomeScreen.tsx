@@ -30,7 +30,7 @@ export default function HomeScreen() {
 			<Stack  style={{ marginTop: 15, paddingLeft: 40, paddingRight: 40 }} space={4} w="100%">
 				<Input size="lg" height={'12'} borderRadius={8} placeholder="Username" placeholderTextColor="blueGray.400" />
 				<Input size="lg" height={'12'} borderRadius={8} placeholder="Password" placeholderTextColor="blueGray.400" type="password" />
-				<Button size="lg" style={{backgroundColor: "#2D77EE", borderRadius: 8 }}
+				<Button size="lg" style={{backgroundColor: "#7A9495", borderRadius: 8 }}
 					onPress={() => {
 						navigation.navigate('Agreement');
 					}} > Login </Button>
