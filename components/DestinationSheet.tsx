@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Chip } from 'react-native-elements';
-import { Text, View } from '../components/Themed';
+import { Text, View } from './Themed';
 
 export type Geometry = {
 	latitude: Number;
@@ -9,17 +9,14 @@ export type Geometry = {
 }
 
 const DestinationPopup = (props: {
-	isBottomSheetVisible: boolean;
-	setBottomSheetVisible: any;
+	isDestSheetVisible: boolean;
+	setDestSheetVisible: any;
 	navigation: any;
 	origin: any;
 	crimes: any;
 	filterCrimes: any[];
 	onFilterCrimesChange: any;
 	geometry: any; }) => {
-	// const [isSelectedTransit, setSelectedTransit] = useState(true)
-	// const [isSelectedBicycle, setSelectedBicycle] = useState(true)
-	// const [isSelectedWalking, setSelectedWalking] = useState(true)
 
 	return (
         <View style={styles.modal}>
@@ -51,7 +48,7 @@ const DestinationPopup = (props: {
 				titleStyle= {{fontSize: 18}}
 				buttonStyle={{paddingRight: 20, paddingLeft: 10, paddingTop: 10, paddingBottom: 10, borderRadius: 50, marginTop: 10 }}
 				onPress={() => {
-				props.setBottomSheetVisible(false);
+				props.setDestSheetVisible(false);
 				props.navigation.replace('RouteScreen', {
 					destination: props.geometry,
 					origin: props.origin,

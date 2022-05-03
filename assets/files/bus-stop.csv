@@ -1,0 +1,976 @@
+ATCOCode,CommonName,Street,NptgLocalityCode,LocalityName,GridType,Longitude,Latitude,StopType,BusStopType,TimingStatus,Status
+1980SNA90772,Henstead Road,Bedford Place,E0041969,Bedford Place,UKOS,-1.40609,50.91179,BCT,MKD,OTH,active
+1980SNA90773,Henstead Road,Bedford Place,E0041969,Bedford Place,UKOS,-1.40634,50.91233,BCT,MKD,OTH,inactive
+1980SNA90870,Henstead Road,Henstead Road,E0041969,Bedford Place,UKOS,-1.40664,50.91221,BCT,MKD,OTH,active
+1980BITERNE0,Bitterne Rail Station,,E0041975,Bitterne,UKOS,-1.37698,50.91845,RSE,,,active
+1980MBRK0,Millbrook (Hants) Rail Station,,E0042004,Millbrook,UKOS,-1.4341,50.91172,RSE,,,active
+1980REDBDGE0,Redbridge (Hants) Rail Station,,E0042016,Redbridge,UKOS,-1.47016,50.91994,RSE,,,active
+1980SHOLING0,Sholing Rail Station,,E0042023,Sholing,UKOS,-1.36452,50.89664,RSE,,,active
+1980SOTNTQ0,Southampton Town Quay,,E0057247,Southampton,UKOS,-1.40583,50.89515,RSE,,,inactive
+1980SOTON1,Southampton Central Rail Station,,E0057247,Southampton,UKOS,-1.41404,50.90722,RSE,,,active
+1980SOTON0,Southampton Central Rail Station,,E0057247,Southampton,UKOS,-1.41392,50.90779,RSE,,,active
+1980STDENYS0,St Denys Rail Station,,E0042026,St Denys,UKOS,-1.38819,50.92213,RSE,,,active
+1980SWYTHLN0,Swaythling Rail Station,,E0042028,Swaythling,UKOS,-1.3762,50.94113,RSE,,,active
+1980WOLSTON0,Woolston Rail Station,,E0042037,Woolston,UKOS,-1.37706,50.89892,RSE,,,active
+1980SOP0,Southampton Passenger Ferry Terminal,,E0041983,Eastern Docks,UKOS,-1.4053,50.89439,FTD,,,active
+1980SOV0,Southampton Vehicle Ferry Terminal,,E0041983,Eastern Docks,UKOS,-1.40628,50.8957,FTD,,,active
+1980SN120040,Monks Way,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.37143,50.94113,BCT,MKD,OTH,active
+1980SN120791,Monks Way,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.3716,50.94108,BCT,MKD,OTH,active
+1980SN120793,Octavia Road,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.3696,50.9407,BCT,MKD,OTH,active
+1980SN120165,Octavia Road,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.36923,50.94069,BCT,MKD,OTH,active
+1980SNA90808,Itchenside Close,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.36601,50.93872,BCT,MKD,OTH,active
+1980SN120795,Itchenside Close,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.36582,50.9389,BCT,MKD,OTH,active
+1980HA120794,White Swan,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.35997,50.93781,BCT,MKD,OTH,active
+1980SN120797,White Swan,Mansbridge Road,N0080446,Mansbridge,UKOS,-1.36164,50.93748,BCT,MKD,OTH,active
+1980SN121042,Bakers Drove,Romsey Road,E0046884,Nursling,UKOS,-1.45898,50.9431,BCT,MKD,OTH,active
+1980SN120569,Leslie Loader House,Peartree Avenue,E0042010,Peartree,UKOS,-1.37224,50.90729,BCT,MKD,OTH,active
+1980SN120570,Leslie Loader House,Peartree Avenue,E0042010,Peartree,UKOS,-1.37257,50.90683,BCT,MKD,OTH,active
+1980SN120571,Osterly Road,Peartree Avenue,E0042010,Peartree,UKOS,-1.37352,50.90601,BCT,MKD,OTH,active
+1980SN120575,Bitterne Leisure Centre,Maybray King Way,E0041975,Bitterne,UKOS,-1.35651,50.91414,BCT,MKD,OTH,active
+1980SN120576,Bitterne Leisure Centre,Maybray King Way,E0041975,Bitterne,UKOS,-1.35768,50.91502,BCT,MKD,OTH,active
+1980SN120457,Bitterne Leisure Centre,Bitterne Road East,E0041975,Bitterne,UKOS,-1.35687,50.91489,BCT,MKD,OTH,active
+1980SN120557,Chessel Avenue,Chessel Avenue,E0041975,Bitterne,UKOS,-1.36916,50.91424,BCT,MKD,OTH,inactive
+1980SN120560,Chessel Avenue,Chessel Avenue,E0041975,Bitterne,UKOS,-1.36835,50.91395,BCT,MKD,OTH,inactive
+1980SN120559,Britannia Road,Northam Road,E0042008,Northam,UKOS,-1.38975,50.90957,BCT,MKD,OTH,inactive
+1980SNA09317,Britannia Road,Northam Road,E0042008,Northam,UKOS,-1.39022,50.9095,BCT,MKD,OTH,active
+1980SNA09318,Britannia Road,Northam Road,E0042008,Northam,UKOS,-1.38997,50.90941,BCT,MKD,OTH,active
+1980SN120558,Britannia Road,Northam Road,E0042008,Northam,UKOS,-1.38999,50.90966,BCT,MKD,OTH,active
+1980SN120556,Peartree Avenue,Chessell Avenue,E0041975,Bitterne,UKOS,-1.36571,50.91347,BCT,MKD,OTH,inactive
+1980SN120561,Peartree Avenue,Chessell Avenue,E0041975,Bitterne,UKOS,-1.36511,50.91345,BCT,MKD,OTH,inactive
+1980SN120562,Spring Road,Peartree Avenue,E0041975,Bitterne,UKOS,-1.36509,50.91303,BCT,MKD,OTH,active
+1980SN120589,Heath Road,Spring Road,E0042001,Merry Oak,UKOS,-1.36043,50.90636,BCT,MKD,OTH,active
+1980SN120588,Heath Road,Spring Road,E0042001,Merry Oak,UKOS,-1.36037,50.90667,BCT,MKD,OTH,active
+1980SN120594,Upper Deacon Road,Bursledon Road,E0042023,Sholing,UKOS,-1.3496,50.91028,BCT,MKD,OTH,active
+1980SN120595,Upper Deacon Road,Bursledon Road,E0042023,Sholing,UKOS,-1.34994,50.91035,BCT,MKD,OTH,active
+1980SN120596,North East Road,Bursledon Road,E0042023,Sholing,UKOS,-1.34724,50.90899,BCT,MKD,OTH,active
+1980SN120597,North East Road,Bursledon Road,E0042023,Sholing,UKOS,-1.34592,50.90847,BCT,MKD,OTH,active
+1980SN120459,Bath Road,Bitterne Road East,E0041975,Bitterne,UKOS,-1.34993,50.91463,BCT,MKD,OTH,active
+1980SN120577,Bath Road,Bitterne Road East,E0041975,Bitterne,UKOS,-1.35041,50.91456,BCT,MKD,OTH,active
+1980SN120578,Ruby Road,Bursledon Road,E0041975,Bitterne,UKOS,-1.35443,50.9125,BCT,MKD,OTH,active
+1980SN120579,Ruby Road,Bursledon Road,E0041975,Bitterne,UKOS,-1.35358,50.91221,BCT,MKD,OTH,active
+1980SN120580,Bursledon Road,Ruby Road,E0041975,Bitterne,UKOS,-1.35415,50.91203,BCT,MKD,OTH,active
+1980SN120583,Deacon Road,Ruby Road,E0042023,Sholing,UKOS,-1.35513,50.91003,BCT,MKD,OTH,inactive
+1980SN120581,Deacon Road,Ruby Road,E0042023,Sholing,UKOS,-1.35492,50.91027,BCT,MKD,OTH,active
+1980SN120587,Merryoak Road,Spring Road,E0042001,Merry Oak,UKOS,-1.36016,50.90852,BCT,MKD,OTH,active
+1980SNA19708,Merryoak Road,Spring Road,E0042001,Merry Oak,UKOS,-1.3605,50.90943,BCT,MKD,OTH,active
+1980SN120706,Landseer Road,Butt's Road,E0042023,Sholing,UKOS,-1.34538,50.90096,BCT,MKD,OTH,inactive
+1980SN120697,Landseer Road,Butt's Road,E0042023,Sholing,UKOS,-1.34636,50.90063,BCT,MKD,OTH,active
+1980SN120708,Dumbleton's Towers,Warburton Road,N0073220,Thornhill,UKOS,-1.33254,50.90459,BCT,MKD,OTH,active
+1980SN120707,Dumbleton's Towers,Warburton Road,N0073220,Thornhill,UKOS,-1.33203,50.90443,BCT,MKD,OTH,active
+1980SN120676,Sholing Station,Station Road,E0042037,Woolston,UKOS,-1.36458,50.89711,BCT,MKD,OTH,active
+1980SN120678,Sholing Station,Station Road,E0042037,Woolston,UKOS,-1.3639,50.89721,BCT,MKD,OTH,active
+1980SN120711,Health Clinic,Woodley Road,E0042037,Woolston,UKOS,-1.38101,50.89708,BCT,MKD,OTH,active
+1980SN120712,Keswick Road,Victoria Road,E0042037,Woolston,UKOS,-1.38016,50.89654,BCT,MKD,OTH,active
+1980SN120699,Gladstone Road,Kathleen Road,E0042023,Sholing,UKOS,-1.3453,50.90526,BCT,MKD,OTH,active
+1980SN120698,Gladstone Road,Kathleen Road,E0042023,Sholing,UKOS,-1.34597,50.905,BCT,MKD,OTH,active
+1980SN120700,The Range,Bursledon Road,N0073220,Thornhill,UKOS,-1.33914,50.90525,BCT,MKD,OTH,active
+1980SN120701,The Range,Bursledon Road,N0073220,Thornhill,UKOS,-1.33975,50.90531,BCT,MKD,OTH,active
+1980SN120703,Ivy Dene,Orpen Road,E0042023,Sholing,UKOS,-1.33624,50.90333,BCT,MKD,OTH,active
+1980SN120705,Butts Square,Butt's Road,E0042023,Sholing,UKOS,-1.34103,50.90241,BCT,MKD,OTH,inactive
+1980SN120704,Butts Square,Butt's Road,E0042023,Sholing,UKOS,-1.34032,50.90272,BCT,MKD,OTH,active
+1980SNA09314,Foundry Court,Vosper Road,E0042037,Woolston,UKOS,-1.38105,50.89417,BCT,MKD,OTH,active
+1980SNA90884,Foundry Court,Vosper Road,E0042037,Woolston,UKOS,-1.3811,50.8941,BCT,MKD,OTH,active
+1980SN120718,Church Road,Weston Grove Road,E0042037,Woolston,UKOS,-1.37844,50.89319,BCT,MKD,OTH,active
+1980SN120719,Church Road,Weston Grove Road,E0042037,Woolston,UKOS,-1.37755,50.89293,BCT,MKD,OTH,active
+1980SN120670,Sholing Road,Knighton Road,E0042001,Merry Oak,UKOS,-1.36552,50.90429,BCT,MKD,OTH,inactive
+1980SN120673,Sholing Road,Sholing Road,E0042001,Merry Oak,UKOS,-1.36505,50.90464,BCT,MKD,OTH,active
+1980SNA90917,Sholing Road,Sholing Road,E0042001,Merry Oak,UKOS,-1.36478,50.90471,BCT,CUS,OTH,active
+1980SN120675,Spakes Corner,Sholing Road,E0041994,Itchen,UKOS,-1.36266,50.90458,BCT,MKD,OTH,active
+1980SN120674,Spakes Corner,Sholing Road,E0041994,Itchen,UKOS,-1.36267,50.90467,BCT,MKD,OTH,active
+1980SNA90941,Spakes Corner,Spring Road,E0041994,Itchen,UKOS,-1.36261,50.90447,BCT,MKD,OTH,active
+1980SNA90964,Spakes Corner,Spring Road,E0041994,Itchen,UKOS,-1.36248,50.90443,BCT,CUS,OTH,inactive
+1980SN120906,Norton Close,Radstock Road,E0042037,Woolston,UKOS,-1.3727,50.89971,BCT,MKD,OTH,active
+1980SN120662,Norton Close,Radstock Road,E0042037,Woolston,UKOS,-1.37389,50.89991,BCT,MKD,OTH,active
+1980SN120664,Fort Road,Portsmouth Road,E0042037,Woolston,UKOS,-1.37263,50.89755,BCT,MKD,OTH,active
+1980SNA09185,Fort Road,Portsmouth Road,E0042037,Woolston,UKOS,-1.37251,50.8974,BCT,MKD,OTH,active
+1980SN120665,St Patricks Church,Portsmouth Road,E0042037,Woolston,UKOS,-1.3749,50.89788,BCT,MKD,OTH,active
+1980SN120667,Ludlow School,Bishops Road,E0042037,Woolston,UKOS,-1.3716,50.89996,BCT,MKD,OTH,active
+1980SN120666,Ludlow School,Bishops Road,E0042037,Woolston,UKOS,-1.37113,50.90074,BCT,MKD,OTH,active
+1980SN120668,Wodehouse Road,Bishops Road,E0041994,Itchen,UKOS,-1.36911,50.90216,BCT,MKD,OTH,active
+1980SNA90916,Wodehouse Road,Bishops Road,E0041994,Itchen,UKOS,-1.36835,50.90255,BCT,MKD,OTH,inactive
+1980SN120690,St Monica School,Kathleen Road,E0042023,Sholing,UKOS,-1.35671,50.899,BCT,MKD,OTH,active
+1980SN120689,St Monica School,Kathleen Road,E0042023,Sholing,UKOS,-1.35679,50.89912,BCT,MKD,OTH,active
+1980SN120692,Alfriston Gardens,Kathleen Road,E0042023,Sholing,UKOS,-1.35102,50.90239,BCT,MKD,OTH,active
+1980HAA13665,Alfriston Gardens,Kathleen Road,E0042023,Sholing,UKOS,-1.35077,50.9026,BCT,MKD,OTH,active
+1980SN120693,Drove Road,Kathleen Road,E0042023,Sholing,UKOS,-1.34804,50.90397,BCT,MKD,OTH,active
+1980SN120694,Drove Road,Kathleen Road,E0042023,Sholing,UKOS,-1.34832,50.90374,BCT,MKD,OTH,active
+1980SN120682,Spike Islander,South East Road,E0042023,Sholing,UKOS,-1.35633,50.90197,BCT,MKD,OTH,active
+1980SN120687,South East Road,Kathleen Road,E0042023,Sholing,UKOS,-1.3542,50.90011,BCT,MKD,OTH,active
+1980SN120684,South East Road,Kathleen Road,E0042023,Sholing,UKOS,-1.35361,50.90085,BCT,MKD,OTH,active
+1980SN120686,Kathleen Road,South East Road,E0042023,Sholing,UKOS,-1.35438,50.90066,BCT,MKD,OTH,active
+1980SNA09388,Monks Wood Close,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.39423,50.94733,BCT,MKD,OTH,inactive
+1980SNA09412,Meredith Towers,Tunstall Road,N0073220,Thornhill,UKOS,-1.32981,50.90415,BCT,MKD,OTH,active
+1980SN121059,Burgoyne Road,Burgoyne Road,N0073220,Thornhill,UKOS,-1.33074,50.90301,BCT,MKD,OTH,active
+1980SNA09437,Radway Road,Wilton Road,E0042018,Shirley,UKOS,-1.41981,50.92246,BCT,CUS,OTH,inactive
+1980SNA09436,Radway Road,Wilton Road,E0042018,Shirley,UKOS,-1.42053,50.92283,BCT,CUS,OTH,inactive
+1980SNA09343,WestQuay,Portland Terrace,N0077117,Southampton City Centre,UKOS,-1.40594,50.90357,BCT,MKD,OTH,active
+1980HAA13582,WestQuay,Portland Terrace,N0077117,Southampton City Centre,UKOS,-1.40581,50.9031,BCT,MKD,OTH,active
+1980HAA13583,WestQuay,Portland Terrace,N0077117,Southampton City Centre,UKOS,-1.40574,50.90361,BCT,MKD,OTH,active
+1980SNA09341,WestQuay,Portland Terrace,N0077117,Southampton City Centre,UKOS,-1.4058,50.90387,BCT,MKD,OTH,active
+1980SN120026,Menzies Close,Sutherland Road,N0073217,Lord's Hill,UKOS,-1.44984,50.9444,BCT,MKD,OTH,active
+1980SN120025,Erskine Court,Sutherland Road,N0073217,Lord's Hill,UKOS,-1.44627,50.94528,BCT,MKD,OTH,active
+1980SN120024,Sinclair Road,Matheson Road,N0073217,Lord's Hill,UKOS,-1.44509,50.94621,BCT,MKD,OTH,active
+1980SN120023,Forbes Close,Buchanan Road,N0073217,Lord's Hill,UKOS,-1.44768,50.94696,BCT,MKD,OTH,active
+1980SN120019,Fraser Close,Buchanan Road,N0073217,Lord's Hill,UKOS,-1.44903,50.94646,BCT,MKD,OTH,active
+1980SNA09572,St Mark's School,Shirley Road,E0042018,Shirley,UKOS,-1.4253,50.9159,BCT,MKD,OTH,active
+1980SNA09577,Weston Park,Weston Parade,N0073222,Weston,UKOS,-1.36968,50.88469,BCT,CUS,OTH,inactive
+1980SNA09576,Weston Park,Weston Parade,N0073222,Weston,UKOS,-1.36954,50.88482,BCT,CUS,OTH,inactive
+1980SNA09593,Glenfield Avenue,Mousehole Lane,E0041975,Bitterne,UKOS,-1.36617,50.92058,BCT,CUS,OTH,active
+1980SN120435,Glenfield Avenue,Mousehole Lane,E0041975,Bitterne,UKOS,-1.36477,50.92075,BCT,MKD,OTH,active
+1980SNA10143,Houndwell Park,Hanover Buildings,N0077117,Southampton City Centre,UKOS,-1.40208,50.90302,BCT,MKD,OTH,active
+1980SNA09450,Butterfield Road,Burgess Road,E0041967,Bassett,UKOS,-1.41247,50.93479,BCT,MKD,OTH,active
+1980SNA09451,Butterfield Road,Burgess Road,E0041967,Bassett,UKOS,-1.41224,50.93476,BCT,MKD,OTH,active
+1980SNA09453,King Edward's School,Wilton Road,E0042018,Shirley,UKOS,-1.41878,50.92196,BCT,MKD,OTH,inactive
+1980SNA09452,King Edward's School,Wilton Road,E0042018,Shirley,UKOS,-1.41878,50.92186,BCT,MKD,OTH,inactive
+1980SNA09229,English Road,English Road,E0041986,Freemantle,UKOS,-1.43454,50.91829,BCT,HAR,OTH,active
+1980SNA09231,Latham Court,Waterhouse Way,E0042019,Shirley Park,UKOS,-1.43787,50.91826,BCT,HAR,OTH,active
+1980SNA09230,Latham Court,Waterhouse Way,E0042019,Shirley Park,UKOS,-1.4375,50.91811,BCT,HAR,OTH,active
+1980SNA09228,Heysham Road,Foundry Lane,E0041986,Freemantle,UKOS,-1.43349,50.91839,BCT,HAR,OTH,active
+1980SNA09233,Heysham Road,Foundry Lane,E0041986,Freemantle,UKOS,-1.43336,50.91841,BCT,HAR,OTH,active
+1980SNA09234,Salcombe Road,Foundry Lane,E0041986,Freemantle,UKOS,-1.43266,50.91674,BCT,HAR,OTH,active
+1980SNA09236,Dunkirk Road,Coxford Road,E0041997,Lordswood,UKOS,-1.42648,50.9411,BCT,HAR,OTH,active
+1980SNA09223,Howard Road,Howard Road,E0042018,Shirley,UKOS,-1.42247,50.91458,BCT,HAR,OTH,inactive
+1980SN120P07,Pitt Road,Park Road,E0041986,Freemantle,UKOS,-1.42603,50.91398,BCT,MKD,OTH,active
+1980SNA09225,Pitt Road,Park Road,E0041986,Freemantle,UKOS,-1.42558,50.91386,BCT,HAR,OTH,active
+1980SNA09227,Nelson Road,Foundry Lane,E0041986,Freemantle,UKOS,-1.43221,50.9144,BCT,HAR,OTH,active
+1980SNA09241,Warbler Close H&R area,Sandpiper Road,N0073217,Lord's Hill,UKOS,-1.4342,50.94775,BCT,HAR,OTH,active
+1980SNA09237,Warbler Close H&R area,Sandpiper Road,N0073217,Lord's Hill,UKOS,-1.43293,50.9467,BCT,HAR,OTH,active
+1980SNA09299,Omdurman Road,Highfield Road,E0041989,Highfield,UKOS,-1.40306,50.93081,BCT,MKD,OTH,active
+1980SNA09300,Glen Eyre Hall,Glen Eyre Road,E0041967,Bassett,UKOS,-1.40256,50.94207,BCT,MKD,OTH,inactive
+1980SNA09313,Glenwood Avenue,Glen Eyre Road,E0041967,Bassett,UKOS,-1.40482,50.94614,BCT,MKD,OTH,active
+1980SNA09323,Lower Brownhill Road,Romsey Road,E0042000,Maybush,UKOS,-1.45276,50.93597,BCT,MKD,OTH,active
+1980SN121046,Lower Brownhill Road,Romsey Road,E0042000,Maybush,UKOS,-1.45277,50.93612,BCT,MKD,OTH,active
+1980SNA09240,Woburn Road,Dunvegan Drive,N0073217,Lord's Hill,UKOS,-1.43166,50.94596,BCT,HAR,OTH,active
+1980SNA09238,Woburn Road,Sandpiper Road,N0073217,Lord's Hill,UKOS,-1.43318,50.94491,BCT,HAR,OTH,active
+1980SNA09242,Gannet Close H&R area,Sandpiper Road,N0073217,Lord's Hill,UKOS,-1.43899,50.94461,BCT,HAR,OTH,active
+1980HA120638,Dock Gate 4,Platform Road,E0042014,Queens Park,UKOS,-1.39868,50.89698,BCT,MKD,OTH,inactive
+1980SN120635,Dock Gate 4,Platform Road,E0042014,Queens Park,UKOS,-1.39927,50.89679,BCT,MKD,OTH,inactive
+1980SNA09298,Crematorium,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.39102,50.94521,BCT,MKD,OTH,active
+1980SNA90968,Crematorium,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.39108,50.94539,BCT,MKD,OTH,active
+1980SNA19722,Anglesea Terrace,Albert Road North,E0041979,Chapel,UKOS,-1.39113,50.90121,BCT,MKD,OTH,active
+1980SNA19721,Anglesea Terrace,Albert Road North,E0041979,Chapel,UKOS,-1.39096,50.90115,BCT,MKD,OTH,active
+1980SNA19771,Wellburn Court,Wakefield Road,E0042002,Midanbury,UKOS,-1.35846,50.92765,BCT,CUS,OTH,active
+1980SNA90901,Wellburn Court,Wakefield Road,E0042002,Midanbury,UKOS,-1.35804,50.92799,BCT,MKD,OTH,active
+1980SNA19772,Chester Road,Wakefield Road,E0042002,Midanbury,UKOS,-1.36045,50.92488,BCT,CUS,OTH,active
+1980SNA90900,Chester Road,Wakefield Road,E0042002,Midanbury,UKOS,-1.36062,50.92461,BCT,MKD,OTH,active
+1980SNA19773,Huntly Way,Glenfield Avenue,E0041975,Bitterne,UKOS,-1.36606,50.91682,BCT,MKD,OTH,active
+1980SNA19774,Caxton Avenue,Upper Deacon Road,E0042030,Thornhill Park,UKOS,-1.34735,50.91206,BCT,HAR,OTH,active
+1980SNA19777,Southampton Uni Interchange,bus access road,E0041989,Highfield,UKOS,-1.39652,50.93595,BCT,MKD,OTH,inactive
+1980HAA13668,Highfield Interchange,bus access road,E0041989,Highfield,UKOS,-1.39687,50.93628,BCT,MKD,OTH,active
+1980SNA90971,Centenary Building,bus access road,E0041989,Highfield,UKOS,-1.39724,50.93689,BCT,MKD,OTH,active
+1980SNA19692,Holly Oak Road,Aldermoor Avenue,E0041964,Aldermoor,UKOS,-1.43971,50.93787,BCT,MKD,OTH,inactive
+1980SNA19709,Southampton Central Station,Station Forecourt,N0077117,Southampton City Centre,UKOS,-1.41376,50.90785,BCT,CUS,OTH,inactive
+1980SNA19711,Freemantle Common Road,Spring Road,E0041975,Bitterne,UKOS,-1.36388,50.91214,BCT,MKD,OTH,active
+1980SNA19712,Freemantle Common Road,Spring Road,E0041975,Bitterne,UKOS,-1.36374,50.91176,BCT,MKD,OTH,active
+1980SN120160,Montefiore House,Wessex Lane,E0042028,Swaythling,UKOS,-1.37684,50.93742,BCT,MKD,OTH,active
+1980SN120161,Montefiore House,Wessex Lane,E0042028,Swaythling,UKOS,-1.37706,50.93727,BCT,MKD,OTH,active
+1980SNA19780,Montefiore House,Wessex Lane,E0042028,Swaythling,UKOS,-1.37664,50.93737,BCT,MKD,OTH,inactive
+1980SN12921A,Bitterne Shops,West End Road,E0041975,Bitterne,UKOS,-1.36148,50.91513,BCT,MKD,OTH,active
+1980SN12922A,Bitterne Shops,West End Road,E0041975,Bitterne,UKOS,-1.36142,50.91495,BCT,MKD,OTH,active
+1980SNA90798,Bitterne Shops,West End Road,E0041975,Bitterne,UKOS,-1.36114,50.91514,BCT,MKD,OTH,active
+1980SNA90830,City College,Chapel Road,N0080456,St Marys,UKOS,-1.39386,50.90235,BCT,MKD,OTH,active
+1980SNA90831,City College,Chapel Road,N0080456,St Marys,UKOS,-1.39557,50.90216,BCT,MKD,OTH,active
+1980HA120642,Ocean Village,Canute Road,N0073219,Ocean Village,UKOS,-1.39415,50.89693,BCT,MKD,OTH,active
+1980HA120641,Ocean Village,Canute Road,N0073219,Ocean Village,UKOS,-1.39398,50.89704,BCT,MKD,OTH,active
+1980HA121029,Ocean Village,Ocean Way,N0073219,Ocean Village,UKOS,-1.39388,50.89572,BCT,MKD,OTH,inactive
+1980SNA90864,Ocean Village,Ocean Way,N0073219,Ocean Village,UKOS,-1.39364,50.8958,BCT,MKD,OTH,inactive
+1980SNA90865,Cobbett Road,Bitterne Road West,N0077162,Bitterne Manor,UKOS,-1.3744,50.91767,BCT,MKD,OTH,active
+1980SN120533,Park Walk,New Road,N0077117,Southampton City Centre,UKOS,-1.40352,50.90685,BCT,MKD,OTH,active
+1980SNA40401,Park Walk,New Road,N0077117,Southampton City Centre,UKOS,-1.40352,50.90699,BCT,MKD,OTH,active
+1980SNA40402,Giddy Bridge,London Road,E0041969,Bedford Place,UKOS,-1.40462,50.911,BCT,MKD,OTH,active
+1980SN120522,Giddy Bridge,London Road,E0041969,Bedford Place,UKOS,-1.40404,50.91185,BCT,MKD,OTH,active
+1980SNA40501,Lennox Close,Rownhams Road North,N0073217,Lord's Hill,UKOS,-1.45038,50.94614,BCT,MKD,OTH,active
+1980SN122019,Lennox Close,Rownhams Road North,N0073217,Lord's Hill,UKOS,-1.45028,50.94606,BCT,MKD,OTH,active
+1980SNA13768,Telephone House,High Street,N0077173,Town Quay,UKOS,-1.4042,50.89728,BCT,MKD,OTH,active
+1980SNA13769,Telephone House,High Street,N0077173,Town Quay,UKOS,-1.40407,50.89746,BCT,MKD,OTH,active
+1980SNA19469,Library,Commerical Street,E0041975,Bitterne,UKOS,-1.35474,50.91482,BCT,MKD,OTH,active
+1980SN120474,Library,Bitterne Road East,E0041975,Bitterne,UKOS,-1.35574,50.91452,BCT,MKD,OTH,active
+1980SNA19470,Balaclava Road,Shales Road,E0041975,Bitterne,UKOS,-1.35149,50.9181,BCT,MKD,OTH,active
+1980SNA90945,Balaclava Road,Shales Road,E0041975,Bitterne,UKOS,-1.3518,50.91791,BCT,CUS,OTH,active
+1980SNA19471,Burnham Chase,Taunton Drive,E0041975,Bitterne,UKOS,-1.34771,50.917,BCT,MKD,OTH,active
+1980SNA90946,Burnham Chase,Taunton Drive,E0041975,Bitterne,UKOS,-1.34789,50.91727,BCT,CUS,OTH,active
+1980SNA13670,Avenue Campus,Highfield Road,E0041989,Highfield,UKOS,-1.40418,50.92861,BCT,MKD,OTH,active
+1980SNA13762,Red Jet Terminal,,N0077173,Town Quay,UKOS,-1.40595,50.89476,BCT,MKD,OTH,active
+1980SNA13765,Queen Elizabeth II Terminal,Test Road,E0041983,Eastern Docks,UKOS,-1.39545,50.88549,BCT,CUS,OTH,inactive
+1980SNA13766,Platform Tavern,Town Quay,N0077173,Town Quay,UKOS,-1.40313,50.89623,BCT,MKD,OTH,active
+1980SNA13767,Platform Tavern,Town Quay,N0077173,Town Quay,UKOS,-1.40326,50.89606,BCT,MKD,OTH,active
+1980SNA19472,Dalmally Gardens,Midanbury Lane,E0041975,Bitterne,UKOS,-1.36851,50.92227,BCT,MKD,OTH,active
+1980SN120068,General Hospital,Hospital Grounds,N0080795,Southampton General,UKOS,-1.43428,50.93371,BCT,MKD,OTH,inactive
+1980SNA19482,General Hospital,unamed private road,N0080795,Southampton General,UKOS,-1.43602,50.93406,BCT,MKD,OTH,inactive
+1980SNA19483,Midanbury Crescent,Avon Road,E0042002,Midanbury,UKOS,-1.3662,50.92449,BCT,MKD,OTH,active
+1980SN120108,Furzedown Road,Highfield Avenue,E0041989,Highfield,UKOS,-1.40281,50.93263,BCT,MKD,OTH,active
+1980SN120109,Furzedown Road,Highfield Lane,E0041989,Highfield,UKOS,-1.40198,50.93191,BCT,MKD,OTH,active
+1980SNA19495,Furzedown Road,Highfield Avenue,E0041989,Highfield,UKOS,-1.40286,50.93253,BCT,MKD,OTH,active
+1980SNA19670,Channels Farm Road,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.37756,50.94266,BCT,MKD,OTH,inactive
+1980SNA19671,Channels Farm Road,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.37709,50.94268,BCT,MKD,OTH,inactive
+1980SNA19679,Oasis Academy Mayfield,The Grove,E0042023,Sholing,UKOS,-1.34901,50.89237,BCT,CUS,OTH,inactive
+1980SNA19474,Bracklesham Close,Middle Road,E0042037,Woolston,UKOS,-1.36147,50.89814,BCT,MKD,OTH,active
+1980SNA19475,Itchen College,Middle Road,E0042023,Sholing,UKOS,-1.35648,50.90823,BCT,MKD,OTH,active
+1980SNA19478,Itchen College,Middle Road,E0042023,Sholing,UKOS,-1.35698,50.90744,BCT,MKD,OTH,active
+1980SNA19476,Kenson Gardens,Middle Road,E0042023,Sholing,UKOS,-1.36012,50.90195,BCT,MKD,OTH,active
+1980SN120590,The Sholing Technology College,Middle Road,E0042023,Sholing,UKOS,-1.35889,50.90484,BCT,MKD,OTH,active
+1980SNA19477,The Sholing Technology College,Middle Road,E0042023,Sholing,UKOS,-1.35828,50.90557,BCT,MKD,OTH,active
+1980SN121049,Bassett Green Road,Stoneham Lane,E0042028,Swaythling,UKOS,-1.3805,50.94258,BCT,MKD,OTH,active
+1980SN121048,Bassett Green Road,Stoneham Lane,E0042028,Swaythling,UKOS,-1.38035,50.94258,BCT,MKD,OTH,active
+1980SN121051,BTC Sports Ground,Stoneham Lane,E0042028,Swaythling,UKOS,-1.37744,50.946,BCT,MKD,OTH,active
+1980SN121047,BTC Sports Ground,Stoneham Lane,E0042028,Swaythling,UKOS,-1.3775,50.94604,BCT,MKD,OTH,active
+1980SN121052,Oakmount Avenue,The Avenue,E0041989,Highfield,UKOS,-1.40571,50.9271,BCT,MKD,OTH,active
+1980SN121055,Oakmount Avenue,The Avenue,E0041989,Highfield,UKOS,-1.40559,50.92739,BCT,MKD,OTH,active
+1980SN121053,Avenue Subway,The Avenue,E0041989,Highfield,UKOS,-1.40595,50.92957,BCT,MKD,OTH,active
+1980SN121054,Avenue Subway,The Avenue,E0041989,Highfield,UKOS,-1.4058,50.92997,BCT,MKD,OTH,active
+1980SN120051,Oasis Academy,Romsey Road,N0073217,Lord's Hill,UKOS,-1.4574,50.94092,BCT,MKD,OTH,active
+1980SN121043,Oasis Academy,Romsey Road,N0073217,Lord's Hill,UKOS,-1.45765,50.94144,BCT,MKD,OTH,active
+1980SN121044,Green Lane,Romsey Road,E0042000,Maybush,UKOS,-1.45184,50.93495,BCT,MKD,OTH,active
+1980SN120062,Green Lane,Romsey Road,E0042000,Maybush,UKOS,-1.45115,50.93435,BCT,MKD,OTH,active
+1980SN121045,Maybush Corner,Romsey Road,E0042000,Maybush,UKOS,-1.44865,50.93153,BCT,MKD,OTH,active
+1980SN120196,Maybush Corner,Romsey Road,E0042000,Maybush,UKOS,-1.4476,50.93056,BCT,MKD,OTH,active
+1980SN120194,Maybush Corner,Rownhams Road,E0042000,Maybush,UKOS,-1.44787,50.9314,BCT,MKD,OTH,active
+1980SN121003,Bargate WestQuay,Bargate Street,N0077117,Southampton City Centre,UKOS,-1.40525,50.90273,BCT,MKD,OTH,active
+1980SN121069,Bargate WestQuay,Bargate Street,N0077117,Southampton City Centre,UKOS,-1.40499,50.90271,BCT,MKD,OTH,inactive
+1980SN122003,Tenterton Avenue,Newtown Road,N0073222,Weston,UKOS,-1.35241,50.88884,BCT,MKD,OTH,active
+1980SN122002,Tenterton Avenue,Newtown Road,N0073222,Weston,UKOS,-1.35283,50.88941,BCT,MKD,OTH,active
+1980SN12272B,Portswood Broadway,Portswood Road,E0042013,Portswood,UKOS,-1.39201,50.92642,BCT,MKD,OTH,active
+1980SN12272A,Portswood Broadway,Portswood Road,E0042013,Portswood,UKOS,-1.3921,50.92636,BCT,MKD,OTH,active
+1980SN120273,Portswood Broadway,St Denys Road,E0042013,Portswood,UKOS,-1.39103,50.9264,BCT,MKD,OTH,active
+1980SN12275A,Portswood Broadway,Portswood Road,E0042013,Portswood,UKOS,-1.39212,50.92621,BCT,MKD,OTH,active
+1980SN121062,St Francis Avenue,West End Road,E0041988,Harefield,UKOS,-1.3485,50.92193,BCT,MKD,OTH,active
+1980SN121060,St Francis Avenue,West End Road,E0041988,Harefield,UKOS,-1.34865,50.92201,BCT,MKD,OTH,active
+1980SN121063,Hatley Road,West End Road,E0041988,Harefield,UKOS,-1.35348,50.92153,BCT,MKD,OTH,active
+1980SN121061,Hatley Road,West End Road,E0041988,Harefield,UKOS,-1.3536,50.92146,BCT,MKD,OTH,active
+1980SN121066,Severn Road,Wimpson Lane,N0080447,Millbrook Estate,UKOS,-1.45606,50.92228,BCT,MKD,OTH,active
+1980SN121067,Pickles Copse,Wimpson Lane,N0080447,Millbrook Estate,UKOS,-1.45241,50.92652,BCT,MKD,OTH,active
+1980SN121068,Oakley Road,Wimpson Lane,N0080447,Millbrook Estate,UKOS,-1.45394,50.92467,BCT,MKD,OTH,active
+1980SN121006,Ridgemount Avenue,Bassett Avenue,E0041967,Bassett,UKOS,-1.40571,50.94572,BCT,MKD,OTH,active
+1980SN121010,Ridgemount Avenue,Bassett Avenue,E0041967,Bassett,UKOS,-1.40557,50.94556,BCT,MKD,OTH,active
+1980SN121014,Botley Road,Bursledon Road,E0041990,Hightown,UKOS,-1.32903,50.90021,BCT,MKD,OTH,inactive
+1980SN121015,Botley Road,Bursledon Road,E0041990,Hightown,UKOS,-1.32912,50.90015,BCT,MKD,OTH,inactive
+1980SNA09464,WestQuay,Castle Way,N0077117,Southampton City Centre,UKOS,-1.40541,50.90242,BCT,MKD,OTH,active
+1980HAA13647,WestQuay,Castle Way,N0077117,Southampton City Centre,UKOS,-1.40557,50.9025,BCT,MKD,OTH,active
+1980SN121016,WestQuay,Castle Way,N0077117,Southampton City Centre,UKOS,-1.40551,50.90236,BCT,MKD,OTH,active
+1980SN120P14,Whinchat Close H&R area,Sandpiper Road,N0073217,Lord's Hill,UKOS,-1.43746,50.94748,BCT,HAR,OTH,active
+1980SN121007,Holly Hill,Bassett Avenue,E0041967,Bassett,UKOS,-1.40643,50.94288,BCT,MKD,OTH,active
+1980SN120116,Holly Hill,Bassett Avenue,E0041967,Bassett,UKOS,-1.40653,50.9417,BCT,MKD,OTH,active
+1980SN121008,Saxholm Way,Bassett Avenue,E0041967,Bassett,UKOS,-1.40484,50.94919,BCT,MKD,OTH,active
+1980SN121009,Saxholm Way,Bassett Avenue,E0041967,Bassett,UKOS,-1.40449,50.94991,BCT,MKD,OTH,active
+1980SN12619A,Bargate,Hanover Buildings,N0077117,Southampton City Centre,UKOS,-1.40314,50.9031,BCT,MKD,OTH,active
+1980SN121033,Ashley Crescent,Portsmouth Road,E0042023,Sholing,UKOS,-1.34377,50.89295,BCT,MKD,OTH,active
+1980SN121035,Ashley Crescent,Portsmouth Road,E0042023,Sholing,UKOS,-1.34458,50.89308,BCT,MKD,OTH,active
+1980SN121038,Redbridge Fire Station,Redbridge Hill,N0080447,Millbrook Estate,UKOS,-1.44816,50.92681,BCT,MKD,OTH,active
+1980SN121036,Redbridge Fire Station,Redbridge Hill,N0080447,Millbrook Estate,UKOS,-1.44762,50.92664,BCT,MKD,OTH,active
+1980SN121041,Holy Family Church,Redbridge Hill,N0080447,Millbrook Estate,UKOS,-1.45018,50.92686,BCT,MKD,OTH,active
+1980SN121039,Holy Family Church,Redbridge Hill,N0080447,Millbrook Estate,UKOS,-1.4506,50.92676,BCT,MKD,OTH,active
+1980SN121037,Irving Road,Redbridge Hill,N0080447,Millbrook Estate,UKOS,-1.44538,50.92664,BCT,MKD,OTH,active
+1980SN121040,Irving Road,Redbridge Hill,N0080447,Millbrook Estate,UKOS,-1.44469,50.92649,BCT,MKD,OTH,active
+1980SN121025,Regents Park Road,Millbrook Road West,E0042004,Millbrook,UKOS,-1.44396,50.91357,BCT,MKD,OTH,active
+1980HA121024,Regents Park Road,Millbrook Road West,E0042004,Millbrook,UKOS,-1.44418,50.91323,BCT,MKD,OTH,active
+1980SN121026,King Georges Avenue,Millbrook Road West,E0042004,Millbrook,UKOS,-1.44875,50.91402,BCT,MKD,OTH,active
+1980SN121027,King Georges Avenue,Millbrook Road West,E0042004,Millbrook,UKOS,-1.44967,50.91405,BCT,MKD,OTH,active
+1980SN121031,Marlands,Portland Terrace,N0077117,Southampton City Centre,UKOS,-1.40632,50.90564,BCT,MKD,OTH,active
+1980SN120553,ASDA & Marlands,Portland Terrace,N0077117,Southampton City Centre,UKOS,-1.40666,50.90599,BCT,MKD,OTH,active
+1980SN12619C,Vincent's Walk,Vincents Walk,N0077117,Southampton City Centre,UKOS,-1.40326,50.90454,BCT,MKD,OTH,active
+1980SN12619D,Vincent's Walk,Vincent's Walk,N0077117,Southampton City Centre,UKOS,-1.40265,50.90367,BCT,MKD,OTH,active
+1980SN12619E,Vincent's Walk,Vincent's Walk,N0077117,Southampton City Centre,UKOS,-1.40268,50.90348,BCT,MKD,OTH,active
+1980SN12616C,Vincent's Walk,Vincent's Walk,N0077117,Southampton City Centre,UKOS,-1.4026,50.90391,BCT,MKD,OTH,active
+1980SN12618A,Vincent's Walk,Vincent's Walk,N0077117,Southampton City Centre,UKOS,-1.40254,50.90469,BCT,MKD,OTH,active
+1980SN12618B,Vincent's Walk,Vincent's Walk,N0077117,Southampton City Centre,UKOS,-1.40256,50.90411,BCT,MKD,OTH,active
+1980HAA13371,Vincent's Walk,Vincent's Walk,N0077117,Southampton City Centre,UKOS,-1.40276,50.90397,BCT,MKD,OTH,active
+1980SN12618C,Vincent's Walk,Vincent's Walk,N0077117,Southampton City Centre,UKOS,-1.40279,50.90381,BCT,MKD,OTH,active
+1980SN12616A,Pound Tree Road,Pound Tree Road,N0077117,Southampton City Centre,UKOS,-1.40243,50.90505,BCT,MKD,OTH,inactive
+1980SN12617C,Pound Tree Road,Pound Tree Road,N0077117,Southampton City Centre,UKOS,-1.40236,50.9049,BCT,MKD,OTH,inactive
+1980SN12617A,Pound Tree Road,Pound Tree Road,N0077117,Southampton City Centre,UKOS,-1.40265,50.90504,BCT,MKD,OTH,inactive
+1980SN12616B,Pound Tree Road,Pound Tree Road,N0077117,Southampton City Centre,UKOS,-1.40186,50.90504,BCT,MKD,OTH,inactive
+1980SN12616E,Pound Tree Road,Pound Tree Road,N0077117,Southampton City Centre,UKOS,-1.40145,50.90505,BCT,MKD,OTH,inactive
+1980SN12616D,Pound Tree Road,Pound Tree Road,N0077117,Southampton City Centre,UKOS,-1.40181,50.90488,BCT,MKD,OTH,active
+1980SNA09195,King Edward School,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41503,50.92233,BCT,MKD,OTH,active
+1980SN120519,Central Station,Wyndham Place,N0077117,Southampton City Centre,UKOS,-1.41282,50.90814,BCT,MKD,OTH,active
+1980SN12518A,Central Station,Blechynden Terrace,N0077117,Southampton City Centre,UKOS,-1.41228,50.90794,BCT,MKD,OTH,inactive
+1980SN120518,Central Station,Wyndham Place,N0077117,Southampton City Centre,UKOS,-1.41299,50.90842,BCT,MKD,OTH,active
+1980SNA09196,Central Station,Wyndham Place,N0077117,Southampton City Centre,UKOS,-1.41283,50.90838,BCT,MKD,OTH,active
+1980SNA09197,Warren Aveune,Tremona Road,E0042020,Shirley Warren,UKOS,-1.4369,50.92883,BCT,MKD,OTH,active
+1980HAA13377,Norcliffe Road,Westwood Road,E0042013,Portswood,UKOS,-1.40318,50.9224,BCT,MKD,OTH,inactive
+1980SNA09201,Norcliffe Road,Westwood Road,E0042013,Portswood,UKOS,-1.40305,50.92233,BCT,MKD,OTH,inactive
+1980SNA09207,Aldermoor Turning Circle,Aldermoor Road,E0041997,Lordswood,UKOS,-1.42881,50.93951,BCT,MKD,OTH,active
+1980SNA09017,Wellington Court,Waterloo Road,E0041986,Freemantle,UKOS,-1.42091,50.91042,BCT,MKD,OTH,active
+1980SN12369B,Park Street,Park Street,E0042018,Shirley,UKOS,-1.43443,50.92258,BCT,MKD,OTH,active
+1980SN12370A,Park Street,Park Street,E0042018,Shirley,UKOS,-1.43443,50.92248,BCT,MKD,OTH,active
+1980SN12370B,Park Street,Park Street,E0042018,Shirley,UKOS,-1.43472,50.92233,BCT,MKD,OTH,active
+1980SN12369A,Park Street,Park Street,E0042018,Shirley,UKOS,-1.43459,50.9225,BCT,MKD,OTH,inactive
+1980HA120420,Bullar Road,Bitterne Road West,E0041975,Bitterne,UKOS,-1.37588,50.91765,BCT,MKD,OTH,active
+1980SN12426C,Bullar Road,Bullar Road,E0041975,Bitterne,UKOS,-1.3739,50.91836,BCT,MKD,OTH,active
+1980SN12441A,Art Gallery,Commercial Road,N0077117,Southampton City Centre,UKOS,-1.40627,50.9088,BCT,MKD,OTH,active
+1980SN12441B,Art Gallery,Commercial Road,N0077117,Southampton City Centre,UKOS,-1.40678,50.90883,BCT,MKD,OTH,active
+1980SN120523,Art Gallery,Commercial Road,N0077117,Southampton City Centre,UKOS,-1.40728,50.90892,BCT,MKD,OTH,active
+1980SN12368B,Shirley Precinct,Shirley High Street,E0042018,Shirley,UKOS,-1.43505,50.92346,BCT,MKD,OTH,active
+1980SN120367,Shirley Precinct,Shirley High Street,E0042018,Shirley,UKOS,-1.43491,50.92357,BCT,MKD,OTH,active
+1980SN12367A,Shirley Precinct,Shirley High Street,E0042018,Shirley,UKOS,-1.43507,50.92369,BCT,MKD,OTH,active
+1980SN12368A,Shirley Precinct,Shirley High Street,E0042018,Shirley,UKOS,-1.43474,50.92322,BCT,MKD,OTH,active
+1980SN12367B,Mcdonalds,Shirley Road,E0042018,Shirley,UKOS,-1.42897,50.91891,BCT,MKD,OTH,active
+1980SN120494,Christ Church,Waterloo Road,E0041986,Freemantle,UKOS,-1.42757,50.91131,BCT,MKD,OTH,active
+1980SN12493A,Christ Church,Waterloo Road,E0041986,Freemantle,UKOS,-1.42773,50.91125,BCT,MKD,OTH,active
+1980SN12544B,Solent University,New Road,N0077117,Southampton City Centre,UKOS,-1.39923,50.90743,BCT,MKD,OTH,active
+1980SN120545,Solent University,New Road,N0077117,Southampton City Centre,UKOS,-1.39988,50.90713,BCT,MKD,OTH,active
+1980SN120913,Solent University,East Park Terrace,N0077117,Southampton City Centre,UKOS,-1.40167,50.90802,BCT,MKD,OTH,active
+1980SN120914,Solent University,East Park Terrace,N0077117,Southampton City Centre,UKOS,-1.40152,50.90855,BCT,MKD,OTH,active
+1980SN12550C,Princes Street,Northam Road,E0042008,Northam,UKOS,-1.38793,50.91245,BCT,MKD,OTH,active
+1980SN12550B,Princes Street,Northam Road,E0042008,Northam,UKOS,-1.38797,50.91236,BCT,MKD,OTH,active
+1980SN12524D,Cenotaph,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.4049,50.91,BCT,MKD,OTH,active
+1980SN120525,Cenotaph,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.40472,50.90942,BCT,MKD,OTH,active
+1980SN12524B,Cenotaph,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.40485,50.90952,BCT,MKD,OTH,active
+1980SN12532A,Above Bar,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.40453,50.90575,BCT,MKD,OTH,active
+1980SN12531B,Above Bar,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.40454,50.90599,BCT,MKD,OTH,active
+1980SN12617B,Above Bar,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.40458,50.90638,BCT,MKD,OTH,active
+1980SN12531A,Above Bar,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.40457,50.90619,BCT,MKD,OTH,active
+1980SN12532B,Above Bar,Above Bar Street,N0077117,Southampton City Centre,UKOS,-1.40432,50.90566,BCT,MKD,OTH,active
+1980SN120090,Aldermoor Shops,Lords Hill Way,E0041997,Lordswood,UKOS,-1.42918,50.94063,BCT,MKD,OTH,active
+1980SN120089,Aldermoor Shops,Lords Hill Way,E0041997,Lordswood,UKOS,-1.4291,50.94071,BCT,MKD,OTH,active
+1980SN120094,Dunkirk Road,Lordswood Road,E0042031,Upper Shirley,UKOS,-1.42367,50.9372,BCT,MKD,OTH,active
+1980SN120093,Dunkirk Road,Lordswood Road,E0042031,Upper Shirley,UKOS,-1.42471,50.93777,BCT,MKD,OTH,active
+1980SNA90927,Dunkirk Road,Dale Valley Road,E0042031,Upper Shirley,UKOS,-1.42428,50.93707,BCT,MKD,OTH,active
+1980SN120096,Sports Centre,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41956,50.93533,BCT,MKD,OTH,active
+1980SN120095,Sports Centre,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41917,50.93498,BCT,MKD,OTH,active
+1980SN120979,General Hospital,Coxford Road,E0042020,Shirley Warren,UKOS,-1.43424,50.93484,BCT,MKD,OTH,active
+1980SN120083,General Hospital,Coxford Road,E0042020,Shirley Warren,UKOS,-1.43349,50.93506,BCT,MKD,OTH,active
+1980SN120082,General Hospital and Cemetery,Tremona Road,N0080795,Southampton General,UKOS,-1.43324,50.93457,BCT,MKD,OTH,active
+1980SN120084,General Hospital and Cemetery,Tremona Road,N0080795,Southampton General,UKOS,-1.43202,50.93412,BCT,MKD,OTH,active
+1980SN120085,Springford Crescent,Coxford Road,E0041964,Aldermoor,UKOS,-1.43098,50.93655,BCT,MKD,OTH,active
+1980SN120086,Springford Crescent,Coxford Road,E0041964,Aldermoor,UKOS,-1.4305,50.93693,BCT,MKD,OTH,active
+1980SN120087,Aldermoor Shops,Aldermoor Road,E0041964,Aldermoor,UKOS,-1.42932,50.94041,BCT,MKD,OTH,active
+1980SN120088,Aldermoor Shops,Aldermoor Road,E0041964,Aldermoor,UKOS,-1.4303,50.94045,BCT,MKD,OTH,active
+1980SN120111,Great Oaks School,Winchester Road,E0041967,Bassett,UKOS,-1.40829,50.94024,BCT,MKD,OTH,active
+1980SN120114,Great Oaks School,Winchester Road,E0041967,Bassett,UKOS,-1.40792,50.9403,BCT,MKD,OTH,active
+1980SN120112,Butterfield Road,Winchester Road,E0041967,Bassett,UKOS,-1.41189,50.93818,BCT,MKD,OTH,active
+1980SN120113,Butterfield Road,Winchester Road,E0041967,Bassett,UKOS,-1.41271,50.9375,BCT,MKD,OTH,active
+1980SN120117,Bassett Crescent,Bassett Avenue,E0041967,Bassett,UKOS,-1.40684,50.93908,BCT,MKD,OTH,active
+1980SN120115,Bassett Crescent,Bassett Avenue,E0041967,Bassett,UKOS,-1.40669,50.93925,BCT,MKD,OTH,active
+1980SN120097,Hill Lane,Winchester Road,E0042031,Upper Shirley,UKOS,-1.41809,50.93481,BCT,MKD,OTH,active
+1980SN120098,Hill Lane,Winchester Road,E0042031,Upper Shirley,UKOS,-1.41818,50.93462,BCT,MKD,OTH,active
+1980SN120099,Burgess Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41825,50.93338,BCT,MKD,OTH,active
+1980SN120100,Burgess Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41837,50.93332,BCT,MKD,OTH,active
+1980SN120102,Vine Road,Coxford Road,N0080795,Southampton General,UKOS,-1.43745,50.93408,BCT,MKD,OTH,active
+1980SN120054,Baronsmead,Lower Brownhill Road,N0073217,Lord's Hill,UKOS,-1.45519,50.9363,BCT,MKD,OTH,active
+1980SN120055,Baronsmead,Lower Brownhill Road,N0073217,Lord's Hill,UKOS,-1.45469,50.93633,BCT,MKD,OTH,active
+1980SN120056,Mercury Close,Upper Brownhill Road,N0073217,Lord's Hill,UKOS,-1.45129,50.93717,BCT,MKD,OTH,active
+1980SN120057,Gemini Close,Upper Brownhill Road,N0073217,Lord's Hill,UKOS,-1.44921,50.93769,BCT,MKD,OTH,active
+1980SN120059,Gemini Close,Upper Brownhill Road,N0073217,Lord's Hill,UKOS,-1.44962,50.93752,BCT,MKD,OTH,active
+1980SN120061,Alder Road,Upper Brownhill Road,N0073217,Lord's Hill,UKOS,-1.44708,50.93815,BCT,MKD,OTH,active
+1980SN120066,Olive Road,Aldermoor Road,N0073217,Lord's Hill,UKOS,-1.44404,50.93886,BCT,MKD,OTH,active
+1980SN120063,Olive Road,Aldermoor Road,N0073217,Lord's Hill,UKOS,-1.44527,50.93867,BCT,MKD,OTH,active
+1980SN120049,Library,Lord's Hill Centre West,N0073217,Lord's Hill,UKOS,-1.44985,50.93978,BCT,MKD,OTH,active
+1980SN120048,Library,Lord's Hill Centre West,N0073217,Lord's Hill,UKOS,-1.4497,50.93982,BCT,MKD,OTH,active
+1980SNA90935,Library,Lord's Hill Centre East,N0073217,Lord's Hill,UKOS,-1.44872,50.93967,BCT,MKD,OTH,active
+1980SN120050,Andromeda Road,Lord's Hill Way,N0073217,Lord's Hill,UKOS,-1.45254,50.94019,BCT,MKD,OTH,active
+1980SN120043,Andromeda Road,Lord's Hill Way,N0073217,Lord's Hill,UKOS,-1.45275,50.94039,BCT,MKD,OTH,active
+1980SN120053,Corbiere Close,Lower Brownhill Road,E0042000,Maybush,UKOS,-1.45829,50.93549,BCT,MKD,OTH,active
+1980SN120052,Corbiere Close,Lower Brownhill Road,E0042000,Maybush,UKOS,-1.45893,50.93543,BCT,MKD,OTH,active
+1980SN120071,Springford Road,Aldermoor Road,E0041964,Aldermoor,UKOS,-1.43393,50.94072,BCT,MKD,OTH,active
+1980SN120065,Springford Road,Aldermoor Road,E0041964,Aldermoor,UKOS,-1.43356,50.94067,BCT,MKD,OTH,active
+1980SN120072,Outer Circle,Aldermoor Avenue,E0041964,Aldermoor,UKOS,-1.43883,50.93653,BCT,MKD,OTH,inactive
+1980SN120073,Outer Circle,Aldermoor Avenue,E0041964,Aldermoor,UKOS,-1.43903,50.93645,BCT,MKD,OTH,inactive
+1980SN120076,Willow Court,Palm Road,E0041964,Aldermoor,UKOS,-1.44243,50.93589,BCT,MKD,OTH,inactive
+1980SN120077,Willow Court,Palm Road,E0041964,Aldermoor,UKOS,-1.44257,50.93579,BCT,MKD,OTH,inactive
+1980SN120078,Alder Road,Coxford Drove,E0042000,Maybush,UKOS,-1.44467,50.93392,BCT,MKD,OTH,inactive
+1980SN120079,Alder Road,Coxford Drove,E0042000,Maybush,UKOS,-1.44476,50.93369,BCT,MKD,OTH,inactive
+1980SN120080,Laundry Road,Warren Avenue,E0042020,Shirley Warren,UKOS,-1.44037,50.93277,BCT,MKD,OTH,active
+1980SN120081,Laundry Road,Warren Avenue,E0042020,Shirley Warren,UKOS,-1.44055,50.93328,BCT,MKD,OTH,active
+1980SN120067,Aldermoor Avenue,Aldermoor Avenue,E0041964,Aldermoor,UKOS,-1.44054,50.93898,BCT,MKD,OTH,inactive
+1980SN120069,Aldermoor Avenue,Aldermoor Road,E0041964,Aldermoor,UKOS,-1.44162,50.9395,BCT,MKD,OTH,active
+1980HAA13386,Walnut Avenue,Wide Lane,E0042028,Swaythling,UKOS,-1.37143,50.94329,BCT,MKD,OTH,active
+1980SN120164,Walnut Avenue,Wide Lane,E0042028,Swaythling,UKOS,-1.37174,50.94292,BCT,MKD,OTH,active
+1980SN120177,The Saints,Kendal Avenue,N0080447,Millbrook Estate,UKOS,-1.46305,50.92934,BCT,MKD,OTH,active
+1980SN120175,The Saints,Windermere Avenue,N0080447,Millbrook Estate,UKOS,-1.46226,50.93017,BCT,MKD,OTH,active
+1980SN120179,Sedbergh Road,Kendal Avenue,N0080447,Millbrook Estate,UKOS,-1.46411,50.92616,BCT,MKD,OTH,active
+1980SN120178,Sedbergh Road,Kendal Avenue,N0080447,Millbrook Estate,UKOS,-1.46425,50.92683,BCT,MKD,OTH,active
+1980SN120158,Mayfield Road,Portswood Road,E0042028,Swaythling,UKOS,-1.38247,50.9339,BCT,MKD,OTH,active
+1980SN120157,Mayfield Road,Portswood Road,E0042028,Swaythling,UKOS,-1.38186,50.93454,BCT,MKD,OTH,active
+1980SN120159,Sirdar Road,Portswood Road,E0042028,Swaythling,UKOS,-1.38385,50.93289,BCT,MKD,OTH,active
+1980SN120287,Sirdar Road,Portswood Road,E0042028,Swaythling,UKOS,-1.38382,50.93271,BCT,MKD,OTH,active
+1980SN120163,Swaythling Station,Wessex Lane,E0042028,Swaythling,UKOS,-1.37501,50.94167,BCT,MKD,OTH,active
+1980SN120162,Swaythling Station,Wessex Lane,E0042028,Swaythling,UKOS,-1.37505,50.94176,BCT,MKD,OTH,active
+1980SN120187,Borrowdale Road,Windermere Avenue,N0080447,Millbrook Estate,UKOS,-1.45389,50.92758,BCT,MKD,OTH,active
+1980SN120186,Borrowdale Road,Windermere Avenue,N0080447,Millbrook Estate,UKOS,-1.45396,50.9277,BCT,MKD,OTH,active
+1980SN120188,Maybush Road,Wimpson Lane,E0042000,Maybush,UKOS,-1.44887,50.92975,BCT,MKD,OTH,active
+1980SN120203,Maybush Court,Romsey Road,E0042000,Maybush,UKOS,-1.44521,50.92827,BCT,MKD,OTH,active
+1980SN120204,Maybush Court,Romsey Road,E0042000,Maybush,UKOS,-1.44477,50.92785,BCT,MKD,OTH,active
+1980SN120207,Arliss Road,Romsey Road,E0042000,Maybush,UKOS,-1.44339,50.92695,BCT,MKD,OTH,active
+1980SN120208,Arliss Road,Romsey Road,E0042000,Maybush,UKOS,-1.44367,50.92727,BCT,MKD,OTH,active
+1980SN120180,Kendal Avenue Shops,Kendal Avenue,N0080447,Millbrook Estate,UKOS,-1.46372,50.9244,BCT,MKD,OTH,active
+1980SN120181,Kendal Avenue Shops,Kendal Avenue,N0080447,Millbrook Estate,UKOS,-1.46386,50.92432,BCT,MKD,OTH,active
+1980SN120182,Millbrook Tower,Windermere Avenue,N0080447,Millbrook Estate,UKOS,-1.45852,50.93013,BCT,MKD,OTH,active
+1980SN120183,Millbrook Tower,Windermere Avenue,N0080447,Millbrook Estate,UKOS,-1.45917,50.93026,BCT,MKD,OTH,active
+1980SN120185,Ullswater Road,Windermere Avenue,N0080447,Millbrook Estate,UKOS,-1.45596,50.92855,BCT,MKD,OTH,active
+1980SN120184,Ullswater Road,Windermere Avenue,N0080447,Millbrook Estate,UKOS,-1.45653,50.92878,BCT,MKD,OTH,active
+1980SN120128,Glen Eyre Road,Burgess Road,E0041967,Bassett,UKOS,-1.39992,50.93762,BCT,MKD,OTH,active
+1980SN120127,Glen Eyre Road,Burgess Road,E0041967,Bassett,UKOS,-1.40069,50.9375,BCT,MKD,OTH,active
+1980SN120136,Library,Burgess Road,E0041989,Highfield,UKOS,-1.39393,50.93819,BCT,MKD,OTH,active
+1980SN120131,Library,Burgess Road,E0041989,Highfield,UKOS,-1.3959,50.93811,BCT,MKD,OTH,active
+1980SN120134,Future Worlds,University Road,E0041989,Highfield,UKOS,-1.39632,50.9377,BCT,MKD,OTH,active
+1980SN120145,Tulip Road,Burgess Road,E0042028,Swaythling,UKOS,-1.38784,50.93855,BCT,MKD,OTH,active
+1980SN120137,Tulip Road,Burgess Road,E0042028,Swaythling,UKOS,-1.38868,50.93866,BCT,MKD,OTH,active
+1980SN120118,Bassett Crossroads,Bassett Avenue,E0041967,Bassett,UKOS,-1.40666,50.93701,BCT,MKD,OTH,active
+1980SN120119,Bassett Crossroads,Bassett Avenue,E0041967,Bassett,UKOS,-1.40647,50.93683,BCT,MKD,OTH,active
+1980SN120125,Hartley Grove,Glen Eyre Road,E0041967,Bassett,UKOS,-1.40096,50.94092,BCT,MKD,OTH,active
+1980SN120124,Hartley Grove,Glen Eyre Road,E0041967,Bassett,UKOS,-1.40096,50.94125,BCT,MKD,OTH,active
+1980SN120138,Lilac Road,Honeysuckle Road,E0041968,Bassett Green,UKOS,-1.39213,50.93906,BCT,MKD,OTH,inactive
+1980SN120147,Aster Road,Burgess Road,E0042028,Swaythling,UKOS,-1.38507,50.93841,BCT,MKD,OTH,active
+1980SN120146,Aster Road,Burgess Road,E0042028,Swaythling,UKOS,-1.38393,50.93854,BCT,MKD,OTH,active
+1980HAA13379,Aster Road,Langhorn Road,E0042028,Swaythling,UKOS,-1.38362,50.93808,BCT,MKD,OTH,active
+1980SN120148,Market Buildings,Stoneham Lane,E0042028,Swaythling,UKOS,-1.37979,50.94045,BCT,MKD,OTH,active
+1980SN120149,Market Buildings,Stoneham Lane,E0042028,Swaythling,UKOS,-1.37972,50.94062,BCT,MKD,OTH,active
+1980SN120151,McDonalds,High Road,E0042028,Swaythling,UKOS,-1.38009,50.93855,BCT,MKD,OTH,active
+1980SN120150,McDonalds,High Road,E0042028,Swaythling,UKOS,-1.38015,50.93893,BCT,MKD,OTH,active
+1980SN12151A,McDonalds,Burgess Road,E0042028,Swaythling,UKOS,-1.38076,50.9393,BCT,CUS,OTH,inactive
+1980SNA90913,McDonalds,Burgess Road,E0042028,Swaythling,UKOS,-1.38068,50.93915,BCT,CUS,OTH,active
+1980SN120153,Woodmill Lane,High Road,E0042028,Swaythling,UKOS,-1.38046,50.93702,BCT,MKD,OTH,active
+1980HA120154,Woodmill Lane,Portswood Road,E0042028,Swaythling,UKOS,-1.38088,50.9358,BCT,MKD,OTH,active
+1980SN120139,Bealing Close,Burgess Road,E0041989,Highfield,UKOS,-1.39075,50.93857,BCT,MKD,OTH,active
+1980SN120140,Bealing Close,Burgess Road,E0041989,Highfield,UKOS,-1.39182,50.93839,BCT,MKD,OTH,active
+1980SN120141,Daisy Dip,Lobelia Road,E0041968,Bassett Green,UKOS,-1.3886,50.94064,BCT,MKD,OTH,active
+1980SN120143,Daisy Road,Lobelia Road,E0041968,Bassett Green,UKOS,-1.38846,50.94054,BCT,CUS,OTH,inactive
+1980SN120142,Carnation Road,Lobelia Road,E0041968,Bassett Green,UKOS,-1.38842,50.94151,BCT,MKD,OTH,active
+1980SN120144,Woodcote Road,Burgess Road,E0042028,Swaythling,UKOS,-1.38683,50.93859,BCT,MKD,OTH,active
+1980SN120045,Lord's Hill Centre,Lord's Hill Way,N0073217,Lord's Hill,UKOS,-1.45134,50.94172,BCT,MKD,OTH,active
+1980SN120046,Lord's Hill Centre,Lord's Hill Way,N0073217,Lord's Hill,UKOS,-1.45,50.94193,BCT,MKD,OTH,active
+1980SN120047,Lord's Hill Centre,Lord's Hill Way,N0073217,Lord's Hill,UKOS,-1.45027,50.94183,BCT,MKD,OTH,active
+1980HA120721,Swift Road,Archery Road,E0042037,Woolston,UKOS,-1.37541,50.89149,BCT,MKD,OTH,active
+1980HA120720,Swift Road,Archery Road,E0042037,Woolston,UKOS,-1.3752,50.89122,BCT,MKD,OTH,active
+1980HA120746,Duncan Close,Weston Lane,N0073222,Weston,UKOS,-1.37159,50.88803,BCT,MKD,OTH,active
+1980HA120777,Browning Avenue,Hinkler Road,E0042030,Thornhill Park,UKOS,-1.33089,50.9143,BCT,MKD,OTH,active
+1980HA120776,Browning Avenue,Hinkler Road,E0042030,Thornhill Park,UKOS,-1.33109,50.91463,BCT,MKD,OTH,active
+1980HA121017,Chilworth Roundabout,Bassett Avenue,E0041967,Bassett,UKOS,-1.40443,50.95217,BCT,MKD,OTH,active
+1980HA120625,Holyrood Church,High Street,N0077117,Southampton City Centre,UKOS,-1.40399,50.90006,BCT,MKD,OTH,active
+1980HA120626,Holyrood Church,High Street,N0077117,Southampton City Centre,UKOS,-1.40376,50.89999,BCT,MKD,OTH,active
+1980HAA13373,Cranleigh House,Westwood Road,E0042013,Portswood,UKOS,-1.40142,50.92301,BCT,MKD,OTH,inactive
+1980HAA13374,Cranleigh House,Westwood Road,E0042013,Portswood,UKOS,-1.40116,50.92325,BCT,MKD,OTH,inactive
+1980HAA13375,Elm Court,Westwood Road,E0042013,Portswood,UKOS,-1.39786,50.92469,BCT,MKD,OTH,inactive
+1980HAA13376,Elm Court,Westwood Road,E0042013,Portswood,UKOS,-1.39763,50.92465,BCT,MKD,OTH,inactive
+1980HAA13381,High Road,Langhorn Road,E0042028,Swaythling,UKOS,-1.38163,50.93701,BCT,MKD,OTH,active
+1980HAA13380,High Road,Langhorn Road,E0042028,Swaythling,UKOS,-1.38163,50.93712,BCT,MKD,OTH,active
+1980HA121056,Moorhill Gardens,Thornhill Park Road,E0042030,Thornhill Park,UKOS,-1.32928,50.91469,BCT,MKD,OTH,active
+1980HA121057,Moorhill Gardens,Thornhill Park Road,E0042030,Thornhill Park,UKOS,-1.32892,50.91468,BCT,MKD,OTH,active
+1980HA122972,Redbridge Roundabout,Redbridge Causeway,E0042016,Redbridge,UKOS,-1.47158,50.92226,BCT,MKD,OTH,active
+1980SN120843,Redbridge Roundabout,Redbridge Causeway,E0042016,Redbridge,UKOS,-1.46885,50.92168,BCT,MKD,OTH,active
+1980HA12549A,Coach Station,,N0077117,Southampton City Centre,UKOS,-1.40936,50.90597,BCT,MKD,OTH,active
+1980HA120323,Townhill Way,Meggeson Avenue,E0042002,Midanbury,UKOS,-1.35506,50.92671,BCT,MKD,OTH,active
+1980HA120324,Townhill Way,Meggeson Avenue,E0042002,Midanbury,UKOS,-1.35475,50.92635,BCT,MKD,OTH,active
+1980HA120416,Quayside Road,Bitterne Road West,N0077162,Bitterne Manor,UKOS,-1.38344,50.91743,BCT,MKD,OTH,active
+1980HA120417,Quayside Road,Bitterne Road,N0077162,Bitterne Manor,UKOS,-1.3838,50.91675,BCT,MKD,OTH,active
+1980HA120419,Rampart Road,Bitterne Road West,N0077162,Bitterne Manor,UKOS,-1.37932,50.91811,BCT,MKD,OTH,active
+1980HA120418,Rampart Road,Bitterne Road West,N0077162,Bitterne Manor,UKOS,-1.3803,50.91792,BCT,MKD,OTH,active
+1980HA120303,Belmont Road,St Denys' Road,E0042013,Portswood,UKOS,-1.38833,50.92518,BCT,MKD,OTH,active
+1980SN120302,Belmont Road,St Denys' Road,E0042013,Portswood,UKOS,-1.38849,50.92529,BCT,MKD,OTH,active
+1980HA120304,St Denys Church,St Denys Road,E0042026,St Denys,UKOS,-1.38237,50.92486,BCT,MKD,OTH,active
+1980HA120305,St Denys Church,St Denys' Road,E0042026,St Denys,UKOS,-1.38297,50.9249,BCT,MKD,OTH,active
+1980HA120307,Priory Road,St Denys' Road,N0073216,Bitterne Park,UKOS,-1.38053,50.92444,BCT,MKD,OTH,active
+1980HA120306,Priory Road,St Denys' Road,N0073216,Bitterne Park,UKOS,-1.38043,50.92453,BCT,MKD,OTH,active
+1980HA120546,Red Funnel Terminal,,N0077173,Town Quay,UKOS,-1.40491,50.89615,BCT,MKD,OTH,active
+1980HAA13580,Red Funnel Terminal,,N0077173,Town Quay,UKOS,-1.40471,50.89612,BCT,MKD,OTH,active
+1980HA120611,Fairfax Court,Hinkler Road,N0073220,Thornhill,UKOS,-1.32886,50.91213,BCT,MKD,OTH,active
+1980HA120610,Fairfax Court,Hinkler Road,N0073220,Thornhill,UKOS,-1.32923,50.91224,BCT,MKD,OTH,active
+1980HA120613,Holcroft Road,Hinkler Road,N0073220,Thornhill,UKOS,-1.32778,50.90934,BCT,MKD,OTH,active
+1980HA120612,Holcroft Road,Hinkler Road,N0073220,Thornhill,UKOS,-1.32771,50.90921,BCT,MKD,OTH,active
+1980HA120462,Melchet Road,Beauworth Avenue,E0041988,Harefield,UKOS,-1.34275,50.92286,BCT,MKD,OTH,active
+1980HA120464,Fritham Road,Minstead Avenue,E0041988,Harefield,UKOS,-1.33967,50.92095,BCT,MKD,OTH,inactive
+1980HA120465,Hare and Hounds,Cheriton Avenue,E0041988,Harefield,UKOS,-1.33536,50.91925,BCT,MKD,OTH,inactive
+1980HA120466,Hare and Hounds,Minstead Avenue,E0041988,Harefield,UKOS,-1.33545,50.9197,BCT,MKD,OTH,active
+1980HA120481,Waterhouse Lane,Millbrook Road West,E0041986,Freemantle,UKOS,-1.43627,50.91277,BCT,MKD,OTH,active
+1980HA120483,Millbrook Station,Paynes Road,E0041986,Freemantle,UKOS,-1.434,50.91179,BCT,MKD,OTH,active
+1980HA120482,Millbrook Station,Millbrook Road West,E0041986,Freemantle,UKOS,-1.43335,50.9119,BCT,MKD,OTH,active
+1980SN120010,Kinloss Court,Lords Hill Way,N0073217,Lord's Hill,UKOS,-1.44444,50.94348,BCT,MKD,OTH,active
+1980SN120011,Kinloss Court,Lords Hill Way,N0073217,Lord's Hill,UKOS,-1.44341,50.94325,BCT,MKD,OTH,active
+1980HAA13389,Tanners Brook,Lord's Hill Way,E0041997,Lordswood,UKOS,-1.43745,50.94227,BCT,MKD,OTH,active
+1980SN120013,Tanners Brook,Lord's Hill Way,E0041997,Lordswood,UKOS,-1.43668,50.94264,BCT,MKD,OTH,active
+1980SN120014,Woburn Road Flyover,Lords Hill Way,E0041997,Lordswood,UKOS,-1.43206,50.94366,BCT,MKD,OTH,active
+1980HAA13388,Woburn Road Flyover,Lord's Hill Way,E0041997,Lordswood,UKOS,-1.4321,50.9434,BCT,MKD,OTH,active
+1980SN120004,Royal South Hants Hospital,The Grounds,E0042007,Nicholstown,UKOS,-1.39669,50.91295,BCT,MKD,OTH,inactive
+1980SN120006,Crabwood Road,Wimpson Lane,E0042000,Maybush,UKOS,-1.45004,50.9287,BCT,MKD,OTH,active
+1980SN120007,Crabwood Road,Wimpson Lane,E0042000,Maybush,UKOS,-1.45044,50.9282,BCT,MKD,OTH,active
+1980SN120009,Blackbushe Close,Lords Hill Way,N0073217,Lord's Hill,UKOS,-1.44799,50.94348,BCT,MKD,OTH,active
+1980SN120008,Blackbushe Close,Lords Hill Way,N0073217,Lord's Hill,UKOS,-1.44826,50.94355,BCT,MKD,OTH,active
+1980SN120041,Boniface Crescent,Lower Brownhill Road,E0042000,Maybush,UKOS,-1.46122,50.93487,BCT,MKD,OTH,active
+1980SN120042,Boniface Crescent,Lower Brownhill Road,E0042000,Maybush,UKOS,-1.46212,50.93455,BCT,MKD,OTH,active
+1980SN120031,Poppy Road,Lobelia Road,E0041968,Bassett Green,UKOS,-1.38802,50.94377,BCT,MKD,OTH,active
+1980SN120028,Poppy Road,Lobelia Road,E0041968,Bassett Green,UKOS,-1.38791,50.94357,BCT,CUS,OTH,inactive
+1980SN120032,Binstead Close,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.38497,50.9436,BCT,MKD,OTH,active
+1980SNA90967,Binstead Close,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.38551,50.94355,BCT,MKD,OTH,active
+1980SN120034,Leaside Way,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.38182,50.94341,BCT,MKD,OTH,active
+1980SNA90966,Leaside Way,Bassett Green Road,E0041968,Bassett Green,UKOS,-1.38231,50.94334,BCT,MKD,OTH,active
+1980HAA13648,Leisure World,West Quay Road,N0077117,Southampton City Centre,UKOS,-1.41195,50.90298,BCT,MKD,OTH,inactive
+1980HAA13649,Leisure World,West Quay Road,N0077117,Southampton City Centre,UKOS,-1.41172,50.90315,BCT,MKD,OTH,active
+1980HAA13650,Friars Way,Wessex Lane,E0042028,Swaythling,UKOS,-1.37585,50.93938,BCT,MKD,OTH,active
+1980HAA13651,Friars Way,Wessex Lane,E0042028,Swaythling,UKOS,-1.37575,50.93939,BCT,MKD,OTH,active
+1980HAA13387,St George School,Leaside Way,E0041968,Bassett Green,UKOS,-1.38212,50.94538,BCT,MKD,OTH,inactive
+1980HAA13579,Southampton NOCS,European Way,E0041983,Eastern Docks,UKOS,-1.3954,50.89335,BCT,MKD,OTH,active
+1980HAA13652,Ticonderoga Gardens,Archery Road,N0073222,Weston,UKOS,-1.37245,50.88848,BCT,MKD,OTH,active
+1980HAA13662,Dundonald Close,Victoria Road,E0042037,Woolston,UKOS,-1.38158,50.89002,BCT,MKD,OTH,inactive
+1980HAA13661,Dundonald Close,Victoria Road,E0042037,Woolston,UKOS,-1.3813,50.89001,BCT,MKD,OTH,inactive
+1980HAA13664,Swift Road,Victoria Road,E0042037,Woolston,UKOS,-1.3831,50.89115,BCT,MKD,OTH,inactive
+1980HAA13663,Swift Road,Victoria Road,E0042037,Woolston,UKOS,-1.38304,50.8909,BCT,MKD,OTH,inactive
+1980HAA13653,Mayfield Garage,Archery Road,E0042037,Woolston,UKOS,-1.37321,50.88966,BCT,MKD,OTH,active
+1980HAA13654,Rothschild Close,Jurds Lake Way,E0042037,Woolston,UKOS,-1.37292,50.88811,BCT,MKD,OTH,inactive
+1980HAA13655,Rothschild Close,Jurds Lake Way,E0042037,Woolston,UKOS,-1.37281,50.88778,BCT,MKD,OTH,inactive
+1980HAA13658,Arrow Close,Jurds Lake Way,E0042037,Woolston,UKOS,-1.37655,50.88982,BCT,MKD,OTH,inactive
+1980HAA13657,Arrow Close,Jurds Lake Way,E0042037,Woolston,UKOS,-1.37636,50.88974,BCT,MKD,OTH,inactive
+1980HAA13659,Unwin Close,Victoria Road,E0042037,Woolston,UKOS,-1.37909,50.88973,BCT,MKD,OTH,inactive
+1980HAA13660,Unwin Close,Victoria Road,E0042037,Woolston,UKOS,-1.37945,50.88976,BCT,MKD,OTH,inactive
+1980SN120410,Aldi Store,Bevois Valley Road,E0041974,Bevois Valley,UKOS,-1.39577,50.91691,BCT,MKD,OTH,active
+1980SN120409,Aldi Store,Bevois Valley Road,E0041974,Bevois Valley,UKOS,-1.39563,50.91779,BCT,MKD,OTH,active
+1980SN120411,Forster Road,Bevois Hill,E0041974,Bevois Valley,UKOS,-1.39528,50.9193,BCT,MKD,OTH,active
+1980SN120413,Spring Crescent,Portswood Road,E0042013,Portswood,UKOS,-1.39554,50.92152,BCT,MKD,OTH,active
+1980SN120412,Spring Crescent,Portswood Road,E0042013,Portswood,UKOS,-1.39534,50.92091,BCT,MKD,OTH,active
+1980SN120278,Waitrose,Brookvale Road,E0042013,Portswood,UKOS,-1.39454,50.92479,BCT,MKD,OTH,active
+1980SN120279,Waitrose,Portswood Road,E0042013,Portswood,UKOS,-1.39448,50.92426,BCT,MKD,OTH,active
+1980SN120276,Waitrose,Brookvale Road,E0042013,Portswood,UKOS,-1.3946,50.92489,BCT,MKD,OTH,active
+1980SN120415,Waitrose,Portswood Road,E0042013,Portswood,UKOS,-1.39474,50.92372,BCT,MKD,OTH,active
+1980SN120430,Garfield Road,Garfield Road,E0041975,Bitterne,UKOS,-1.37419,50.9168,BCT,MKD,OTH,inactive
+1980SN120432,Garfield Road,Garfield Road,E0041975,Bitterne,UKOS,-1.37264,50.91653,BCT,MKD,OTH,inactive
+1980SN120402,Carlton Road,Carlton Road,E0041965,Banister Park,UKOS,-1.40639,50.91628,BCT,MKD,OTH,active
+1980SN120397,Dorrick Court,Archers Road,E0041965,Banister Park,UKOS,-1.40771,50.91656,BCT,MKD,OTH,active
+1980SNA90894,Brighton Road,Banister Road,E0041965,Banister Park,UKOS,-1.40689,50.91732,BCT,MKD,OTH,inactive
+1980SN120403,Stag Gates,Lodge Road,E0041965,Banister Park,UKOS,-1.40331,50.91887,BCT,MKD,OTH,active
+1980SN120404,Stag Gates,The Avenue,E0041965,Banister Park,UKOS,-1.40318,50.91805,BCT,MKD,OTH,active
+1980SN120401,Stag Gates,The Avenue,E0041965,Banister Park,UKOS,-1.40409,50.91892,BCT,MKD,OTH,active
+1980SN120405,Archers Road,The Avenue,E0041965,Banister Park,UKOS,-1.40289,50.91587,BCT,MKD,OTH,active
+1980SN120406,Archers Road,The Avenue,E0041965,Banister Park,UKOS,-1.40239,50.91641,BCT,MKD,OTH,active
+1980SN120407,Cedar Road,Lodge Road,E0042013,Portswood,UKOS,-1.40055,50.91913,BCT,MKD,OTH,active
+1980SN120408,Cedar Road,Lodge Road,E0042013,Portswood,UKOS,-1.39921,50.91923,BCT,MKD,OTH,active
+1980SN120447,Dean Road,West End Road,E0041975,Bitterne,UKOS,-1.35684,50.92027,BCT,MKD,OTH,active
+1980SN120449,Dean Road,West End Road,E0041975,Bitterne,UKOS,-1.35671,50.92022,BCT,MKD,OTH,active
+1980SN120451,Chichester Road,West End Road,E0041975,Bitterne,UKOS,-1.3591,50.91746,BCT,MKD,OTH,active
+1980SN120450,Chichester Road,West End Road,E0041975,Bitterne,UKOS,-1.35895,50.91793,BCT,MKD,OTH,active
+1980SN120473,Sunningdale Gardens,Somerset Avenue,E0041988,Harefield,UKOS,-1.34665,50.91535,BCT,MKD,OTH,active
+1980SN120460,Sunningdale Gardens,Somerset Avenue,E0041988,Harefield,UKOS,-1.34718,50.91517,BCT,MKD,OTH,active
+1980SN120433,Cross Road,Cross Road,E0041975,Bitterne,UKOS,-1.37171,50.91594,BCT,MKD,OTH,inactive
+1980SN120434,Cross Road,,E0041975,Bitterne,UKOS,-1.3716,50.91543,BCT,MKD,OTH,inactive
+1980SN120438,Vale Drive,Witts Hill,E0042002,Midanbury,UKOS,-1.36111,50.92338,BCT,MKD,OTH,active
+1980SN120318,Vale Drive,Witts Hill,E0042002,Midanbury,UKOS,-1.36086,50.92365,BCT,MKD,OTH,inactive
+1980SN120442,Bramble Mews,Townhill Way,E0041975,Bitterne,UKOS,-1.35638,50.92169,BCT,MKD,OTH,active
+1980SN120443,Bramble Mews,Townhill Way,E0041975,Bitterne,UKOS,-1.35646,50.92135,BCT,MKD,OTH,active
+1980SN120380,Grove Road,Shirley Road,E0042018,Shirley,UKOS,-1.42734,50.91751,BCT,MKD,OTH,active
+1980SN120381,Grove Road,Shirley Road,E0042018,Shirley,UKOS,-1.42655,50.91705,BCT,MKD,OTH,active
+1980SN120385,Bridlington Avenue,St Jame's Road,E0042018,Shirley,UKOS,-1.42406,50.92306,BCT,MKD,OTH,active
+1980SN120384,Bridlington Avenue,St Jame's Road,E0042018,Shirley,UKOS,-1.42439,50.92339,BCT,MKD,OTH,active
+1980SN120386,St John's Church,St Jame's Road,E0042018,Shirley,UKOS,-1.42095,50.9203,BCT,MKD,OTH,active
+1980SN120387,St John's Church,St Jame's Road,E0042018,Shirley,UKOS,-1.4211,50.9206,BCT,MKD,OTH,active
+1980SN120372,Church Street,Shirley High Street,E0042018,Shirley,UKOS,-1.43231,50.9215,BCT,MKD,OTH,active
+1980SN120371,Church Street,Shirley High Street,E0042018,Shirley,UKOS,-1.43309,50.92198,BCT,MKD,OTH,active
+1980SN120373,St James Road,Shirley Avenue,E0042018,Shirley,UKOS,-1.4268,50.92399,BCT,MKD,OTH,active
+1980SN120378,St James Road,Shirley Avenue,E0042018,Shirley,UKOS,-1.42695,50.92376,BCT,MKD,OTH,active
+1980SN120375,Post Office,Shirley Avenue,E0042018,Shirley,UKOS,-1.43031,50.92128,BCT,MKD,OTH,active
+1980SN120374,Post Office,Shirley Avenue,E0042018,Shirley,UKOS,-1.43072,50.92108,BCT,MKD,OTH,active
+1980SN120377,LIDL,Shirley Road,E0042018,Shirley,UKOS,-1.43112,50.92044,BCT,MKD,OTH,active
+1980SN120376,LIDL,Shirley Road,E0042018,Shirley,UKOS,-1.43028,50.91993,BCT,MKD,OTH,active
+1980SN120395,Westrow Road,Archers Road,E0041965,Banister Park,UKOS,-1.41134,50.91589,BCT,CUS,OTH,active
+1980SN120396,Westrow Road,Archers Road,E0041965,Banister Park,UKOS,-1.41136,50.91577,BCT,MKD,OTH,active
+1980SN120398,Northlands Road,The Avenue,E0041965,Banister Park,UKOS,-1.40519,50.92223,BCT,MKD,OTH,active
+1980SN120400,Northlands Road,The Avenue,E0041965,Banister Park,UKOS,-1.40476,50.92116,BCT,MKD,OTH,active
+1980SN120788,Albany Park Court,Winn Road,E0042013,Portswood,UKOS,-1.40373,50.92357,BCT,MKD,OTH,active
+1980SN120399,Albany Park Court,Winn Road,E0042013,Portswood,UKOS,-1.40486,50.92321,BCT,MKD,OTH,active
+1980SN120388,Wilton Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41513,50.92148,BCT,MKD,OTH,active
+1980SN120389,Wilton Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41546,50.92079,BCT,MKD,OTH,active
+1980SN120390,Atherley Bowling Club,Raymond Road,E0042018,Shirley,UKOS,-1.41644,50.91899,BCT,MKD,OTH,active
+1980SN120392,Atherley Bowling Club,Hill Lane,E0042018,Shirley,UKOS,-1.41542,50.91845,BCT,MKD,OTH,active
+1980SN120391,Atherley Bowling Club,Hill Lane,E0042018,Shirley,UKOS,-1.41535,50.91922,BCT,MKD,OTH,active
+1980SN120393,Greville Road,Raymond Road,E0042018,Shirley,UKOS,-1.41765,50.91888,BCT,MKD,OTH,active
+1980SN120394,Archers Road,Hill Lane,E0042018,Shirley,UKOS,-1.41536,50.91556,BCT,MKD,OTH,active
+1980SN120506,Archers Road,Hill Lane,E0042018,Shirley,UKOS,-1.4155,50.91414,BCT,MKD,OTH,active
+1980SN121022,SeaCity Museum,Havelock Road,N0077117,Southampton City Centre,UKOS,-1.40823,50.90813,BCT,MKD,OTH,active
+1980SN120526,SeaCity Museum,Havelock Road,N0077117,Southampton City Centre,UKOS,-1.40779,50.90782,BCT,MKD,OTH,active
+1980SNA19559,Civic Centre,Civic Centre Road,N0077117,Southampton City Centre,UKOS,-1.40616,50.90704,BCT,MKD,OTH,active
+1980HAA13584,Civic Centre,Civic Centre Road,N0077117,Southampton City Centre,UKOS,-1.40645,50.90681,BCT,MKD,OTH,active
+1980SN120527,Civic Centre,Civic Centre Road,N0077117,Southampton City Centre,UKOS,-1.40606,50.90703,BCT,MKD,OTH,active
+1980SN120513,Handel Road,Handel Road,E0042012,Polygon,UKOS,-1.40921,50.91047,BCT,MKD,OTH,active
+1980SN120514,Devonshire Road,Handel Road,E0042012,Polygon,UKOS,-1.4096,50.91039,BCT,MKD,OTH,active
+1980SN120516,Four Post Hill,Shirley Road,E0041986,Freemantle,UKOS,-1.4172,50.90926,BCT,MKD,OTH,active
+1980SN120515,Four Post Hill,Shirley Road,E0041986,Freemantle,UKOS,-1.41765,50.90964,BCT,MKD,OTH,active
+1980SN120520,Central Station,Station forecourt,N0077117,Southampton City Centre,UKOS,-1.41316,50.90716,BCT,MKD,OTH,active
+1980SN120551,Princes Street,Northam Road,E0042008,Northam,UKOS,-1.38829,50.9111,BCT,MKD,OTH,active
+1980SN120535,Law Courts,London Road,E0041969,Bedford Place,UKOS,-1.40249,50.91413,BCT,MKD,OTH,active
+1980SN120536,Law Courts,College Place,E0041969,Bedford Place,UKOS,-1.40205,50.91366,BCT,MKD,OTH,active
+1980SN120537,Denzil Avenue,Onslow Road,E0041974,Bevois Valley,UKOS,-1.39765,50.91503,BCT,MKD,OTH,active
+1980SN120538,Denzil Avenue,Onslow Road,E0041974,Bevois Valley,UKOS,-1.39869,50.91383,BCT,MKD,OTH,active
+1980SN120539,RSH Hospital,Saint Mary's Road,E0042007,Nicholstown,UKOS,-1.3999,50.91168,BCT,MKD,OTH,active
+1980SN120540,RSH Hospital,Saint Mary's Road,E0042007,Nicholstown,UKOS,-1.39972,50.91173,BCT,MKD,OTH,active
+1980SN120472,Exford Avenue,Somerset Avenue,E0041988,Harefield,UKOS,-1.34432,50.91716,BCT,MKD,OTH,active
+1980SN120471,Exford Avenue,Somerset Avenue,E0041988,Harefield,UKOS,-1.34346,50.91768,BCT,CUS,OTH,inactive
+1980SN120495,Queenstown Road,Waterloo Road,E0041986,Freemantle,UKOS,-1.42455,50.91091,BCT,MKD,OTH,active
+1980SN120503,Queenstown Road,Waterloo Road,E0041986,Freemantle,UKOS,-1.42404,50.91076,BCT,MKD,OTH,active
+1980SN120468,Faringdon Road,Cheriton Avenue,E0041988,Harefield,UKOS,-1.33719,50.91787,BCT,MKD,OTH,active
+1980SN120461,Faringdon Road,Cheriton Avenue,E0041988,Harefield,UKOS,-1.3364,50.91845,BCT,MKD,OTH,inactive
+1980SN120463,Bentley Green,Beauworth Avenue,E0041988,Harefield,UKOS,-1.34147,50.92161,BCT,CUS,OTH,inactive
+1980SN120467,Bentley Green,Beauworth Avenue,E0041988,Harefield,UKOS,-1.34146,50.92169,BCT,MKD,OTH,active
+1980SN120470,Somerset Avenue,Cheriton Avenue,E0041988,Harefield,UKOS,-1.34158,50.9178,BCT,MKD,OTH,active
+1980SN120469,Somerset Avenue,Cheriton Avenue,E0041988,Harefield,UKOS,-1.34097,50.91762,BCT,MKD,OTH,inactive
+1980SN120496,Paynes Road,Shirley Road,E0042018,Shirley,UKOS,-1.42356,50.91474,BCT,MKD,OTH,active
+1980SN120498,Paynes Road,Shirley Road,E0042018,Shirley,UKOS,-1.4227,50.91389,BCT,MKD,OTH,active
+1980SN120505,Springhill School,Milton Road,E0042012,Polygon,UKOS,-1.41428,50.91382,BCT,MKD,OTH,inactive
+1980SN120507,Springhill School,Milton Road,E0042012,Polygon,UKOS,-1.41433,50.91372,BCT,MKD,OTH,inactive
+1980SN120509,Wilton Avenue,Newcombe Road,E0042012,Polygon,UKOS,-1.41154,50.91345,BCT,MKD,OTH,active
+1980SN120508,Wilton Avenue,Newcombe Road,E0042012,Polygon,UKOS,-1.41166,50.91343,BCT,MKD,OTH,active
+1980SN120511,Handel Terrace,Newcombe Road,E0042012,Polygon,UKOS,-1.41124,50.91127,BCT,MKD,OTH,active
+1980SN120512,Handel Terrace,Newcombe Road,E0042012,Polygon,UKOS,-1.41121,50.91091,BCT,MKD,OTH,active
+1980SN120P06,Shirley Road,Paynes Road,E0041986,Freemantle,UKOS,-1.42375,50.91405,BCT,MKD,OTH,active
+1980SNA09224,Shirley Road,Paynes Road,E0041986,Freemantle,UKOS,-1.42403,50.91369,BCT,MKD,OTH,active
+1980SN120248,Kineton Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41516,50.92416,BCT,MKD,OTH,active
+1980SN120247,Kineton Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41507,50.92475,BCT,MKD,OTH,active
+1980SN120256,Jubilee Sports Hall,University Road,E0041989,Highfield,UKOS,-1.39614,50.93414,BCT,MKD,OTH,active
+1980SN120257,Jubilee Sports Hall,University Road,E0041989,Highfield,UKOS,-1.39634,50.93417,BCT,MKD,OTH,active
+1980SN120263,The Highfield,Highfield Lane,E0041989,Highfield,UKOS,-1.39895,50.93067,BCT,MKD,OTH,active
+1980SN120261,The Highfield,Highfield Lane,E0041989,Highfield,UKOS,-1.39982,50.93099,BCT,MKD,OTH,active
+1980SN120264,Highfield Church,Highfield Lane,E0041989,Highfield,UKOS,-1.39619,50.92997,BCT,MKD,OTH,active
+1980SN120265,Highfield Church,Highfield Lane,E0041989,Highfield,UKOS,-1.39661,50.92999,BCT,MKD,OTH,active
+1980SN120234,Pentire Avenue,Bellemoor Road,E0042031,Upper Shirley,UKOS,-1.42185,50.92803,BCT,MKD,OTH,active
+1980SN120240,Pentire Avenue,Bellemoor Road,E0042031,Upper Shirley,UKOS,-1.42129,50.92785,BCT,MKD,OTH,active
+1980SN120241,Shanklin Road,Bellemoor Road,E0042031,Upper Shirley,UKOS,-1.41921,50.92755,BCT,MKD,OTH,inactive
+1980SN120242,Leicester Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41744,50.93077,BCT,MKD,OTH,active
+1980SN120243,Leicester Road,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41722,50.93053,BCT,MKD,OTH,active
+1980SN120280,Tennyson Court,Winn Road,E0042013,Portswood,UKOS,-1.39908,50.92547,BCT,MKD,OTH,active
+1980SN120281,Tennyson Court,Winn Road,E0042013,Portswood,UKOS,-1.39851,50.92582,BCT,MKD,OTH,active
+1980SN120282,Bentley Court,Winn Road,E0042013,Portswood,UKOS,-1.40162,50.92446,BCT,MKD,OTH,active
+1980SN120283,Bentley Court,Winn Road,E0042013,Portswood,UKOS,-1.40232,50.92405,BCT,MKD,OTH,active
+1980SN120266,Upper Shaftesbury Avenue,Welbeck Avenue,E0041989,Highfield,UKOS,-1.39138,50.9312,BCT,MKD,OTH,active
+1980SN120267,Upper Shaftesbury Avenue,Welbeck Avenue,E0041989,Highfield,UKOS,-1.39114,50.93107,BCT,MKD,OTH,active
+1980SN120268,Highfield Crescent,Shaftesbury Avenue,E0042013,Portswood,UKOS,-1.39075,50.92959,BCT,MKD,OTH,active
+1980SN120269,Highfield Crescent,Shaftesbury Avenue,E0042013,Portswood,UKOS,-1.39087,50.92872,BCT,MKD,OTH,active
+1980SN120270,Highfield House Hotel,Highfield Lane,E0042013,Portswood,UKOS,-1.39254,50.92787,BCT,MKD,OTH,active
+1980SN120271,Highfield House Hotel,Highfield Lane,E0042013,Portswood,UKOS,-1.39264,50.92782,BCT,MKD,OTH,active
+1980SN120217,Grange Road,Romsey Road,E0042019,Shirley Park,UKOS,-1.43895,50.92523,BCT,MKD,OTH,active
+1980SN120216,Grange Road,Romsey Road,E0042019,Shirley Park,UKOS,-1.43939,50.92543,BCT,MKD,OTH,active
+1980SN120219,Hospital Eye Unit,Tremona Road,N0080795,Southampton General,UKOS,-1.43311,50.93114,BCT,MKD,OTH,inactive
+1980SN120218,Hospital Eye Unit,Tremona Road,N0080795,Southampton General,UKOS,-1.43283,50.93147,BCT,MKD,OTH,active
+1980SN120223,Dale Valley Road,Dale Road,E0042020,Shirley Warren,UKOS,-1.43067,50.93106,BCT,MKD,OTH,active
+1980SN120209,Jessamine Road,Warren Avenue,E0042020,Shirley Warren,UKOS,-1.43935,50.93141,BCT,MKD,OTH,active
+1980SN120210,Jessamine Road,Warren Avenue,E0042020,Shirley Warren,UKOS,-1.43914,50.93083,BCT,MKD,OTH,active
+1980SN120211,Warren Crescent,Warren Avenue,E0042020,Shirley Warren,UKOS,-1.43794,50.92897,BCT,MKD,OTH,active
+1980SN120213,Warren Crescent,Warren Avenue,E0042020,Shirley Warren,UKOS,-1.4373,50.92823,BCT,MKD,OTH,active
+1980SN120214,Winchester Road,Warren Avenue,E0042020,Shirley Warren,UKOS,-1.43648,50.9267,BCT,MKD,OTH,active
+1980SN120228,The Range,Winchester Road,E0042020,Shirley Warren,UKOS,-1.42822,50.92926,BCT,MKD,OTH,active
+1980SN120232,The Malvern,Winchester Road,E0042031,Upper Shirley,UKOS,-1.42353,50.93187,BCT,MKD,OTH,active
+1980SN120233,The Malvern,Winchester Road,E0042031,Upper Shirley,UKOS,-1.42251,50.93227,BCT,MKD,OTH,active
+1980SN120236,Colebrook Avenue,Wilton Road,E0042031,Upper Shirley,UKOS,-1.42472,50.92711,BCT,MKD,OTH,active
+1980SN120235,Colebrook Avenue,Wilton Road,E0042031,Upper Shirley,UKOS,-1.42504,50.92757,BCT,MKD,OTH,active
+1980SNA09454,Upper Shirley Avenue,Wilton Road,E0042031,Upper Shirley,UKOS,-1.42285,50.92519,BCT,MKD,OTH,inactive
+1980SN120237,Upper Shirley Avenue,Wilton Road,E0042031,Upper Shirley,UKOS,-1.42352,50.92603,BCT,MKD,OTH,active
+1980SN120238,Upper Shirley Avenue,Upper Shirley Avenue,E0042031,Upper Shirley,UKOS,-1.42369,50.92535,BCT,MKD,OTH,active
+1980SN120230,Winchester Road,Wilton Road,E0042031,Upper Shirley,UKOS,-1.4268,50.92926,BCT,MKD,OTH,inactive
+1980SN120341,Green Park,Wimpson Lane,E0042004,Millbrook,UKOS,-1.45682,50.91926,BCT,MKD,OTH,inactive
+1980SN120340,Green Park,Wimpson Lane,E0042004,Millbrook,UKOS,-1.45672,50.91936,BCT,MKD,OTH,inactive
+1980SN120344,Orpen Road,Bursledon Road,N0073220,Thornhill,UKOS,-1.33526,50.90333,BCT,CUS,OTH,active
+1980SN120345,Orpen Road,Bursledon Road,E0042023,Sholing,UKOS,-1.3368,50.90382,BCT,MKD,OTH,active
+1980SN120346,Cotswold Road,Cumbrian Way,E0042004,Millbrook,UKOS,-1.45213,50.92153,BCT,MKD,OTH,active
+1980SN120347,Cotswold Road,Cumbrian Way,E0042004,Millbrook,UKOS,-1.45277,50.92128,BCT,MKD,OTH,active
+1980SN120349,Mendip Road,Cumbrian Way,E0042004,Millbrook,UKOS,-1.45054,50.92214,BCT,MKD,OTH,active
+1980SN120348,Mendip Road,Cumbrian Way,E0042004,Millbrook,UKOS,-1.45017,50.92252,BCT,MKD,OTH,active
+1980SN120329,King George's Avenue,King George's Avenue,E0042004,Millbrook,UKOS,-1.44585,50.9199,BCT,MKD,OTH,active
+1980SN120354,King George's Avenue,King George's Avenue,E0042004,Millbrook,UKOS,-1.44621,50.91967,BCT,MKD,OTH,active
+1980SN120352,Stanton Road,King George's Avenue,E0042004,Millbrook,UKOS,-1.44757,50.91726,BCT,MKD,OTH,active
+1980SN120330,Stanton Road,King George's Avenue,E0042004,Millbrook,UKOS,-1.4474,50.91733,BCT,MKD,OTH,active
+1980SN120335,Windrush Road,Kendal Avenue,N0080447,Millbrook Estate,UKOS,-1.4589,50.92188,BCT,MKD,OTH,active
+1980SN120334,Windrush Road,Kendal Avenue,N0080447,Millbrook Estate,UKOS,-1.4585,50.92191,BCT,MKD,OTH,active
+1980SN120338,Quantock Road,Cumbrian Way,E0042004,Millbrook,UKOS,-1.45451,50.92117,BCT,MKD,OTH,active
+1980SN120339,Quantock Road,Cumbrian Way,E0042004,Millbrook,UKOS,-1.45605,50.92118,BCT,MKD,OTH,active
+1980SNA40406,Tesco,Store Grounds,E0042004,Millbrook,UKOS,-1.44643,50.92337,BCT,MKD,OTH,active
+1980SN120350,Tesco,Oakley Road,E0042004,Millbrook,UKOS,-1.44768,50.92229,BCT,MKD,OTH,active
+1980SN120351,Tesco,Oakley Road,E0042004,Millbrook,UKOS,-1.44772,50.92236,BCT,MKD,OTH,active
+1980SN120362,Clarendon Road,Oakley Road,E0042019,Shirley Park,UKOS,-1.44046,50.92158,BCT,MKD,OTH,active
+1980SN120361,Clarendon Road,Oakley Road,E0042019,Shirley Park,UKOS,-1.44142,50.92166,BCT,MKD,OTH,active
+1980SN120363,Lansdowne Road,Regent's Park Road,E0042019,Shirley Park,UKOS,-1.43915,50.9188,BCT,MKD,OTH,inactive
+1980SN120364,Lansdowne Road,Regent's Park Road,E0042019,Shirley Park,UKOS,-1.43931,50.91843,BCT,MKD,OTH,active
+1980SN120928,The King George,King George's Avenue,E0042019,Shirley Park,UKOS,-1.4449,50.92144,BCT,MKD,OTH,active
+1980SN120355,The King George,Oakley Road,E0042019,Shirley Park,UKOS,-1.4442,50.92179,BCT,MKD,OTH,active
+1980SN120358,Claremont Crescent,Regent's Park Road,E0042004,Millbrook,UKOS,-1.44162,50.91641,BCT,MKD,OTH,active
+1980SN120357,Claremont Crescent,Regent's Park Road,E0042004,Millbrook,UKOS,-1.44145,50.91669,BCT,MKD,OTH,active
+1980SN120360,King Edward Avenue,Oakley Road,E0042019,Shirley Park,UKOS,-1.44235,50.92201,BCT,MKD,OTH,active
+1980SN120292,Dimond Road,Oak Tree Road,N0073216,Bitterne Park,UKOS,-1.37345,50.93121,BCT,MKD,OTH,active
+1980SN120293,Dimond Road,Oak Tree Road,N0073216,Bitterne Park,UKOS,-1.3728,50.93144,BCT,MKD,OTH,active
+1980SN120294,Cobden Avenue,St Catherine's Road,N0073216,Bitterne Park,UKOS,-1.37462,50.9236,BCT,MKD,OTH,active
+1980SN120295,Wellington Road,Oak Tree Road,N0073216,Bitterne Park,UKOS,-1.37529,50.92928,BCT,MKD,OTH,active
+1980SN120312,Wellington Road,Oak Tree Road,N0073216,Bitterne Park,UKOS,-1.37552,50.92903,BCT,MKD,OTH,active
+1980SN120296,Bond Road,St Catherine's Road,N0073216,Bitterne Park,UKOS,-1.37447,50.92544,BCT,MKD,OTH,active
+1980SN120297,Northfield Road,Woodmill Lane,N0073216,Bitterne Park,UKOS,-1.368,50.93169,BCT,MKD,OTH,active
+1980SNA90956,Northfield Road,Woodmill Lane,N0073216,Bitterne Park,UKOS,-1.36757,50.93158,BCT,CUS,OTH,inactive
+1980SN120300,Bowden Lane,Portswood Road,E0042013,Portswood,UKOS,-1.38519,50.92914,BCT,MKD,OTH,active
+1980SN120289,Bowden Lane,Portswood Road,E0042013,Portswood,UKOS,-1.38528,50.92976,BCT,MKD,OTH,active
+1980SN120284,Sainsbury,Portswood Road,E0042013,Portswood,UKOS,-1.38874,50.92759,BCT,MKD,OTH,active
+1980SN120285,Sainsbury,Portswood Road,E0042013,Portswood,UKOS,-1.39008,50.92715,BCT,MKD,OTH,active
+1980SN120290,Hop Inn,Woodmill Lane,N0073216,Bitterne Park,UKOS,-1.37003,50.93286,BCT,MKD,OTH,active
+1980SN120291,Hop Inn,Oak Tree Road,N0073216,Bitterne Park,UKOS,-1.37072,50.93266,BCT,MKD,OTH,active
+1980SN120315,Witts Hill Shops,Witts Hill,E0042002,Midanbury,UKOS,-1.36423,50.92618,BCT,MKD,OTH,active
+1980SN120316,Witts Hill Shops,Witts Hill,E0042002,Midanbury,UKOS,-1.36409,50.92593,BCT,MKD,OTH,active
+1980SN120319,Community Centre,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.35937,50.93066,BCT,MKD,OTH,active
+1980SN120320,Community Centre,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.35901,50.93041,BCT,CUS,OTH,inactive
+1980SN120326,South Mill Road,South Mill Road,E0042004,Millbrook,UKOS,-1.4472,50.91631,BCT,MKD,OTH,active
+1980SN120309,Triangle,The Triangle,N0073216,Bitterne Park,UKOS,-1.37611,50.92433,BCT,MKD,OTH,active
+1980SN120308,Triangle,Manor Farm Road,N0073216,Bitterne Park,UKOS,-1.3759,50.92477,BCT,MKD,OTH,active
+1980SN120310,Triangle,The Triangle,N0073216,Bitterne Park,UKOS,-1.37719,50.92435,BCT,MKD,OTH,active
+1980SN120311,Nursery Road,Nursery Road,N0073216,Bitterne Park,UKOS,-1.37676,50.92739,BCT,MKD,OTH,active
+1980SN120313,Ashtree Road,St Catherine's Road,N0073216,Bitterne Park,UKOS,-1.37557,50.92692,BCT,MKD,OTH,active
+1980SN120314,Cornwall Road,Woodmill Lane,N0073221,Townhill Park,UKOS,-1.3655,50.92868,BCT,MKD,OTH,active
+1980SNA90957,Cornwall Road,Woodmill Lane,N0073221,Townhill Park,UKOS,-1.36561,50.9293,BCT,CUS,OTH,inactive
+1980SN120790,Mon Crescent,Bitterne Road East,E0042030,Thornhill Park,UKOS,-1.34508,50.91457,BCT,MKD,OTH,active
+1980SN120792,Mon Crescent,Bitterne Road East,E0042030,Thornhill Park,UKOS,-1.34554,50.91466,BCT,MKD,OTH,active
+1980SN120806,Gainsborough Close,Botley Road B3033,E0042023,Sholing,UKOS,-1.34502,50.895,BCT,MKD,OTH,active
+1980SN120826,Gainsborough Close,Botley Road B3033,E0042023,Sholing,UKOS,-1.34703,50.89451,BCT,MKD,OTH,inactive
+1980SN120774,Broadwater Road,Forest Hills Drive,N0073216,Bitterne Park,UKOS,-1.36557,50.93451,BCT,MKD,OTH,active
+1980SNA90954,Broadwater Road,Forest Hills Drive,N0073216,Bitterne Park,UKOS,-1.3657,50.9344,BCT,CUS,OTH,inactive
+1980SN120775,River Walk,Forest Hills Drive,N0073216,Bitterne Park,UKOS,-1.37016,50.93355,BCT,MKD,OTH,active
+1980SNA90955,River Walk,Forest Hills Drive,N0073216,Bitterne Park,UKOS,-1.37008,50.93351,BCT,CUS,OTH,inactive
+1980SN120779,Thornhill Avenue,Thornhill Park Road,E0042030,Thornhill Park,UKOS,-1.33513,50.9147,BCT,MKD,OTH,active
+1980SN120778,Thornhill Avenue,Thornhill Park Road,E0042030,Thornhill Park,UKOS,-1.33454,50.91482,BCT,MKD,OTH,active
+1980SN120780,Post Office,Thornhill Park Road,E0042030,Thornhill Park,UKOS,-1.3387,50.91456,BCT,MKD,OTH,active
+1980SN120789,Post Office,Thornhill Park Road,E0042030,Thornhill Park,UKOS,-1.3378,50.91465,BCT,MKD,OTH,active
+1980SN120828,Sullivan Road,Sullivan Road,E0042023,Sholing,UKOS,-1.33931,50.90081,BCT,MKD,OTH,active
+1980SN120814,Sullivan Road,Sullivan Road,E0042023,Sholing,UKOS,-1.33933,50.90119,BCT,MKD,OTH,active
+1980SN120824,Valentine Avenue,Botley Road,E0042023,Sholing,UKOS,-1.34102,50.89616,BCT,MKD,OTH,inactive
+1980SN120825,Valentine Avenue,Botley Road,E0042023,Sholing,UKOS,-1.34098,50.89611,BCT,MKD,OTH,active
+1980SN121034,Botley Road,Portsmouth Road A3025,E0042023,Sholing,UKOS,-1.34718,50.8938,BCT,MKD,OTH,active
+1980SN120827,Botley Road,Portsmouth Road A3025,E0042023,Sholing,UKOS,-1.34931,50.89423,BCT,MKD,OTH,active
+1980SN120829,St Marys Cemetery,Portsmouth Road,E0042023,Sholing,UKOS,-1.353,50.8948,BCT,MKD,OTH,active
+1980SN120844,St Marys Cemetery,Portsmouth Road,E0042023,Sholing,UKOS,-1.35297,50.8949,BCT,MKD,OTH,active
+1980SN120838,Redbridge School,A33 Redbridge Road,E0042016,Redbridge,UKOS,-1.46571,50.92114,BCT,MKD,OTH,active
+1980SN120839,Parkside Avenue,Redbridge Road,E0042016,Redbridge,UKOS,-1.46132,50.91926,BCT,MKD,OTH,active
+1980SN120842,Parkside Avenue,Redbridge Road,E0042016,Redbridge,UKOS,-1.46228,50.91942,BCT,MKD,OTH,active
+1980SN120819,Montague Close,Montague Avenue,E0042023,Sholing,UKOS,-1.33562,50.89991,BCT,MKD,OTH,active
+1980SN120818,Montague Close,Montague Avenue,E0042023,Sholing,UKOS,-1.33572,50.89998,BCT,MKD,OTH,active
+1980SN120820,Montague Avenue,Botley Road,E0042023,Sholing,UKOS,-1.33478,50.89788,BCT,MKD,OTH,active
+1980SN120821,Montague Avenue,Botley Road,E0042023,Sholing,UKOS,-1.33338,50.89819,BCT,MKD,OTH,active
+1980SN120823,Delius Avenue,Botley Road,E0042023,Sholing,UKOS,-1.33664,50.89731,BCT,MKD,OTH,active
+1980SN120822,Delius Avenue,Botley Road,E0042023,Sholing,UKOS,-1.33751,50.89713,BCT,MKD,OTH,active
+1980SN120739,Portsmouth Road,Butt's Road,E0042023,Sholing,UKOS,-1.35243,50.89604,BCT,MKD,OTH,active
+1980SN120740,Portsmouth Road,Butt's Road,E0042023,Sholing,UKOS,-1.35323,50.89528,BCT,MKD,OTH,active
+1980SN120742,The Gardeners Arms,Newtown Road,N0073222,Weston,UKOS,-1.35362,50.89086,BCT,MKD,OTH,active
+1980SN120741,The Gardeners Arms,Newtown Road,N0073222,Weston,UKOS,-1.35335,50.89064,BCT,MKD,OTH,active
+1980SN120744,Scott Road,Weston Lane,N0073222,Weston,UKOS,-1.3632,50.89094,BCT,CUS,OTH,active
+1980SN120743,Scott Road,Weston Lane,N0073222,Weston,UKOS,-1.36377,50.89081,BCT,CUS,OTH,inactive
+1980SN120747,Barnfield Road,Weston Lane,N0073222,Weston,UKOS,-1.3683,50.88949,BCT,MKD,OTH,active
+1980SN120732,Weston Lane,Wright's Hill,N0073222,Weston,UKOS,-1.35966,50.89423,BCT,MKD,OTH,active
+1980SN120731,Weston Lane,Wright's Hill,N0073222,Weston,UKOS,-1.35913,50.89419,BCT,MKD,OTH,active
+1980SN120734,Weston Junior School,Weston Lane,N0073222,Weston,UKOS,-1.35957,50.89354,BCT,CUS,OTH,active
+1980SN120733,Weston Junior School,Weston Lane,N0073222,Weston,UKOS,-1.3593,50.89388,BCT,CUS,OTH,inactive
+1980SN120735,Laxton Close,Upper Weston Lane,E0042023,Sholing,UKOS,-1.35534,50.89472,BCT,MKD,OTH,active
+1980SN120736,Laxton Close,Upper Weston Lane,E0042023,Sholing,UKOS,-1.35584,50.89457,BCT,MKD,OTH,active
+1980SN120737,Weston Infant School,Newtown Road,N0073222,Weston,UKOS,-1.35594,50.89258,BCT,MKD,OTH,active
+1980SN120738,Weston Infant School,Newtown Road,N0073222,Weston,UKOS,-1.35587,50.89246,BCT,MKD,OTH,active
+1980SN120748,Squires Walk,Weston Lane,N0073222,Weston,UKOS,-1.37043,50.88857,BCT,MKD,OTH,active
+1980SN120758,Chamberlayne Park School,Tickleford Drive,N0073222,Weston,UKOS,-1.35778,50.88693,BCT,MKD,OTH,inactive
+1980SN120759,Clements,Tickleford Drive,N0073222,Weston,UKOS,-1.35799,50.88655,BCT,MKD,OTH,inactive
+1980SN120677,Millers Pond,Station Road,E0042037,Woolston,UKOS,-1.3604,50.89756,BCT,MKD,OTH,active
+1980SN120764,Millers Pond,Station Road,E0042037,Woolston,UKOS,-1.36045,50.89749,BCT,MKD,OTH,active
+1980SN120766,Kingsland Market,Kingsway,N0080456,St Marys,UKOS,-1.39742,50.90472,BCT,MKD,OTH,active
+1980SN120643,Kingsland Market,Kingsway,N0080456,St Marys,UKOS,-1.39793,50.90557,BCT,MKD,OTH,active
+1980SN120773,Pinefield Road,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.36239,50.93265,BCT,MKD,OTH,active
+1980SN120171,Pinefield Road,Hillgrove Road,N0073221,Townhill Park,UKOS,-1.36243,50.93292,BCT,MKD,OTH,inactive
+1980SNA90953,Pinefield Road,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.36249,50.93264,BCT,CUS,OTH,inactive
+1980SN120751,Kingsclere Close,Kingsclere Avenue,N0073222,Weston,UKOS,-1.36713,50.88872,BCT,MKD,OTH,active
+1980SN120752,Kipling Court,Wallace Road,N0073222,Weston,UKOS,-1.36612,50.88893,BCT,MKD,OTH,active
+1980SN120753,International Way,Kingsclere Avenue,N0073222,Weston,UKOS,-1.36797,50.88671,BCT,MKD,OTH,active
+1980SN120754,Poulner Close,Kingsclere Avenue,N0073222,Weston,UKOS,-1.36169,50.88793,BCT,MKD,OTH,active
+1980SN120755,Winchfield Close,Kingsclere Avenue,N0073222,Weston,UKOS,-1.36014,50.88722,BCT,MKD,OTH,active
+1980SN120756,Drayton Close,Kingsclere Avenue,N0073222,Weston,UKOS,-1.36146,50.88597,BCT,MKD,OTH,active
+1980SN120757,Fullerton Close,Kingsclere Avenue,N0073222,Weston,UKOS,-1.36322,50.88539,BCT,MKD,OTH,active
+1980SN120978,St Mary's School Only,Golden Grove,N0080456,St Marys,UKOS,-1.39399,50.9057,BCT,MKD,OTH,inactive
+1980SN120623,East Street,Queensway,N0077117,Southampton City Centre,UKOS,-1.40082,50.90229,BCT,MKD,OTH,active
+1980SN120622,East Street,Queensway,N0077117,Southampton City Centre,UKOS,-1.40103,50.90209,BCT,MKD,OTH,inactive
+1980SN120983,Conifer Road,Olive Road,E0041964,Aldermoor,UKOS,-1.44266,50.93744,BCT,MKD,OTH,inactive
+1980SN120981,Conifer Road,Olive Road,E0041964,Aldermoor,UKOS,-1.44292,50.93747,BCT,MKD,OTH,active
+1980SN120986,Warren Avenue,Coxford Road,E0042020,Shirley Warren,UKOS,-1.43958,50.9339,BCT,MKD,OTH,active
+1980SN120985,Warren Avenue,Coxford Road,E0042020,Shirley Warren,UKOS,-1.43996,50.93379,BCT,MKD,OTH,active
+1980SN120961,High Firs Road,North East Road,N0073220,Thornhill,UKOS,-1.3479,50.90755,BCT,CUS,OTH,inactive
+1980SN120962,High Firs Road,North East Road,N0073220,Thornhill,UKOS,-1.34726,50.90781,BCT,CUS,OTH,inactive
+1980SN120963,Drove Road,North East Road,N0073220,Thornhill,UKOS,-1.35059,50.90613,BCT,MKD,OTH,inactive
+1980SN120964,Spike Islander,North East Road,E0042023,Sholing,UKOS,-1.35569,50.90265,BCT,MKD,OTH,inactive
+1980SN120965,Pangbourne Close,North East Road,E0042023,Sholing,UKOS,-1.35418,50.9039,BCT,MKD,OTH,inactive
+1980SN120966,Pangbourne Close,North East Road,E0042023,Sholing,UKOS,-1.35406,50.90408,BCT,MKD,OTH,active
+1980SN120967,Fir Tree Way,North East Road,N0073220,Thornhill,UKOS,-1.34992,50.90656,BCT,CUS,OTH,inactive
+1980SN120988,Birch Road,Coxford Road,E0042000,Maybush,UKOS,-1.44405,50.93331,BCT,MKD,OTH,active
+1980SN120989,Birch Road,Coxford Road,E0042000,Maybush,UKOS,-1.44408,50.93321,BCT,MKD,OTH,active
+1980SNA09226,Richmond Road,Richmond Road,E0041986,Freemantle,UKOS,-1.43179,50.91336,BCT,MKD,OTH,active
+1980SN120P08,Richmond Road,Richmond Road,E0041986,Freemantle,UKOS,-1.42933,50.91327,BCT,MKD,OTH,active
+1980SN120P09,York Road,Foundry Lane,E0042004,Millbrook,UKOS,-1.43248,50.91603,BCT,MKD,OTH,active
+1980SN120P10,Imperial Avenue,English Road,E0041986,Freemantle,UKOS,-1.43503,50.91828,BCT,MKD,OTH,active
+1980SN120P11,Hollybrook Avenue,Dale Valley Road,E0042020,Shirley Warren,UKOS,-1.42818,50.93372,BCT,MKD,OTH,active
+1980SNA90929,Hollybrook Avenue,Dale Valley Road,E0042020,Shirley Warren,UKOS,-1.42806,50.93402,BCT,MKD,OTH,active
+1980SN120P12,Grafton Gardens,Coxford Road,E0041997,Lordswood,UKOS,-1.42494,50.94258,BCT,HAR,OTH,active
+1980SNA09239,Dunvegan Drive,Dunvegan Drive,N0073217,Lord's Hill,UKOS,-1.42595,50.94618,BCT,HAR,OTH,active
+1980SN120P13,Dunvegan Drive,Dunvegan Drive,N0073217,Lord's Hill,UKOS,-1.42944,50.946,BCT,HAR,OTH,active
+1980SN120998,Mountpark,Wide Lane,E0042028,Swaythling,UKOS,-1.36887,50.94532,BCT,MKD,OTH,active
+1980SN120999,Mountpark,Wide Lane,E0042028,Swaythling,UKOS,-1.3691,50.94484,BCT,MKD,OTH,active
+1980SN120P05,Stafford Road,Howard Road,E0042018,Shirley,UKOS,-1.42144,50.91484,BCT,HAR,OTH,active
+1980SN120656,Radstock Road,Bridge Road,E0042037,Woolston,UKOS,-1.37763,50.89963,BCT,MKD,OTH,active
+1980SN120657,Radstock Road,Bridge Road,E0042037,Woolston,UKOS,-1.37782,50.89951,BCT,MKD,OTH,active
+1980SN120880,Peartree Church,Peartree Avenue,E0042010,Peartree,UKOS,-1.37475,50.9043,BCT,MKD,OTH,active
+1980SN120881,Kings Park Road,Brunswick Place,E0041969,Bedford Place,UKOS,-1.40236,50.91075,BCT,MKD,OTH,active
+1980SNA90908,Kings Park Road,Brunswick Place,E0041969,Bedford Place,UKOS,-1.4027,50.91091,BCT,CUS,OTH,active
+1980SN122001,Staplehurst Close,Tickleford Drive,N0073222,Weston,UKOS,-1.35469,50.88825,BCT,MKD,OTH,inactive
+1980SN120883,Staplehurst Close,Tickleford Drive,N0073222,Weston,UKOS,-1.355,50.88801,BCT,MKD,OTH,inactive
+1980SN120884,Bath Close,Bath Road,E0041975,Bitterne,UKOS,-1.35111,50.91417,BCT,CUS,OTH,inactive
+1980SN120885,Sanctuary Close,Bath Road,E0041975,Bitterne,UKOS,-1.35356,50.91269,BCT,CUS,OTH,inactive
+1980SN12885A,Bath Road,Bath Road,E0041975,Bitterne,UKOS,-1.35363,50.91271,BCT,MKD,OTH,inactive
+1980SN120891,St Annes Convent School,Carlton Road,E0041969,Bedford Place,UKOS,-1.40618,50.9145,BCT,MKD,OTH,active
+1980SN120510,St Annes Convent School,Carlton Road,E0041969,Bedford Place,UKOS,-1.40638,50.9146,BCT,MKD,OTH,active
+1980SN120841,Millbrook Roundabout,A33,E0042004,Millbrook,UKOS,-1.45876,50.91786,BCT,MKD,OTH,active
+1980SN120840,Millbrook Roundabout,Millbrook Roundabout,E0042004,Millbrook,UKOS,-1.45739,50.91785,BCT,MKD,OTH,active
+1980SN120431,Midanbury Lane,Bitterne Road West,E0041975,Bitterne,UKOS,-1.37089,50.91693,BCT,MKD,OTH,active
+1980SN120870,Midanbury Lane,Bitterne Road West,E0041975,Bitterne,UKOS,-1.37053,50.91699,BCT,MKD,OTH,active
+1980SN120871,Lance's Hill,Bitterne Road,E0041975,Bitterne,UKOS,-1.36414,50.91521,BCT,MKD,OTH,active
+1980SN12921C,Lance's Hill,Lances Hill,E0041975,Bitterne,UKOS,-1.36242,50.91465,BCT,MKD,OTH,active
+1980SN120898,Shirley Avenue,St Jame's Road,E0042031,Upper Shirley,UKOS,-1.42605,50.92414,BCT,MKD,OTH,active
+1980SN120239,Shirley Avenue,Upper Shirley Avenue,E0042031,Upper Shirley,UKOS,-1.42576,50.9244,BCT,MKD,OTH,active
+1980SN120920,Richard Taunton College,Bellemoor Road,E0042031,Upper Shirley,UKOS,-1.41787,50.92736,BCT,MKD,OTH,active
+1980SN120246,Richard Taunton College,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41566,50.9266,BCT,MKD,OTH,active
+1980SN120244,Richard Taunton College,Bellemoor Road,E0042031,Upper Shirley,UKOS,-1.41665,50.9273,BCT,MKD,OTH,active
+1980SN120245,Richard Taunton College,Hill Lane,E0042031,Upper Shirley,UKOS,-1.41606,50.9278,BCT,MKD,OTH,active
+1980SN120950,Alexandra Road,Hill Lane,E0042018,Shirley,UKOS,-1.41555,50.91128,BCT,MKD,OTH,active
+1980SN120951,Alexandra Road,Hill Lane,E0042018,Shirley,UKOS,-1.4157,50.91175,BCT,MKD,OTH,active
+1980SN120953,Holy Family School,Mansel Road West,E0042000,Maybush,UKOS,-1.46661,50.93203,BCT,MKD,OTH,inactive
+1980SN120954,Holy Family School,Mansel Road West,E0042000,Maybush,UKOS,-1.46654,50.93207,BCT,MKD,OTH,inactive
+1980SN120900,Elmsleigh Gardens,Glen Eyre Road,E0041967,Bassett,UKOS,-1.3999,50.93871,BCT,MKD,OTH,active
+1980SN120126,Elmsleigh Gardens,Glen Eyre Road,E0041967,Bassett,UKOS,-1.3997,50.93857,BCT,MKD,OTH,active
+1980SN120696,St Andrews Church,Butt's Road,E0042023,Sholing,UKOS,-1.34863,50.89878,BCT,MKD,OTH,inactive
+1980SN120695,St Andrews Church,Butt's Road,E0042023,Sholing,UKOS,-1.34972,50.89806,BCT,MKD,OTH,active
+1980SN120911,St Andrews Church,South East Road,E0042023,Sholing,UKOS,-1.34974,50.89869,BCT,CUS,OTH,active
+1980SN120912,Bisley Court,Butt's Road,E0042023,Sholing,UKOS,-1.35014,50.89761,BCT,MKD,OTH,active
+1980SN120603,Byron Road,Hinkler Road,N0073220,Thornhill,UKOS,-1.34078,50.90814,BCT,MKD,OTH,active
+1980SN120605,Byron Road,Hinkler Road,N0073220,Thornhill,UKOS,-1.34044,50.9083,BCT,MKD,OTH,active
+1980SN120606,Tatwin Crescent,Hinkler Road,N0073220,Thornhill,UKOS,-1.33676,50.9091,BCT,MKD,OTH,active
+1980SN120604,Tatwin Crescent,Hinkler Road,N0073220,Thornhill,UKOS,-1.33794,50.90884,BCT,MKD,OTH,active
+1980SN120608,Medwall Green,Hinkler Road,N0073220,Thornhill,UKOS,-1.33507,50.90882,BCT,MKD,OTH,active
+1980SN120607,Medwall Green,Hinkler Road,N0073220,Thornhill,UKOS,-1.33411,50.90804,BCT,MKD,OTH,active
+1980SN120709,Chettle Road,Warburton Road,N0073220,Thornhill,UKOS,-1.33277,50.90657,BCT,MKD,OTH,active
+1980SN120609,Chettle Road,Warburton Road,N0073220,Thornhill,UKOS,-1.33278,50.90683,BCT,MKD,OTH,active
+1980SN120614,Ellis Road,Hinkler Road,N0073220,Thornhill,UKOS,-1.32915,50.90765,BCT,MKD,OTH,active
+1980SN120615,Ellis Road,Hinkler Road,N0073220,Thornhill,UKOS,-1.32905,50.90778,BCT,MKD,OTH,active
+1980SN120598,Hinkler Road,Bursledon Road,E0042023,Sholing,UKOS,-1.34361,50.90721,BCT,MKD,OTH,active
+1980SN120599,Springwell School,Hinkler Road,N0073220,Thornhill,UKOS,-1.34264,50.90748,BCT,MKD,OTH,active
+1980SN120600,Springwell School,Hinkler Road,N0073220,Thornhill,UKOS,-1.34253,50.90745,BCT,MKD,OTH,active
+1980SN120601,Hinkler Road,Bursledon Road,N0073220,Thornhill,UKOS,-1.34217,50.90666,BCT,MKD,OTH,active
+1980SN120602,Bursledon Road,Kathleen Road,E0042023,Sholing,UKOS,-1.34307,50.90639,BCT,MKD,OTH,active
+1980SNA19479,Bursledon Road,Kathleen Road,E0042023,Sholing,UKOS,-1.34339,50.90632,BCT,MKD,OTH,active
+1980SN120654,Ailsa Lane,Bridge Road,E0042010,Peartree,UKOS,-1.37671,50.90173,BCT,MKD,OTH,active
+1980SN120655,Ailsa Lane,Bridge Road,E0042010,Peartree,UKOS,-1.37639,50.902,BCT,MKD,OTH,active
+1980SN12658B,Bridge Link Road,Cooper's Lane,E0042037,Woolston,UKOS,-1.37717,50.89817,BCT,MKD,OTH,active
+1980SN120659,Bridge Link Road,Cooper's Lane,E0042037,Woolston,UKOS,-1.37727,50.89827,BCT,MKD,OTH,active
+1980SN12658A,Bridge Link Road,Cooper's Lane,E0042037,Woolston,UKOS,-1.37717,50.89826,BCT,MKD,OTH,active
+1980SN120660,Johns Road,Portsmouth Road,E0042037,Woolston,UKOS,-1.37839,50.89808,BCT,MKD,OTH,active
+1980SN120661,Johns Road,Portsmouth Road,E0042037,Woolston,UKOS,-1.37839,50.89798,BCT,MKD,OTH,active
+1980SN120627,National Express stop,Queensway,E0042014,Queens Park,UKOS,-1.40154,50.89854,BCT,MKD,OTH,inactive
+1980SN120632,Briton Street,Queensway,E0042014,Queens Park,UKOS,-1.40141,50.89831,BCT,MKD,OTH,active
+1980HA120630,Friary House,Briton Street,E0042014,Queens Park,UKOS,-1.40333,50.8981,BCT,MKD,OTH,inactive
+1980HA120621,Friary House,Briton Street,E0042014,Queens Park,UKOS,-1.40223,50.89795,BCT,MKD,OTH,active
+1980SN120634,Richmond Street,Threefield Lane,N0080456,St Marys,UKOS,-1.39774,50.90043,BCT,CUS,OTH,active
+1980SN120653,Itchen Bridge,Saltmarsh Road,E0041979,Chapel,UKOS,-1.39239,50.89839,BCT,MKD,OTH,active
+1980SN120652,Itchen Bridge,A3025 Itchen Bridge,E0041979,Chapel,UKOS,-1.39107,50.89882,BCT,MKD,OTH,active
+1980SNA19739,Itchen Bridge,Albert Road North,E0041979,Chapel,UKOS,-1.39145,50.89955,BCT,MKD,OTH,active
+1980SNA90892,Itchen Bridge,Central Bridge,E0041979,Chapel,UKOS,-1.39327,50.8989,BCT,MKD,OTH,active
+1980SN120564,Freemantle Common,Peartree Avenue,E0041975,Bitterne,UKOS,-1.36547,50.91232,BCT,MKD,OTH,active
+1980SN120563,Freemantle Common,Peartree Avenue,E0041975,Bitterne,UKOS,-1.36635,50.9114,BCT,MKD,OTH,active
+1980SN120565,Westwood House,Peartree Avenue,E0042010,Peartree,UKOS,-1.36902,50.90942,BCT,MKD,OTH,active
+1980SN120566,Westwood House,Peartree Avenue,E0042010,Peartree,UKOS,-1.36977,50.90909,BCT,MKD,OTH,active
+1980SNA90866,Westbrook Court,Bassett Green Road,E0041967,Bassett,UKOS,-1.39906,50.94927,BCT,MKD,OTH,active
+1980SNA90969,Westbrook Court,Bassett Green Road,E0041967,Bassett,UKOS,-1.39993,50.94963,BCT,MKD,OTH,active
+1980SNA90867,Millbank,William Street,E0042008,Northam,UKOS,-1.3814,50.91054,BCT,CUS,OTH,inactive
+1980SNA90869,Victoria Street,Belvidere Road,E0042008,Northam,UKOS,-1.3884,50.9072,BCT,CUS,OTH,inactive
+1980SNA90868,Victoria Street,Belvidere Road,E0042008,Northam,UKOS,-1.38847,50.9073,BCT,CUS,OTH,inactive
+1980SNA90871,William Street,Millbank Street,E0042008,Northam,UKOS,-1.38543,50.91017,BCT,MKD,OTH,inactive
+1980SN121050,Greenways,Stoneham Lane,E0042028,Swaythling,UKOS,-1.37925,50.94383,BCT,MKD,OTH,active
+1980SNA90872,Greenways,Stoneham Lane,E0042028,Swaythling,UKOS,-1.37913,50.94434,BCT,MKD,OTH,active
+1980SNA40502,Sutherland Road,Rownhams Road North,N0073217,Lord's Hill,UKOS,-1.45146,50.94325,BCT,MKD,OTH,active
+1980SNA40503,Sutherland Road,Rownhams Road North,N0073217,Lord's Hill,UKOS,-1.45132,50.94325,BCT,MKD,OTH,active
+1980SNA90873,Oxford Street,Bernard Street,N0077117,Southampton City Centre,UKOS,-1.39974,50.89921,BCT,CUS,OTH,active
+1980SNA90889,Oxford Street,Bernard Street,N0077117,Southampton City Centre,UKOS,-1.4005,50.89946,BCT,MKD,OTH,active
+1980SNA90874,West Quay Coach Stop,Harbour Parade,N0077117,Southampton City Centre,UKOS,-1.41094,50.90567,BCT,CUS,OTH,inactive
+1980SNA90876,Cantell School,Violet Road,E0041967,Bassett,UKOS,-1.39921,50.9413,BCT,MKD,OTH,active
+1980SNA90877,Adelaide Health Centre,Access Only Road,E0042019,Shirley Park,UKOS,-1.44749,50.92498,BCT,MKD,OTH,inactive
+1980SNA90883,Rowan Court,Cobden Avenue,N0073216,Bitterne Park,UKOS,-1.37292,50.92249,BCT,MKD,OTH,inactive
+1980SNA90885,Centenary Quay,John Thorneycroft Road,E0042037,Woolston,UKOS,-1.38142,50.89559,BCT,MKD,OTH,active
+1980SNA90886,Centenary Quay,John Thorneycroft Road,E0042037,Woolston,UKOS,-1.38182,50.89503,BCT,MKD,OTH,active
+1980SNA90887,Palm Road,Rownhams Road,E0042000,Maybush,UKOS,-1.44729,50.93535,BCT,MKD,OTH,inactive
+1980SNA90888,Palm Road,Rownhams Road,E0042000,Maybush,UKOS,-1.44698,50.93566,BCT,MKD,OTH,inactive
+1980SNA90891,Terminus Terrace,Marsh Lane,N0080456,St Marys,UKOS,-1.39586,50.90077,BCT,MKD,OTH,active
+1980SNA90895,Dale Valley Road,Dale Valley Road,E0042020,Shirley Warren,UKOS,-1.42645,50.93549,BCT,MKD,OTH,active
+1980SNA90928,Dale Valley Road,Dale Valley Road,E0042020,Shirley Warren,UKOS,-1.42666,50.93543,BCT,MKD,OTH,active
+1980SNA90897,Luton Road,Drove Road,E0042023,Sholing,UKOS,-1.34934,50.90507,BCT,CUS,OTH,active
+1980SNA90898,Cobbett Road,Cobden Avenue,N0073216,Bitterne Park,UKOS,-1.37104,50.92165,BCT,CUS,OTH,inactive
+1980SNA90899,Cobbett Road,Cobden Avenue,N0073216,Bitterne Park,UKOS,-1.3715,50.92189,BCT,CUS,OTH,inactive
+1980SNA19473,Brentwood Crescent,Litchfield Road,N0073221,Townhill Park,UKOS,-1.36039,50.92805,BCT,MKD,OTH,active
+1980SNA90902,United Reformed Church,Cobden Avenue,N0073216,Bitterne Park,UKOS,-1.37488,50.92326,BCT,CUS,OTH,active
+1980SN120129,Begonia Road,Violet Road,E0041968,Bassett Green,UKOS,-1.39552,50.94021,BCT,CUS,OTH,inactive
+1980SNA90903,Begonia Road,Violet Road,E0041968,Bassett Green,UKOS,-1.39498,50.94016,BCT,MKD,OTH,inactive
+1980SN120231,Vincent Avenue,Winchester Road,E0042031,Upper Shirley,UKOS,-1.42606,50.93013,BCT,MKD,OTH,active
+1980SN121020,Hurstbourne Place,Kingsclere Avenue,N0073222,Weston,UKOS,-1.36587,50.88526,BCT,MKD,OTH,active
+1980SN120222,General Hospital A&E,Tremona Road,N0080795,Southampton General,UKOS,-1.43149,50.93292,BCT,MKD,OTH,active
+1980SN120221,General Hospital A&E,Tremona Road,N0080795,Southampton General,UKOS,-1.4319,50.9322,BCT,MKD,OTH,active
+1980SN120120,Global Technology Centre,Burgess Road,E0041989,Highfield,UKOS,-1.40444,50.93637,BCT,MKD,OTH,active
+1980SN120121,Global Technology Centre,Burgess Road,E0041989,Highfield,UKOS,-1.40322,50.93684,BCT,MKD,OTH,active
+1980SN121005,Bassett Wood Road,Bassett Avenue,E0041967,Bassett,UKOS,-1.40493,50.94814,BCT,MKD,OTH,active
+1980SN120502,Hill Farm Road,Hill Lane,E0042018,Shirley,UKOS,-1.4155,50.91298,BCT,MKD,OTH,active
+1980SN120274,The Mitre,St Denys' Road,E0042013,Portswood,UKOS,-1.39051,50.92642,BCT,MKD,OTH,active
+1980SN120710,St Annes Road,Portsmouth Road,E0042037,Woolston,UKOS,-1.36789,50.89635,BCT,MKD,OTH,active
+1980SN120726,St Annes Road,Portsmouth Road,E0042037,Woolston,UKOS,-1.36821,50.89632,BCT,MKD,OTH,active
+1980SNA90904,Cruise Crews Only BK,Castle Way,N0077117,Southampton City Centre,UKOS,-1.4049,50.90153,BCT,MKD,OTH,inactive
+1980SN120872,Vineyard Close,Radstock Road,E0042037,Woolston,UKOS,-1.37656,50.89994,BCT,MKD,OTH,active
+1980SNA90896,Dale Valley Close,Dale Valley Road,E0042020,Shirley Warren,UKOS,-1.42982,50.932,BCT,MKD,OTH,active
+1980SN120092,Lyburn Court,Coxford Road,E0041964,Aldermoor,UKOS,-1.42878,50.93891,BCT,MKD,OTH,active
+1980SN120091,Lyburn Court,Coxford Road,E0041964,Aldermoor,UKOS,-1.42911,50.93881,BCT,MKD,OTH,active
+1980SNA90905,Leybourne Avenue,Mousehole Lane,E0042002,Midanbury,UKOS,-1.36207,50.92187,BCT,MKD,OTH,inactive
+1980SNA90906,Montgomery Road,Mousehole Lane,E0042002,Midanbury,UKOS,-1.35851,50.92183,BCT,MKD,OTH,active
+1980HA120321,Benhams Road,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.35754,50.92917,BCT,CUS,OTH,inactive
+1980SNA90907,Benhams Road,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.35747,50.92928,BCT,MKD,OTH,active
+1980SNA90909,Community Centre,OrpenRoad,E0042023,Sholing,UKOS,-1.34252,50.89965,BCT,CUS,OTH,active
+1980SNA90923,Community Centre,Orpen Road,E0042023,Sholing,UKOS,-1.34268,50.8997,BCT,CUS,OTH,active
+1980SNA90912,Barton Crescent,Witts Hill,E0042002,Midanbury,UKOS,-1.36243,50.92492,BCT,MKD,OTH,active
+1980SNA90914,Bishops Crescent,Bishops Road,E0041994,Itchen,UKOS,-1.36761,50.9032,BCT,CUS,OTH,active
+1980SNA90915,Bishops Crescent,Bishops Road,E0041994,Itchen,UKOS,-1.36737,50.90328,BCT,CUS,OTH,active
+1980SN120504,Silverdale Road,Archers Road,E0041965,Banister Park,UKOS,-1.41411,50.91506,BCT,MKD,OTH,active
+1980SNA90918,Silverdale Road,Archers Road,E0041965,Banister Park,UKOS,-1.41441,50.91509,BCT,MKD,OTH,active
+1980SNA90919,Atherley Road,Howard Road,E0042018,Shirley,UKOS,-1.41899,50.91476,BCT,MKD,OTH,active
+1980SNA90920,Atherley Road,Howard Road,E0042018,Shirley,UKOS,-1.41835,50.91487,BCT,MKD,OTH,active
+1980SNA09235,Wolseley Road,Foundry Lane,E0041986,Freemantle,UKOS,-1.43201,50.91497,BCT,HAR,OTH,active
+1980SNA90921,Wolseley Road,Foundry Lane,E0041986,Freemantle,UKOS,-1.43225,50.91536,BCT,MKD,OTH,active
+1980SNA90922,Central Station Temp Stop,Commercial Road,E0041985,Fourposts,UKOS,-1.41379,50.90886,BCT,MKD,OTH,inactive
+1980SN120729,The Swan,Portsmouth Road,E0042037,Woolston,UKOS,-1.363,50.89566,BCT,MKD,OTH,active
+1980SN120730,The Swan,Portsmouth Road,E0042037,Woolston,UKOS,-1.36331,50.89565,BCT,MKD,OTH,active
+1980SN120225,Dale Road,Dale Road,E0042020,Shirley Warren,UKOS,-1.42955,50.92967,BCT,MKD,OTH,active
+1980SN120548,Brintons Road,Northam Road A3024,E0042007,Nicholstown,UKOS,-1.39427,50.90799,BCT,MKD,OTH,active
+1980SN120547,Brintons Road,Northam Road A3024,E0042007,Nicholstown,UKOS,-1.39426,50.90777,BCT,MKD,OTH,active
+1980HA120322,Wakefield Road,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.3566,50.92867,BCT,MKD,OTH,active
+1980SNA90924,Wakefield Road,Meggeson Avenue,N0073221,Townhill Park,UKOS,-1.35674,50.92862,BCT,MKD,OTH,active
+1980HA120633,Queens Terrace,Orchard Place,E0042014,Queens Park,UKOS,-1.40148,50.89716,BCT,MKD,OTH,active
+1980SNA90925,Queens Terrace,Orchard Place,E0042014,Queens Park,UKOS,-1.40111,50.89725,BCT,MKD,OTH,active
+1980SNA90926,Mayflower Halls,West Park Road,N0077117,Southampton City Centre,UKOS,-1.4091,50.90831,BCT,MKD,OTH,active
+1980SNA90930,Chadwick Lodge,Henstead Road,E0042012,Polygon,UKOS,-1.40852,50.91218,BCT,CUS,OTH,active
+1980SNA90931,Chadwick Lodge,Henstead Road,E0042012,Polygon,UKOS,-1.40852,50.91214,BCT,CUS,OTH,active
+1980SNA90932,Daisy Road,Honeysuckle Road,E0041968,Bassett Green,UKOS,-1.39024,50.93926,BCT,CUS,OTH,active
+1980SN120499,Sir Georges Road,Shirley Road,E0041986,Freemantle,UKOS,-1.42047,50.91201,BCT,MKD,OTH,active
+1980SN120501,Sir Georges Road,Shirley Road,E0041986,Freemantle,UKOS,-1.41984,50.91081,BCT,MKD,OTH,active
+1980SNA90933,Events on the Common,Northlands Road,E0042025,Southampton Common,UKOS,-1.40527,50.92157,BCT,CUS,OTH,inactive
+1980SNA90934,Events on the Common,Northlands Road,E0042025,Southampton Common,UKOS,-1.40528,50.9215,BCT,CUS,OTH,active
+1980SNA90936,Coates Road,Orpen Road,E0042023,Sholing,UKOS,-1.33774,50.9028,BCT,MKD,OTH,active
+1980SNA90937,Coates Road,Orpen Road,E0042023,Sholing,UKOS,-1.33757,50.90278,BCT,MKD,OTH,active
+1980SNA90938,Walton Road,Montague Avenue,E0042023,Sholing,UKOS,-1.33738,50.90017,BCT,MKD,OTH,active
+1980SNA90939,Rosoman Road,Spring Road,E0042023,Sholing,UKOS,-1.36557,50.90158,BCT,CUS,OTH,active
+1980SNA90940,Rosoman Road,Spring Road,E0042023,Sholing,UKOS,-1.36519,50.90154,BCT,CUS,OTH,active
+1980SNA90942,Guernsey Close,Brownhill Way,E0042000,Maybush,UKOS,-1.45873,50.93791,BCT,MKD,OTH,active
+1980SNA90974,Guernsey Close,Brownhill Way,E0042000,Maybush,UKOS,-1.459,50.93795,BCT,MKD,OTH,active
+1980SN120070,Myrtle Road,Aldermoor Road,E0041964,Aldermoor,UKOS,-1.43979,50.93984,BCT,MKD,OTH,active
+1980SNA90943,Myrtle Road,Aldermoor Road,E0041964,Aldermoor,UKOS,-1.43937,50.94005,BCT,MKD,OTH,active
+1980SNA90944,Houndwell Park - events temp stop,Hanover Buildings,N0077117,Southampton City Centre,UKOS,-1.40193,50.90293,BCT,MKD,OTH,active
+1980SNA90947,Portsmouth Road,St Annes Road,E0042037,Woolston,UKOS,-1.36782,50.8957,BCT,MKD,OTH,inactive
+1980SNA90948,Lyndock Place,Obelisk Road,E0042037,Woolston,UKOS,-1.37243,50.89434,BCT,MKD,OTH,inactive
+1980SNA90949,Johns Road,Obelisk Road,E0042037,Woolston,UKOS,-1.37942,50.89595,BCT,MKD,OTH,inactive
+1980SNA90950,Chamberlain Halls,Glen Eyre Road,E0041967,Bassett,UKOS,-1.40201,50.94162,BCT,MKD,OTH,active
+1980SNA90951,St James Park,St James Road,E0042031,Upper Shirley,UKOS,-1.42928,50.9272,BCT,MKD,OTH,active
+1980SNA90952,St James Park,St James Road,E0042031,Upper Shirley,UKOS,-1.4289,50.92698,BCT,MKD,OTH,active
+1980SNA90972,Granville Street,Chapel Road,E0041979,Chapel,UKOS,-1.39164,50.90192,BCT,CUS,OTH,active
+1980SNA90958,Nichols Road SCH Only,Brintons Road,E0042007,Nicholstown,UKOS,-1.39557,50.90819,BCT,CUS,OTH,active
+1980SNA90959,Nichols Road SCH Only,Brintons Road,E0042007,Nicholstown,UKOS,-1.39538,50.90828,BCT,CUS,OTH,active
+1980SNA90960,Argyle Road SCH Only,St Marys Road,E0042007,Nicholstown,UKOS,-1.39913,50.90979,BCT,CUS,OTH,active
+1980SNA90961,Argyle Road SCH Only,St Marys Road,E0042007,Nicholstown,UKOS,-1.39893,50.90986,BCT,CUS,OTH,active
+1980SNA90962,College Keep,Terminus Terrace,E0042014,Queens Park,UKOS,-1.39655,50.89834,BCT,MKD,OTH,active
+1980SNA90963,College Keep,Terminus Terrace,E0042014,Queens Park,UKOS,-1.39673,50.89839,BCT,MKD,OTH,active
+1980SNA90965,Podium Car Park - events temp stop,Harbour Parade,N0077117,Southampton City Centre,UKOS,-1.40851,50.90364,BCT,CUS,OTH,active
+1980SNA90970,Spakes Corner SCH,South East Road,E0042001,Merry Oak,UKOS,-1.3617,50.90446,BCT,CUS,OTH,inactive
+1980SN120899,Hoglands Park,Houndwell Place,N0077117,Southampton City Centre,UKOS,-1.4002,50.90284,BCT,MKD,OTH,active
+1980SN120980,Hoglands Park,Houndwell Place,N0077117,Southampton City Centre,UKOS,-1.39967,50.90281,BCT,MKD,OTH,active
+1980SNA90973,Pear Tree Car Park,Angel Crescent,E0041975,Bitterne,UKOS,-1.36054,50.91398,BCT,CUS,OTH,active
+1980SNA90975,Fanshawe Street,Onslow Road,E0042007,Nicholstown,UKOS,-1.39954,50.91311,BCT,MKD,OTH,active
+1980SNA90976,Downside Avenue,Brownlow Avenue,E0041975,Bitterne,UKOS,-1.3606,50.91309,BCT,MKD,OTH,active

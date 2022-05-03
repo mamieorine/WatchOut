@@ -36,7 +36,7 @@ function RootNavigator(navigationRef: any) {
         options={{ headerShown: true, title: 'Terms and conditions' }}
       />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="RouteScreen" component={TabTwoScreen} options={{headerShown: true }}  />
+      <Stack.Screen name="RouteScreen" component={TabTwoScreen} options={{headerShown: false }}  />
       <Stack.Screen name="TabOne" component={MapHomeScreen} options={{headerShown: false }}  />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>

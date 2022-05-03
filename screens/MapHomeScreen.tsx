@@ -1,14 +1,19 @@
 import { StyleSheet } from 'react-native';
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
 import GooglePlacesInput from '../components/DestinationSearch';
-import DestinationPopup from '../components/BottomSheet';
+import DestinationPopup from '../components/DestinationSheet';
 import { separateCrimeTypes, Crimes, Crime } from '../functions/helper';
 import MapViewDirections, { MapViewDirectionsMode } from 'react-native-maps-directions';
 import MapView, { Callout, Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
-import { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { Actionsheet, useDisclose } from 'native-base';
+import { Actionsheet, Text, Modal, Row, Stack, useDisclose, VStack, Box } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import busStop from '../assets/files/bus-stop.json';
+import RoutePopup from '../components/RouteSheet';
+import { Header, Button } from 'react-native-elements';
+import SecureRoutePopup from '../components/SecureRouteSheet';
+import AlertPopup from '../components/AlertSheet';
 
 const baseUrl = 'https://data.police.uk/api';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
@@ -29,7 +34,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 
   const params: any = location.params;
   const destinationRoute = params?.destination;
-  const routesData = params?.dataRoutes
+  const routesData = params?.dataRoutes;
 
 	const [filterCrimes, onFilterCrimesChange] = useState<any>(['Violence Against The Person',
   'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
@@ -64,6 +69,12 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 		longitude: -1.405594
 	});
 
+  const [isDestSheetVisible, setDestSheetVisible] = useState(false);
+  const [isRouteSheetVisible, setRouteSheetVisible] = useState(false);
+  const [isSecureRouteSheetVisible, setSecureRouteSheetVisible] = useState(false);
+  const [isAlertSheetVisible, setAlertSheetVisible] = useState(false);
+  const [isCheckinSheetVisible, setCheckinSheetVisible] = useState(false);
+
   useLayoutEffect(() => {
     if (!h1Ref.current) return;
 
@@ -78,6 +89,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   useEffect(() => {
     let polyStr = '';
     if (isFirstVisit) return;
+
     if (polyGeometry.length == 1) {
       polyStr = '50.904784,-1.408083:50.90271,-1.403046:50.912051,-1.4029:50.913540,-1.397047';
     }
@@ -91,11 +103,12 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
     }
 
     axios.get(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`)
-        .then(response => {
-          const crimes: Crimes[] = separateCrimeTypes(response.data);
-          initialCrimes(crimes);
-          onCrimesRawDataChange(crimes);
-        });
+      .then(response => {
+        const crimes: Crimes[] = separateCrimeTypes(response.data);
+        initialCrimes(crimes);
+        onCrimesRawDataChange(crimes);
+      });
+
   }, [polyGeometry]);
 
   useEffect(() => {
@@ -117,11 +130,10 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
     ]);
 
     if (routesData) {
-      setFirstVisit(false)
+      setFirstVisit(false);
+      setRouteSheetVisible(true);
     }
   }, [destination]);
-
-  const [isBottomSheetVisible, setBottomSheetVisible] = useState(false);
 
   function getMapDirection(strokeColor: string, mode: MapViewDirectionsMode, waypoints: any[]) {
     return <MapViewDirections
@@ -180,11 +192,11 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   } = useDisclose();
 
   function openActionSheet() {
-    return <Actionsheet isOpen={isBottomSheetVisible} onClose={() => {}} disableOverlay >
+    return <Actionsheet isOpen={isDestSheetVisible} onClose={() => {}} disableOverlay >
       <Actionsheet.Content>
           <DestinationPopup
-            isBottomSheetVisible={isBottomSheetVisible}
-            setBottomSheetVisible={setBottomSheetVisible}
+            isDestSheetVisible={isDestSheetVisible}
+            setDestSheetVisible={setDestSheetVisible}
             geometry={destination}
             origin={currentGeometry}
             crimes={rawCrimesData}
@@ -196,9 +208,88 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       </Actionsheet>
   }
 
+  function openRouteSheet() {
+    return <Actionsheet isOpen={isRouteSheetVisible} onClose={() => {}} disableOverlay>
+      <Actionsheet.Content>
+          <RoutePopup
+            isRouteSheetVisible={isRouteSheetVisible}
+            setRouteSheetVisible={setRouteSheetVisible}
+            routeDetail={routesData}
+            navigation={navigation}
+            setSecureRouteStart={setSecureRouteSheetVisible}
+          ></RoutePopup>
+        </Actionsheet.Content>
+      </Actionsheet>
+  }
+
+  function openSecureRouteSheet() {
+    return <Actionsheet isOpen={isSecureRouteSheetVisible} onClose={() => {}} disableOverlay>
+      <Actionsheet.Content>
+          <SecureRoutePopup
+            isSecureRouteSheetVisible={isSecureRouteSheetVisible}
+            setSecureRouteSheetVisible={setSecureRouteSheetVisible}
+            setAlertSheetVisible={setAlertSheetVisible}
+            routeDetail={routesData}
+          ></SecureRoutePopup>
+        </Actionsheet.Content>
+      </Actionsheet>
+  }
+
+  function openAlertSOSSheet() {
+    return <Actionsheet isOpen={isAlertSheetVisible} onClose={() => {}} disableOverlay>
+      <Row style={{ flex: 1, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%', top: 100, padding: 30 }}>
+        <Button icon={{}}
+          title="SOS"
+          titleStyle= {{ fontSize: 40 }}
+          buttonStyle={styles.alertButton}
+          onPress={() => {}} />
+        <Text bold style={{ color: '#FFFFFF', fontSize: 17, textAlign: 'center' }}>This <Text style={{ color: '#FFD747' }}>emergency alert </Text>
+          will send the alert to your selected friends to tell them that you’re in danger.</Text>
+          <View style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'flex-start', flexDirection: 'row', marginTop: 5, marginBottom: 10, backgroundColor: 'transparent' }}>
+					<Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >T</Box>
+					<Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box>
+					<Box style={[styles.name, { backgroundColor: '#007AAE' } ]} >M</Box>
+					<Box style={[styles.name, { backgroundColor: '#CC5270' } ]} >W</Box>
+				</View>
+      </Row>
+        <Actionsheet.Content>
+          <AlertPopup
+            isAlertSheetVisible={isAlertSheetVisible}
+            setAlertSheetVisible={setAlertSheetVisible}
+            routeDetail={routesData}
+          ></AlertPopup>
+        </Actionsheet.Content>
+      </Actionsheet>
+  }
+
   return (
     <View style={styles.container}>
-      <GooglePlacesInput onDestinationChange={onDestinationChange} isDestinationChanged={setBottomSheetVisible} isFirstVisited={setFirstVisit}/>
+      {isSecureRouteSheetVisible || isAlertSheetVisible ?
+      <Header containerStyle={{
+          marginTop: 5,
+          backgroundColor: '#fff',
+        }}
+        placement="left"
+        leftComponent={{
+          icon: 'arrow-back-ios', color: '#7A9495', size: 20,
+          onPress: (() => {
+            if (isSecureRouteSheetVisible) {
+              setSecureRouteSheetVisible(false);
+              setRouteSheetVisible(true)
+            } else if (isAlertSheetVisible) {
+              setAlertSheetVisible(false);
+              setSecureRouteSheetVisible(true)
+            }
+          })
+        }}
+        centerComponent={{ text: 'Secure navigation started', style: { color: '#7A9495', fontSize: 18, fontWeight: '600' } }}
+        rightComponent={{ icon: 'pin-drop', color: '#7A9495', size: 28,
+          onPress: () => {
+
+          }
+        }}
+      /> :
+      <GooglePlacesInput onDestinationChange={onDestinationChange} isDestinationChanged={setDestSheetVisible} isFirstVisited={setFirstVisit}/>}
 
       <MapView region={{... isFirstVisit ? currentGeometry : centerGeometry, latitudeDelta: delta.latitudeDelta, longitudeDelta: delta.longitudeDelta}}
         style={{margin: 0, height: '100%', width: '100%'}}
@@ -217,13 +308,12 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           })
         }}
         >
+
         <Marker key={1000} coordinate={currentGeometry} />
         <Marker key={2000} coordinate={isFirstVisit ? currentGeometry : {
           latitude: destinationRoute ? destinationRoute.latitude : destination.latitude,
           longitude: destinationRoute ? destinationRoute.longitude : destination.longitude
         }} />
-
-        {destination ? openActionSheet() : <></>}
 
         {crimes.map((crimeTypes: Crimes, index) => (
           crimeTypes.crimes.map((crime: Crime, d) => {
@@ -255,9 +345,40 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           })
         ))}
 
+        {/* {destinationRoute ? busStop.map((busDetail: any, index) => {
+            return <Marker
+                key={busDetail.ATCOCode}
+                coordinate={{
+                  latitude: busDetail.Latitude,
+                  longitude: busDetail.Longitude,
+                }}
+                onPress={() => { onOpen() }}
+                icon={require('../assets/images/bus-icon.png')}
+            >
+              <Callout
+                tooltip
+                style={{ borderRadius: 20}}>
+                <View style={styles.bubble}>
+                  <View style={{width: 45, height: 45, backgroundColor: "#eee", borderRadius: 50, marginRight: 10 }}></View>
+                  <View>
+                    <Text style={{fontSize: 16, marginBottom: 5, textTransform: 'capitalize', fontWeight: '500'}}>{busDetail.CommonName}</Text>
+                    { busDetail.Street ? <Text>Street: {busDetail.Street}</Text> : <></> }
+                  </View>
+                </View>
+              </Callout>
+          </Marker>
+        }): <></>} */}
+
         {routesData?.mode === 'TRANSIT' ? getMapDirection("hotpink", routesData?.mode, []) :
         destinationRoute ? getMapDirection("hotpink", routesData?.mode, routesData?.waypoints) : <></>}
       </MapView>
+
+      {isAlertSheetVisible ? <View style={[styles.overlay, { height: '100%' }]} /> : <></>}
+
+      {destination ? openActionSheet() : <></>}
+      {routesData ? openRouteSheet() : <></>}
+      {isSecureRouteSheetVisible ? openSecureRouteSheet() : <></>}
+      {isAlertSheetVisible ? openAlertSOSSheet() : <></>}
     </View>
   );
 }
@@ -277,6 +398,15 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     borderRadius: 20
   },
+  name: {
+		width: 40,
+		height: 40,
+		borderRadius: 50,
+		padding: 10,
+		paddingLeft: 14,
+		marginRight: 5,
+    marginTop: 5
+	},
   modal: {
     flex: 1,
     padding: 20,
@@ -314,4 +444,26 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  alertButton: {
+		width: 180,
+		height: 180,
+		marginTop: 100,
+    marginBottom: 15,
+		paddingLeft: 0,
+		borderRadius: 100,
+		backgroundColor: '#F84D3A',
+		shadowColor: '#666',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.8,
+		shadowRadius: 4,
+	},
+  overlay: {
+    flex: 1,
+    position: 'absolute',
+    left: 0,
+    top: 97,
+    opacity: 0.80,
+    width: '100%',
+    backgroundColor: '#807878',
+  }
 });

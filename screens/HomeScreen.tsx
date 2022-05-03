@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Center, Input, Stack, Button, Row, Text, Link, Box } from "native-base";
 import React from "react";
-import { StyleSheet, Image, View, TextInput } from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
 import { ButtonGroup } from "react-native-elements";
 
 export default function HomeScreen() {
@@ -19,7 +19,7 @@ export default function HomeScreen() {
 					onPress={(index) => {console.log(index)}}
 					selectedIndex={0}
 					buttons={buttons}
-					containerStyle={{ height: 54, borderRadius: 8, borderWidth: 0, padding: 3,backgroundColor: "#E5E5E5" }}
+					containerStyle={{ height: 45, borderRadius: 8, borderWidth: 0, padding: 3,backgroundColor: "#E5E5E5" }}
 					selectedButtonStyle={{ backgroundColor: "#fff", borderColor: "#fff", borderWidth: 1 }}
 					selectedTextStyle={{ color: "#2D77EE" }}
 					buttonStyle={{ backgroundColor: "#E5E5E5", borderColor: "#E5E5E", borderRadius: 8 }}

@@ -12,6 +12,38 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 const baseUrl = 'https://data.police.uk/api';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
 
+export function getDirection(data: any) {
+  const busIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
+  const bicyclingIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
+  const walkIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
+  const rightArrow = <FontAwesome size={10} style={{ color: '#aaa', marginRight: 5, marginTop: 5 }} name="chevron-right" />
+
+  if (data.directions.length === 1) {
+    if (data.directions[0].mode === 'WALKING') {
+      return <Flex style={styles.flex}>
+        {walkIcon}
+        <Text>Walk {data.duration}</Text>
+      </Flex>
+    }
+    if (data.directions[0].mode === 'BICYCLING') {
+      return <Flex style={styles.flex}>
+        {bicyclingIcon}
+        <Text>Bicycle {data.duration}</Text>
+      </Flex>
+    }
+  }
+
+  return <Flex style={styles.flex}>
+    {data.directions.map((step: any, index: number) => {
+      return [<Flex style={styles.flex}>{step.mode === 'TRANSIT' ? busIcon : walkIcon}
+          <Text> { step.mode === 'TRANSIT' ? 'bus' : 'walk' } {step.dist} </Text>
+        </Flex>,
+      ,
+      index === data.directions.length-1 ? '' : rightArrow ]
+    })}
+  </Flex>
+}
+
 export default function TabTwoScreen(props: { destination: any, origin: any, crimes: any, filterCrimes: any[] }) {
   const navigation = useNavigation();
   const location = useRoute();
@@ -41,38 +73,6 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
 
   const [filterCrimes, onFilterCrimesChange] = useState<any>(['Violence Against The Person',
   'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
-
-  function getDirection(data: any) {
-    const busIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
-    const bicyclingIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
-    const walkIcon = <FontAwesome size={18} style={{ marginRight: 5, marginTop: 5 }} name="bus" />
-    const rightArrow = <FontAwesome size={10} style={{ color: '#aaa', marginRight: 5, marginTop: 5 }} name="chevron-right" />
-
-    if (data.directions.length === 1) {
-      if (data.directions[0].mode === 'WALKING') {
-        return <Flex style={styles.flex}>
-          {walkIcon}
-          <Text>Walk {data.duration}</Text>
-        </Flex>
-      }
-      if (data.directions[0].mode === 'BICYCLING') {
-        return <Flex style={styles.flex}>
-          {bicyclingIcon}
-          <Text>Bicycle {data.duration}</Text>
-        </Flex>
-      }
-    }
-
-    return <Flex style={styles.flex}>
-      {data.directions.map((step: any, index: number) => {
-        return [<Flex style={styles.flex}>{step.mode === 'TRANSIT' ? busIcon : walkIcon}
-            <Text> { step.mode === 'TRANSIT' ? 'bus' : 'walk' } {step.dist} </Text>
-          </Flex>,
-        ,
-        index === data.directions.length-1 ? '' : rightArrow ]
-      })}
-    </Flex>
-  }
 
   const Loading = () => {
     return <HStack space={2} justifyContent="center">
@@ -156,7 +156,8 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
                 waypoints: waypoint,
                 directions: direction,
                 crimes: result.highest,
-                crimesDetail: result.detail
+                crimesDetail: result.detail,
+                destination: destination,
               }
 
               const isDuplicated = routeData.filter((route: any) =>  {
@@ -216,7 +217,8 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
                 waypoints: waypoint,
                 directions: direction,
                 crimes: result.highest,
-                crimesDetail: result.detail
+                crimesDetail: result.detail,
+                destination: destination,
               }
 
               const isDuplicated = routeData.filter((route: any) =>  {
@@ -279,7 +281,8 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
                 waypoints: waypoint,
                 directions: direction,
                 crimes: result.highest,
-                crimesDetail: result.detail
+                crimesDetail: result.detail,
+                destination: destination,
               }
 
               const isDuplicated = routeData.filter((route: any) =>  {
