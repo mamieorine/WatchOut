@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import { Button, Chip } from 'react-native-elements';
 import { Text, View } from './Themed';
-import { getDirection } from '../screens/TabTwoScreen';
+import { getDirection } from '../screens/AllRoutesScreen';
 
 export type destination = {
 	latitude: Number;
@@ -14,6 +14,10 @@ const RoutePopup = (props: {
 	setRouteSheetVisible: any;
 	navigation: any;
 	setSecureRouteStart: any;
+	isCrimeVisible: boolean;
+	isBusStopVisible: boolean;
+	onCrimesVisible: any;
+	onBusStopVisible: any
 	routeDetail: any; }) => {
 
 	return (
@@ -28,17 +32,17 @@ const RoutePopup = (props: {
 			<Text style={{ marginTop: 10, marginBottom: 10, fontSize: 15 }} > {props.routeDetail.crimes.name } : {props.routeDetail.crimes.value } times occurred in this route </Text>
 
 			<View style={{ flex: 0, flexDirection: 'row', backgroundColor: 'transparent', marginTop:5, marginBottom: 5 }}>
-				<Chip containerStyle={styles.chipMode} title="Bus"
+				<Chip containerStyle={styles.chipMode} title="Crimes"
 				titleStyle={{ color: '#000' }}
-				buttonStyle={{ backgroundColor: true ? '#007AFF4D' : '#ccc'}}
+				buttonStyle={{ backgroundColor: props.isCrimeVisible ? '#FF47734D' : '#ccc'}}
 				onPress={() => {
-					// setSelectedTransit(!isSelectedTransit);
+					props.onCrimesVisible(!props.isCrimeVisible);
 				}} />
-				<Chip containerStyle={styles.chipMode} title="Walk"
+				<Chip containerStyle={[styles.chipMode, {width: 100}]} title="Bus Stop"
 				titleStyle={{ color: '#000' }}
-				buttonStyle={{ backgroundColor: true ? '#007AFF4D' : '#ccc'}}
+				buttonStyle={{ backgroundColor: props.isBusStopVisible ? '#007AFF4D' : '#ccc'}}
 				onPress={() => {
-					// setSelectedWalking(!isSelectedWalking);
+					props.onBusStopVisible(!props.isBusStopVisible);
 				}} />
 			</View>
 

@@ -9,12 +9,13 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import MapHomeScreen from '../screens/MapHomeScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import AllRoutesScreen from '../screens/AllRoutesScreen';
 import RouteScreen from '../screens/RouteScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import HomeScreen from '../screens/HomeScreen';
 import AgreementScreen from '../screens/AgreementScreen';
+import CrimeDetailScreen from '../screens/CrimeDetailScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -36,8 +37,9 @@ function RootNavigator(navigationRef: any) {
         options={{ headerShown: true, title: 'Terms and conditions' }}
       />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="RouteScreen" component={TabTwoScreen} options={{headerShown: false }}  />
-      <Stack.Screen name="TabOne" component={MapHomeScreen} options={{headerShown: false }}  />
+      <Stack.Screen name="CrimeDetailScreen" component={CrimeDetailScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="RouteScreen" component={AllRoutesScreen} options={{headerShown: false }}  />
+      <Stack.Screen name="MapHomeScreen" component={MapHomeScreen} options={{headerShown: false }}  />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
       </Stack.Group>
@@ -52,12 +54,12 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="MapHomeScreen"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="MapHomeScreen"
         component={MapHomeScreen}
         options={{
           title: 'Home',
@@ -67,7 +69,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={AllRoutesScreen}
         options={{
           title: 'Custom Markers',
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
@@ -84,7 +86,7 @@ function BottomTabNavigator() {
       />
       {/* <BottomTab.Screen
         name="TabFour"
-        component={TabTwoScreen}
+        component={AllRoutesScreen}
         options={{
           title: 'Search',
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,

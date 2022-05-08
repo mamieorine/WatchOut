@@ -21,6 +21,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.odi.ODIProject",
+      "buildNumber": "1.0.0",
       "config": {
         "googleMapsApiKey": "AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo"
       },
@@ -30,10 +31,8 @@
       }
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "com.odi.ODIProject",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

@@ -1,9 +1,8 @@
 import { StyleSheet } from 'react-native';
-import React, { useState } from 'react';
-import { Button, Chip } from 'react-native-elements';
+import React from 'react';
+import { Button } from 'react-native-elements';
 import { Text, View } from './Themed';
-import { getDirection } from '../screens/TabTwoScreen';
-import { Box, Row } from 'native-base';
+import { Row } from 'native-base';
 
 export type destination = {
 	latitude: Number;

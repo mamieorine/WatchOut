@@ -29,7 +29,7 @@ export default function AgreementScreen() {
 
 					<Button size="lg" style={{backgroundColor: "#7A9495", borderRadius: 50, width: 100 }}
 					onPress={() => {
-						navigation.navigate('TabOne', {
+						navigation.navigate('MapHomeScreen', {
 							destination: null,
 							dataRoutes: null
 						});

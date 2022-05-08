@@ -4,9 +4,9 @@ import { Text, View,  } from '../components/Themed';
 import React, { useEffect, useState } from 'react';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { Card, Chip } from 'react-native-elements';
-import { Box, Flex, HStack, ScrollView, Spinner } from 'native-base';
+import { Box, Center, Flex, HStack, Button, Row, ScrollView, Spinner, Link } from 'native-base';
 import axios from 'axios';
-import { Crimes, getCrimeGrouping, separateCrimeTypes } from '../functions/helper';
+import { Crimes, getIcon, separateCrimeTypes } from '../functions/helper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 const baseUrl = 'https://data.police.uk/api';
@@ -44,14 +44,9 @@ export function getDirection(data: any) {
   </Flex>
 }
 
-export default function TabTwoScreen(props: { destination: any, origin: any, crimes: any, filterCrimes: any[] }) {
+export default function AllRoutesScreen(props: { destination: any, origin: any, crimes: any, filterCrimes: any[] }) {
   const navigation = useNavigation();
   const location = useRoute();
-  const TabBarIcon = (props: {
-    name: React.ComponentProps<typeof FontAwesome>['name'];
-    color: string; }) => {
-    return <FontAwesome size={24} style={{ marginTop: 20, marginLeft: 10 }} {...props} />;
-  }
 
   const params: any = location.params;
   const destination = params?.destination;
@@ -128,7 +123,7 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
   }
 
   useEffect(() => {
-    axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=walking`)
+    axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=${GOOGLE_MAPS_APIKEY}&alternatives=true&mode=walking`)
       .then((response: any) => {
         response.data.routes.forEach((route: any, index: number) => {
           const waypoint = route.legs[0].steps.map((step: any, index: number): any => {
@@ -183,7 +178,7 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
   }, [walking]);
 
   useEffect(() => {
-      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=bicycling`)
+      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=${GOOGLE_MAPS_APIKEY}&alternatives=true&mode=bicycling`)
       .then((response: any) => {
         response.data.routes.forEach((route: any, index: number) => {
           const waypoint = route.legs[0].steps.map((step: any, index: number): any => {
@@ -244,7 +239,7 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
   }, [bicycling]);
 
   useEffect(() => {
-      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo&alternatives=true&mode=transit`)
+      axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${latLongOrigin}&destination=${latLongDestination}&key=${GOOGLE_MAPS_APIKEY}&alternatives=true&mode=transit`)
       .then((response: any) => {
         response.data.routes.forEach((route: any, index: number) => {
           const waypoint = route.legs[0].steps.map((step: any, index: number): any => {
@@ -328,7 +323,7 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
   }, [isSelectedTransit, isSelectedWalking, isSelectedBicycle]);
 
   return (
-    <View style={{ height: '100%', backgroundColor: '#fff', paddingTop: 5 }}>
+    <View style={{ height: '100%', backgroundColor: '#fff', paddingTop: 45 }}>
       <View style={{ padding: 10 }}>
         <Flex style={styles.flex}>
           <Image style={{
@@ -419,31 +414,49 @@ export default function TabTwoScreen(props: { destination: any, origin: any, cri
 
         if (hasCrimes) return <></>
 
-        return <TouchableOpacity onPress={() => {
-          navigation.navigate('TabOne', {
-            destination: {
-              latitude: data.waypoints[data.waypoints.length-1].latitude,
-              longitude: data.waypoints[data.waypoints.length-1].longitude
-            },
-            dataRoutes: data
-          });
-        }} key={index}>
-         <Card>
+        return  <Card containerStyle={{ borderRadius: 10 }} key={index}>
           <Flex justifyContent={'flex-start'} direction={'row'} alignItems={'center'} style={{ paddingRight: 10 }}>
-            <View style={{ width: '22%' }}>
-              <Box style={[styles.box, {backgroundColor: data?.crimes?.value < 20 ? '#007AFF' : '#FF4773'}]}>
-                <Text style={{color: 'white', fontSize: 14, fontWeight: '600'}}>{data?.crimes?.value}</Text>
+            <View style={{ width: '22%', marginRight: 10 }}>
+              <Center>
+              <Box style={[styles.box, {borderColor: data?.crimes?.value < 20 ? '#007AFF' : '#FF4773', borderWidth: 2 }]}>
+                <Image style={{ width: 30, height: 30 }}
+                  source={getIcon(data?.crimes?.name)}
+                  resizeMode='cover'
+                />
               </Box>
-              <Text>{data.duration}</Text>
+              {/* <Text style={{ marginTop: 5 }}>{data?.crimes?.name}</Text>
+              <Text>{data?.crimes?.value} times</Text> */}
+              </Center>
             </View>
-            <View style={{ width: '78%' }}>
+            <View style={{ width: '73%' }}>
                 {getDirection(data)}
-                <Text style={{ marginTop: 10 }}>{data?.crimes?.name}: {data?.crimes?.value} times occurred</Text>
+                <Text style={{ marginTop: 5 }}>Distance: {data.distance}</Text>
+                <Text style={{ marginTop: 5 }}>{data?.crimes?.name}: {data?.crimes?.value} times occurred</Text>
+                <Row style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'baseline', marginTop: 5 }}>
+                  <Link style={{ marginRight: 10 }} _text={{ fontSize: 15 }}
+                    onPress={() => {
+                      navigation.navigate('CrimeDetailScreen', {
+                        dataRoutes: data
+                      });
+                    }} > Detail </Link>
+
+
+                  <Link _text={{ fontSize: 15, color: "#7A9495" }}
+                    // style={{ backgroundColor: "#7A9495", borderRadius: 10, width: 100, height: 38, padding: 8, paddingLeft: 15 }}
+                    onPress={() => {
+                      navigation.navigate('MapHomeScreen', {
+                        destination: {
+                          latitude: data.waypoints[data.waypoints.length-1].latitude,
+                          longitude: data.waypoints[data.waypoints.length-1].longitude
+                        },
+                        dataRoutes: data
+                      });
+                    }}
+                    > Select </Link>
+                </Row>
             </View>
-            <FontAwesome size={24} style={{ color: '#aaa', paddingRight: 15 }} name="angle-right" />
           </Flex>
           </Card>
-        </TouchableOpacity>
       })}
       </ScrollView>
       : Loading() }
@@ -456,15 +469,21 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 50,
-    padding: 10,
-    paddingTop: 22,
-    paddingLeft: 20,
-    marginBottom: 5
+    padding: 15,
+    marginBottom: 0
   },
   container: {
     flexDirection: "row",
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+  },
+  buttonSelected: {
+    width: 100,
+    borderRadius: 10,
+    height: 38,
+    backgroundColor: "#7A9495",
+    padding: 5,
+    textAlign: 'center',
   },
   flex: {
     justifyContent: 'flex-start',

@@ -54,7 +54,7 @@ export function separateCrimeTypes(crimes: any[]): Crimes[] {
 	crimes.forEach((crime: any) => {
 		allCrimes.push({
 		category: getCrimeGrouping(crime.category),
-		icon: getPinColor(crime.category),
+		icon: getIcon(crime.category),
 		crime: {
 			id: crime.id,
 			dateTime: crime.month,
@@ -79,38 +79,29 @@ export function separateCrimeTypes(crimes: any[]): Crimes[] {
 	return result;
 }
 
-function getPinColor(category: string) {
-	let color = 'red';
+export function getIcon(category: string) {
 	switch (category) {
 		case 'anti-social-behaviour':
 		case 'public-order':
-			color = 'yellow';
-			break;
-		case 'robbery':
-			color = 'purple';
-			break;
-		case 'shoplifting':
-			color = 'yellow';
-			break;
-		case 'theft-from-the-person':
-		case 'other-theft':
-			color = 'purple';
-			break;
-		case 'vehicle-crime':
+			return require('../assets/images/violent-against-person.png');
 		case 'bicycle-theft':
-			color = 'blue';
-			break;
+		case 'vehicle-crime':
+			return require('../assets/images/vehicle.png');
 		case 'burglary':
-			color = 'orange';
-			break;
+		case 'other-theft':
+		case 'shoplifting':
+		case 'theft-from-the-person':
+			return require('../assets/images/thief.png');
+		case 'drugs':
+			return require('../assets/images/drugs.png');
 		case 'possession-of-weapons':
-		case 'criminal-damage-arson':
 		case 'violent-crime':
-			color = 'red';
-			break;
-		case 'other-crime':
-			color = 'green';
-			break;
+			return require('../assets/images/violent-crime.png');
+		case 'robbery':
+			return require('../assets/images/robbery.png');
+		case 'violence-and-sexual-offense':
+			return require('../assets/images/sexual.png');
+		default:
+			return require('../assets/images/thief.png');
 	}
-	return color;
 }

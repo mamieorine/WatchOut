@@ -18,9 +18,14 @@ export type RootStackParamList = {
   Modal: undefined;
   NotFound: undefined;
   RouteScreen: RouteScreenParams;
-  TabOne: TabOneParams;
+  CrimeDetailScreen: CrimeDetailScreenParams;
+  MapHomeScreen: MapHomeParams;
   Home: undefined;
   Agreement: undefined;
+};
+
+export type CrimeDetailScreenParams = {
+  dataRoutes: any;
 };
 
 export type RouteScreenParams = {
@@ -30,7 +35,7 @@ export type RouteScreenParams = {
   filterCrimes: any[];
 };
 
-export type TabOneParams = {
+export type MapHomeParams = {
   destination: any;
   dataRoutes: any;
 }
@@ -41,7 +46,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  TabOne: undefined;
+  MapHomeScreen: undefined;
   TabTwo: undefined;
   TabThree: undefined;
   TabFour: undefined;

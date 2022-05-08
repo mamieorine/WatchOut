@@ -7,11 +7,11 @@ import MapViewDirections, { MapViewDirectionsMode } from 'react-native-maps-dire
 import MapView, { Callout, Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { Actionsheet, Text, Modal, Row, Stack, useDisclose, Box, Heading, Input, Icon } from 'native-base';
+import { Actionsheet, Text, Modal, Row, Stack, useDisclose, Box, Heading, Input, Icon, HStack, Spinner } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import busStop from '../assets/files/bus-stop.json';
+import busStop from '../assets/files/bus-stop-cleaned.json';
 import RoutePopup from '../components/RouteSheet';
-import { Header, Button, Card, Chip } from 'react-native-elements';
+import { Header, Button, Card, Chip, Overlay } from 'react-native-elements';
 import SecureRoutePopup from '../components/SecureRouteSheet';
 import AlertPopup from '../components/AlertSheet';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -32,6 +32,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isFirstVisit, setFirstVisit] = useState(true);
   const [crimes, initialCrimes] = useState<Crimes[]>([]);
   const [rawCrimesData, onCrimesRawDataChange] = useState<Crimes[]>([]);
+  const [activeMarker, setActiveMarker] = useState('');
 
   const params: any = location.params;
   const destinationRoute = params?.destination;
@@ -77,6 +78,9 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isCheckedInSheetVisible, setCheckedInSheetVisible] = useState(false);
   const [isReportModelVisible, setReportModelVisible] = useState(false);
   const [isFriendModelVisible, setFriendModelVisible] = useState(false);
+  const [isBusStopVisible, setBusStopVisible] = useState(false);
+  const [isCrimeVisible, setCrimesVisible] = useState(true);
+  const [isCrimeVisibleDelayed, setCrimesVisibleDelayed] = useState(false);
 
   useLayoutEffect(() => {
     if (!h1Ref.current) return;
@@ -88,6 +92,17 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       longitudeDelta: isFirstVisit ? 0.02 : delta.longitudeDelta,
     }, 2000)
   })
+
+  // useEffect(() => {
+  //   if (isRouteSheetVisible) {
+  //     var delayInMilliseconds = 5000; // 3 second
+  //     setCrimesVisibleDelayed(true)
+
+  //     setTimeout(function() {
+  //       setCrimesVisibleDelayed(false)
+  //     }, delayInMilliseconds);
+  //   }
+  // }, [isRouteSheetVisible])
 
   useEffect(() => {
     let polyStr = '';
@@ -111,7 +126,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         initialCrimes(crimes);
         onCrimesRawDataChange(crimes);
       });
-
   }, [polyGeometry]);
 
   useEffect(() => {
@@ -134,6 +148,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 
     if (routesData) {
       setFirstVisit(false);
+      setSecureRouteSheetVisible(false);
       setRouteSheetVisible(true);
     }
   }, [destination]);
@@ -159,7 +174,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           longitudeDelta: ratioDist
         })
 
-        const centerIndex = Math.floor(result.coordinates.length/2);
+        const centerIndex = Math.floor(result.coordinates.length/3);
         const centerCoordinates = result.coordinates[centerIndex];
         const originCoord = result.coordinates[0];
         const destinationCoord = result.coordinates[result.coordinates.length-1];
@@ -181,6 +196,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           longitude: centerLngFocus
         })
 
+        setBusStopVisible(true);
       }}
       onError={(errorMessage) => {
         console.log(errorMessage);
@@ -220,6 +236,10 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
             routeDetail={routesData}
             navigation={navigation}
             setSecureRouteStart={setSecureRouteSheetVisible}
+            isBusStopVisible={isBusStopVisible}
+            isCrimeVisible={isCrimeVisible}
+            onBusStopVisible={setBusStopVisible}
+            onCrimesVisible={setCrimesVisible}
           ></RoutePopup>
         </Actionsheet.Content>
       </Actionsheet>
@@ -336,7 +356,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
               </TouchableOpacity>
           })}
 
-
           <Button title="Report"
             titleStyle={{ fontSize: 17 }}
             style={{ marginTop: 10, alignItems: 'flex-end' }}
@@ -419,6 +438,12 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
     </Modal>
   }
 
+  const Loading = () => {
+    return <HStack space={4} justifyContent="center">
+      <Spinner accessibilityLabel="Loading posts" />
+    </HStack>;
+  };
+
   return (
     <View style={styles.container}>
       {isSecureRouteSheetVisible || isAlertSheetVisible || isCheckedInSheetVisible ?
@@ -447,14 +472,21 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         centerComponent={{
           text: isSecureRouteSheetVisible ? 'Secure navigation started' : isAlertSheetVisible ? 'Emergency Alert' : 'Destination Check In',
           style: { color: '#7A9495', fontSize: 18, fontWeight: '600' } }}
-        rightComponent={{ icon: 'pin-drop', color: '#7A9495', size: 28,
-          onPress: () => {
-            setDestSheetVisible(false);
-            setSecureRouteSheetVisible(false);
-            setAlertSheetVisible(false);
-            setCheckedInSheetVisible(true);
-          }
-        }}
+        rightComponent={
+          <TouchableOpacity
+            onPress = {() => {
+              setDestSheetVisible(false);
+              setSecureRouteSheetVisible(false);
+              setAlertSheetVisible(false);
+              setCheckedInSheetVisible(true);
+            }}
+          >
+            <Image style={{ width: 35, height: 35, marginTop: -5 }}
+              source={require('../assets/images/checked-in.png')}
+              resizeMode='cover'
+            />
+          </TouchableOpacity>
+        }
       /> :
       <GooglePlacesInput onDestinationChange={onDestinationChange} isDestinationChanged={setDestSheetVisible} isFirstVisited={setFirstVisit}/>}
 
@@ -484,17 +516,24 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 
         {crimes.map((crimeTypes: Crimes, index) => (
           crimeTypes.crimes.map((crime: Crime, d) => {
-            if (!filterCrimes.includes(crimeTypes.category)) {
-              return <></>
-            }
+            const isShow = filterCrimes.includes(crimeTypes.category);
+            // if (!filterCrimes.includes(crimeTypes.category)) {
+            //   return <></>
+            // }
             return <Marker
-                key={index + d}
+                key={`${index}${d}`}
                 coordinate={{
                   latitude: parseFloat(crime.latitude),
                   longitude: parseFloat(crime.longitude),
                 }}
-                onPress={() => { onOpen() }}
-                icon={require('../assets/images/bus-icon.png')}
+                onPress={() => {
+                  if (isCrimeVisible && isShow) {
+                    onOpen()
+                    setActiveMarker(`${index}${d}`);
+                  }
+                }}
+                icon={crimeTypes.icon}
+                opacity={ isCrimeVisible && isShow ? 1 : 0 }
             >
               <Callout
                 tooltip
@@ -512,33 +551,41 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           })
         ))}
 
-        {/* {destinationRoute ? busStop.map((busDetail: any, index) => {
-            return <Marker
-                key={busDetail.ATCOCode}
-                coordinate={{
-                  latitude: busDetail.Latitude,
-                  longitude: busDetail.Longitude,
-                }}
-                onPress={() => { onOpen() }}
-                icon={require('../assets/images/bus-icon.png')}
+        {busStop.map((busDetail: any) => {
+          return <Marker
+              key={busDetail.ATCOCode}
+              coordinate={{
+                latitude: busDetail.Latitude,
+                longitude: busDetail.Longitude,
+              }}
+              onPress={() => { onOpen() }}
+              icon={require('../assets/images/bus-icon-min.png')}
+              opacity={ isBusStopVisible ? 1 : 0 }
+              flat={true}
             >
-              <Callout
-                tooltip
-                style={{ borderRadius: 20}}>
-                <View style={styles.bubble}>
-                  <View style={{width: 45, height: 45, backgroundColor: "#eee", borderRadius: 50, marginRight: 10 }}></View>
-                  <View>
-                    <Text style={{fontSize: 16, marginBottom: 5, textTransform: 'capitalize', fontWeight: '500'}}>{busDetail.CommonName}</Text>
-                    { busDetail.Street ? <Text>Street: {busDetail.Street}</Text> : <></> }
-                  </View>
+            <Callout
+              tooltip
+              style={{ borderRadius: 20}}>
+              <View style={styles.bubble}>
+                <View style={{width: 45, height: 45, backgroundColor: "#eee", borderRadius: 50, marginRight: 10 }}></View>
+                <View>
+                  <Text style={{fontSize: 16, marginBottom: 5, textTransform: 'capitalize', fontWeight: '500'}}>{busDetail.CommonName}</Text>
+                  { busDetail.Street ? <Text>Street: {busDetail.Street}</Text> : <></> }
                 </View>
-              </Callout>
+              </View>
+            </Callout>
           </Marker>
-        }): <></>} */}
+        })}
 
         {routesData?.mode === 'TRANSIT' ? getMapDirection("hotpink", routesData?.mode, []) :
         destinationRoute ? getMapDirection("hotpink", routesData?.mode, routesData?.waypoints) : <></>}
       </MapView>
+
+      {/* <Overlay
+        isVisible = {isCrimeVisibleDelayed}
+        overlayStyle = {{ opacity: 1, shadowOpacity: 1, backgroundColor: '#fff', borderRadius: 50 }}
+        backdropStyle= {{ backgroundColor: '#000', opacity: 0.7 }}
+      >{Loading()}</Overlay> */}
 
       {isAlertSheetVisible || isCheckedInSheetVisible ? <View style={[styles.overlay, { height: '100%' }]} /> : <></>}
 
