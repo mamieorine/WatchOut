@@ -39,7 +39,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const routesData = params?.dataRoutes;
 
 	const [filterCrimes, onFilterCrimesChange] = useState<any>(['Violence Against The Person',
-  'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
+  'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Arson', 'Others'])
 
   const [delta, onDeltaChange] = useState({
 		latitudeDelta: 0,
@@ -82,7 +82,18 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isCrimeVisible, setCrimesVisible] = useState(true);
   const [isCrimeVisibleDelayed, setCrimesVisibleDelayed] = useState(false);
 
-  useLayoutEffect(() => {
+  // useLayoutEffect(() => {
+  //   if (!h1Ref.current) return;
+
+  //   h1Ref.current.animateToRegion({
+  //     latitude: isFirstVisit ? currentGeometry.latitude : centerGeometry.latitude,
+  //     longitude: isFirstVisit ? currentGeometry.longitude : centerGeometry.longitude,
+  //     latitudeDelta: isFirstVisit ? 0.02 : delta.latitudeDelta,
+  //     longitudeDelta: isFirstVisit ? 0.02 : delta.longitudeDelta,
+  //   }, 2000)
+  // })
+
+  useEffect(() => {
     if (!h1Ref.current) return;
 
     h1Ref.current.animateToRegion({
@@ -91,18 +102,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       latitudeDelta: isFirstVisit ? 0.02 : delta.latitudeDelta,
       longitudeDelta: isFirstVisit ? 0.02 : delta.longitudeDelta,
     }, 2000)
-  })
-
-  // useEffect(() => {
-  //   if (isRouteSheetVisible) {
-  //     var delayInMilliseconds = 5000; // 3 second
-  //     setCrimesVisibleDelayed(true)
-
-  //     setTimeout(function() {
-  //       setCrimesVisibleDelayed(false)
-  //     }, delayInMilliseconds);
-  //   }
-  // }, [isRouteSheetVisible])
+  }, [centerGeometry])
 
   useEffect(() => {
     let polyStr = '';
@@ -517,9 +517,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         {crimes.map((crimeTypes: Crimes, index) => (
           crimeTypes.crimes.map((crime: Crime, d) => {
             const isShow = filterCrimes.includes(crimeTypes.category);
-            // if (!filterCrimes.includes(crimeTypes.category)) {
-            //   return <></>
-            // }
             return <Marker
                 key={`${index}${d}`}
                 coordinate={{
@@ -532,7 +529,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
                     setActiveMarker(`${index}${d}`);
                   }
                 }}
-                icon={crimeTypes.icon}
+                image={crimeTypes.icon}
                 opacity={ isCrimeVisible && isShow ? 1 : 0 }
             >
               <Callout
@@ -558,7 +555,11 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
                 latitude: busDetail.Latitude,
                 longitude: busDetail.Longitude,
               }}
-              onPress={() => { onOpen() }}
+              onPress={() => {
+                if (isBusStopVisible) {
+                  onOpen();
+                }
+              }}
               icon={require('../assets/images/bus-icon-min.png')}
               opacity={ isBusStopVisible ? 1 : 0 }
               flat={true}

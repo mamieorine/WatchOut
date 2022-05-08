@@ -94,7 +94,7 @@ export default function MapHomeScreen({}) {
         .then((response: any) => {
           console.log(response);
         });
-
+    console.log(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`);
     axios.get(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`)
         .then(response => {
           const crimes: Crimes[] = separateCrimeTypes(response.data);

@@ -4,7 +4,7 @@ import React from "react";
 import { StyleSheet, Image, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import { ButtonGroup, Header } from "react-native-elements";
-import { getIcon } from "../functions/helper";
+import { getIcon2 } from "../functions/helper";
 
 export default function CrimeDetailScreens(props: { dataRoutes: any }) {
 	const navigation = useNavigation();
@@ -31,15 +31,15 @@ export default function CrimeDetailScreens(props: { dataRoutes: any }) {
 				}}
 			/>
 
-			<Heading style={{ fontSize: 15, marginTop: 5, marginLeft: 15, color: '#333' }}> All crimes occurred on 02-2022 </Heading>
+			<Heading style={{ fontSize: 15, marginTop: 5, marginLeft: 15, color: '#333' }}> All crimes occurred on this route</Heading>
 			<ScrollView>
 				{crimes.map((crime: any, index: number) => {
 					return  <Card containerStyle={{ borderRadius: 10 }} key={index}>
 					<Row justifyContent={'flex-start'} alignItems={'center'} >
 						<View style={{ width: '20%', marginRight: 10 }}>
-						<Box style={styles.box}>
-							<Image style={{ width: 30, height: 30 }}
-							source={getIcon(crime.category)}
+						<Box style={{ marginRight: 10 }}>
+							<Image style={{ width: 70, height: 70 }}
+							source={getIcon2(crime.category)}
 							resizeMode='cover'
 							/>
 						</Box>

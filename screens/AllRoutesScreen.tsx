@@ -6,7 +6,7 @@ import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { Card, Chip } from 'react-native-elements';
 import { Box, Center, Flex, HStack, Button, Row, ScrollView, Spinner, Link } from 'native-base';
 import axios from 'axios';
-import { Crimes, getIcon, separateCrimeTypes } from '../functions/helper';
+import { Crimes, getIcon2, separateCrimeTypes } from '../functions/helper';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 const baseUrl = 'https://data.police.uk/api';
@@ -67,7 +67,7 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
   const [isSelectedWalking, setSelectedWalking] = useState(true)
 
   const [filterCrimes, onFilterCrimesChange] = useState<any>(['Violence Against The Person',
-  'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Others'])
+  'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Arson', 'Others'])
 
   const Loading = () => {
     return <HStack space={2} justifyContent="center">
@@ -415,12 +415,12 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
         if (hasCrimes) return <></>
 
         return  <Card containerStyle={{ borderRadius: 10 }} key={index}>
-          <Flex justifyContent={'flex-start'} direction={'row'} alignItems={'center'} style={{ paddingRight: 10 }}>
+          <Flex justifyContent={'flex-start'} direction={'row'} alignItems={'flex-start'} style={{ paddingRight: 10 }}>
             <View style={{ width: '22%', marginRight: 10 }}>
               <Center>
-              <Box style={[styles.box, {borderColor: data?.crimes?.value < 20 ? '#007AFF' : '#FF4773', borderWidth: 2 }]}>
-                <Image style={{ width: 30, height: 30 }}
-                  source={getIcon(data?.crimes?.name)}
+              <Box style={[styles.box]}> {/* , {borderColor: data?.crimes?.value < 20 ? '#007AFF' : '#FF4773', borderWidth: 2 } */}
+                <Image style={{ width: 75, height: 75, marginTop: -20 }}
+                  source={getIcon2(data?.crimes?.name)}
                   resizeMode='cover'
                 />
               </Box>
@@ -441,8 +441,8 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
                     }} > Detail </Link>
 
 
-                  <Link _text={{ fontSize: 15, color: "#7A9495" }}
-                    // style={{ backgroundColor: "#7A9495", borderRadius: 10, width: 100, height: 38, padding: 8, paddingLeft: 15 }}
+                  <Link _text={{ fontSize: 15, color: "#7A9495"}}
+                    // style={{ backgroundColor: "#7A9495", borderRadius: 10, width: 82, height: 38, padding: 8, paddingLeft: 15 }}
                     onPress={() => {
                       navigation.navigate('MapHomeScreen', {
                         destination: {
@@ -466,11 +466,11 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
 
 const styles = StyleSheet.create({
   box: {
-    width: 60,
-    height: 60,
-    borderRadius: 50,
-    padding: 15,
-    marginBottom: 0
+    // width: 60,
+    // height: 60,
+    // borderRadius: 50,
+    // padding: 15,
+    // marginBottom: 0
   },
   container: {
     flexDirection: "row",
@@ -497,6 +497,7 @@ const styles = StyleSheet.create({
     margin: 5,
     borderWidth: 1,
     borderColor: '#eee',
+    backgroundColor: '#eee',
     borderRadius: 10,
     padding: 10,
   },

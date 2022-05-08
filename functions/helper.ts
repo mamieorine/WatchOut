@@ -43,6 +43,8 @@ export function getCrimeGrouping(category: string) {
 			return 'Robbery';
 		case 'violence-and-sexual-offense':
 			return 'Sexual Offense';
+		case 'criminal-damage-arson':
+			return 'Arson';
 		default:
 			return 'Others';
 	}
@@ -79,29 +81,54 @@ export function separateCrimeTypes(crimes: any[]): Crimes[] {
 	return result;
 }
 
+export function getIcon2(category: string) {
+	switch (category) {
+		case 'Violence Against The Person':
+			return require('../assets/images/violent-against-person.png');
+		case 'Vehicle':
+			return require('../assets/images/vehicle.png');
+		case 'Theft':
+			return require('../assets/images/thief.png');
+		case 'Drugs':
+			return require('../assets/images/drugs.png');
+		case 'Violent Crime':
+			return require('../assets/images/violent-crime.png');
+		case 'Robbery':
+			return require('../assets/images/robbery.png');
+		case 'Sexual Offense':
+			return require('../assets/images/sexual.png');
+		case 'Arson':
+			return require('../assets/images/arson.png');
+		default:
+			return require('../assets/images/other.png');
+	}
+}
+
 export function getIcon(category: string) {
 	switch (category) {
 		case 'anti-social-behaviour':
 		case 'public-order':
-			return require('../assets/images/violent-against-person.png');
+			return require('../assets/images/violent-against-person-pin.png');
 		case 'bicycle-theft':
 		case 'vehicle-crime':
-			return require('../assets/images/vehicle.png');
+			return require('../assets/images/vehicle-pin.png');
 		case 'burglary':
 		case 'other-theft':
 		case 'shoplifting':
 		case 'theft-from-the-person':
-			return require('../assets/images/thief.png');
+			return require('../assets/images/thief-pin.png');
 		case 'drugs':
-			return require('../assets/images/drugs.png');
+			return require('../assets/images/drugs-pin.png');
 		case 'possession-of-weapons':
 		case 'violent-crime':
-			return require('../assets/images/violent-crime.png');
+			return require('../assets/images/violent-crime-pin.png');
 		case 'robbery':
-			return require('../assets/images/robbery.png');
+			return require('../assets/images/robbery-pin.png');
 		case 'violence-and-sexual-offense':
-			return require('../assets/images/sexual.png');
+			return require('../assets/images/sexual-pin.png');
+		case 'criminal-damage-arson':
+			return require('../assets/images/arson-pin.png');
 		default:
-			return require('../assets/images/thief.png');
+			return require('../assets/images/other-pin.png');
 	}
 }
