@@ -3,8 +3,8 @@ import { StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import { Text, View,  } from '../components/Themed';
 import React, { useEffect, useState } from 'react';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
-import { Card, Chip } from 'react-native-elements';
-import { Box, Center, Flex, HStack, Button, Row, ScrollView, Spinner, Link } from 'native-base';
+import { Card, Chip, Header } from 'react-native-elements';
+import { Box, Center, Flex, HStack, Row, ScrollView, Spinner, Link } from 'native-base';
 import axios from 'axios';
 import { Crimes, getIcon2, separateCrimeTypes } from '../functions/helper';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -323,7 +323,26 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
   }, [isSelectedTransit, isSelectedWalking, isSelectedBicycle]);
 
   return (
-    <View style={{ height: '100%', backgroundColor: '#fff', paddingTop: 45 }}>
+    <View style={{ height: '100%', backgroundColor: '#fff'}}>
+      <Header containerStyle={{
+          marginTop: 5,
+          backgroundColor: '#fff',
+        }}
+        placement="left"
+        leftComponent={{
+          icon: 'arrow-back-ios', color: '#7A9495', size: 20,
+          onPress: (() => {
+            navigation.navigate('MapHomeScreen', {
+							destination: null,
+							dataRoutes: null,
+              isShowDestinationSheet: false,
+						});
+          })
+        }}
+        centerComponent={{
+          text: 'Alternative secure routes',
+          style: { color: '#7A9495', fontSize: 18, fontWeight: '600' } }}
+      />
       <View style={{ padding: 10 }}>
         <Flex style={styles.flex}>
           <Image style={{
@@ -449,7 +468,8 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
                           latitude: data.waypoints[data.waypoints.length-1].latitude,
                           longitude: data.waypoints[data.waypoints.length-1].longitude
                         },
-                        dataRoutes: data
+                        dataRoutes: data,
+                        isShowDestinationSheet: false,
                       });
                     }}
                     > Select </Link>

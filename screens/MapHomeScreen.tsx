@@ -24,7 +24,7 @@ interface Coordinate {
   longitude: number
 }
 
-export default function MapHomeScreen(props: { destination: any, dataRoutes: any }) {
+export default function MapHomeScreen(props: { destination: any, dataRoutes: any, isShowDestinationSheet: boolean }) {
   const h1Ref = useRef<MapView>(null);
 	const navigation = useNavigation();
   const location = useRoute();
@@ -32,11 +32,11 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isFirstVisit, setFirstVisit] = useState(true);
   const [crimes, initialCrimes] = useState<Crimes[]>([]);
   const [rawCrimesData, onCrimesRawDataChange] = useState<Crimes[]>([]);
-  const [activeMarker, setActiveMarker] = useState('');
 
   const params: any = location.params;
   const destinationRoute = params?.destination;
   const routesData = params?.dataRoutes;
+  const isShowDestinationSheet = params?.isShowDestinationSheet;
 
 	const [filterCrimes, onFilterCrimesChange] = useState<any>(['Violence Against The Person',
   'Vehicle', 'Theft', 'Drugs', 'Violent Crime', 'Robbery', 'Sexual Offense', 'Arson', 'Others'])
@@ -80,7 +80,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isFriendModelVisible, setFriendModelVisible] = useState(false);
   const [isBusStopVisible, setBusStopVisible] = useState(false);
   const [isCrimeVisible, setCrimesVisible] = useState(true);
-  const [isCrimeVisibleDelayed, setCrimesVisibleDelayed] = useState(false);
+  const locationCrimes: any = [];
 
   // useLayoutEffect(() => {
   //   if (!h1Ref.current) return;
@@ -105,6 +105,12 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   }, [centerGeometry])
 
   useEffect(() => {
+    if (isShowDestinationSheet) {
+      setDestSheetVisible(true)
+    }
+  }, [isShowDestinationSheet])
+
+  useEffect(() => {
     let polyStr = '';
     if (isFirstVisit) return;
 
@@ -123,6 +129,27 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
     axios.get(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`)
       .then(response => {
         const crimes: Crimes[] = separateCrimeTypes(response.data);
+
+        // const uniqCrimes: any = []
+        // crimes.forEach((crime: any) => {
+        //   const crimesInCat = crime.crimes;
+        //   const xxxx = uniqCrimes.crimes;
+
+        //   crimesInCat.forEach((element: any) => {
+        //     xxxx.forEach((y: any) => {
+        //       crimesInCat.forEach((x: any) => {
+        //         if (x.latitude !== y.latitude && x.longitude !== y.longitude) {
+
+        //         }
+        //       })
+        //     })
+
+
+        //     if (ttt.length === 0) {
+        //       uniqCrimes.push(element);
+        //     }
+        //   });
+        // })
         initialCrimes(crimes);
         onCrimesRawDataChange(crimes);
       });
@@ -444,6 +471,8 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
     </HStack>;
   };
 
+  let previousCat = '';
+
   return (
     <View style={styles.container}>
       {isSecureRouteSheetVisible || isAlertSheetVisible || isCheckedInSheetVisible ?
@@ -513,20 +542,51 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           latitude: destinationRoute ? destinationRoute.latitude : destination.latitude,
           longitude: destinationRoute ? destinationRoute.longitude : destination.longitude
         }} />
-
-        {crimes.map((crimeTypes: Crimes, index) => (
-          crimeTypes.crimes.map((crime: Crime, d) => {
+        {crimes.map((crimeTypes: Crimes, index) => {
+          return crimeTypes.crimes.map((crime: Crime, d) => {
+            let isShowMarker = false;
+            let lat: number = parseFloat(crime.latitude);
+            let lng: number = parseFloat(crime.longitude);
             const isShow = filterCrimes.includes(crimeTypes.category);
-            return <Marker
+
+            const isFound = locationCrimes.filter((addCrimeLocation: any) => {
+              const isEqualLat = addCrimeLocation.latitude === parseFloat(crime.latitude)
+              const isEqualLng = addCrimeLocation.longitude === parseFloat(crime.longitude)
+              return isEqualLat && isEqualLng
+            });
+
+            const isFoundSameCat = locationCrimes.filter((addCrimeLocation: any) => {
+              const isEqualLat = addCrimeLocation.latitude === parseFloat(crime.latitude)
+              const isEqualLng = addCrimeLocation.longitude === parseFloat(crime.longitude)
+              const isSameCat = addCrimeLocation.category === crimeTypes.category;
+
+              return isEqualLat && isEqualLng && isSameCat
+            });
+
+            if (isFound.length === 0) {
+              locationCrimes.push({
+                latitude: parseFloat(crime.latitude),
+                longitude: parseFloat(crime.longitude),
+                category: crimeTypes.category
+              });
+            } else {
+              lat = lat - Math.random()*Math.random()/10001
+              lng = lng + Math.random()*Math.random()/10001
+            }
+
+            if (isFoundSameCat.length === 0) {
+              isShowMarker = true;
+            }
+
+            return isFoundSameCat.length === 0 ? <Marker
                 key={`${index}${d}`}
                 coordinate={{
-                  latitude: parseFloat(crime.latitude),
-                  longitude: parseFloat(crime.longitude),
+                  latitude: lat,
+                  longitude: lng,
                 }}
                 onPress={() => {
                   if (isCrimeVisible && isShow) {
                     onOpen()
-                    setActiveMarker(`${index}${d}`);
                   }
                 }}
                 image={crimeTypes.icon}
@@ -542,11 +602,13 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
                     <Text>Location: {crime.location} location of crime ocurred</Text>
                     <Text>Date: {crime.dateTime}</Text>
                   </View>
+                  <Text>X</Text>
                 </View>
               </Callout>
-          </Marker>
-          })
-        ))}
+            </Marker> : <></>
+            }
+          );
+        })}
 
         {busStop.map((busDetail: any) => {
           return <Marker

@@ -31,7 +31,8 @@ export default function AgreementScreen() {
 					onPress={() => {
 						navigation.navigate('MapHomeScreen', {
 							destination: null,
-							dataRoutes: null
+							dataRoutes: null,
+							isShowDestinationSheet: false,
 						});
 					}} > Agree </Button>
 				</Flex>

@@ -38,6 +38,7 @@ export type RouteScreenParams = {
 export type MapHomeParams = {
   destination: any;
   dataRoutes: any;
+  isShowDestinationSheet: boolean;
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
