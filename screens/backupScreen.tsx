@@ -28,6 +28,7 @@ interface Routes {
 export default function MapHomeScreen({}) {
   const navigation = useNavigation();
   const h1Ref = useRef<MapView>(null);
+
   const [isFirstVisit, setFirstVisit] = useState(true);
 
   const [delta, onDeltaChange] = useState({

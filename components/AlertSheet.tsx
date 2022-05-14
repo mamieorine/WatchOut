@@ -12,7 +12,7 @@ export type destination = {
 const AlertPopup = (props: {
 	isAlertSheetVisible: boolean;
 	setAlertSheetVisible: any;
-	routeDetail: any;
+	// routeDetail: any;
 	}) => {
 
 	return (

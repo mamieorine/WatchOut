@@ -1,4 +1,4 @@
-import { StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { View } from '../components/Themed';
 import GooglePlacesInput from '../components/DestinationSearch';
 import DestinationPopup from '../components/DestinationSheet';
@@ -7,14 +7,14 @@ import MapViewDirections, { MapViewDirectionsMode } from 'react-native-maps-dire
 import MapView, { Callout, Marker, EventUserLocation, PROVIDER_GOOGLE } from 'react-native-maps';
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { Actionsheet, Text, Modal, Row, Stack, useDisclose, Box, Heading, Input, Icon, HStack, Spinner } from 'native-base';
+import { Actionsheet, Text, Modal, Row, Stack, useDisclose, Box, Heading, Input, Icon, HStack, Spinner, NativeBaseProvider, Center, Pressable } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import busStop from '../assets/files/bus-stop-cleaned.json';
 import RoutePopup from '../components/RouteSheet';
 import { Header, Button, Card, Chip, Overlay } from 'react-native-elements';
 import SecureRoutePopup from '../components/SecureRouteSheet';
 import AlertPopup from '../components/AlertSheet';
-import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 const baseUrl = 'https://data.police.uk/api';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
@@ -22,6 +22,49 @@ const GOOGLE_MAPS_APIKEY = 'AIzaSyDyqPFPoJGT53p6-QosVbvV16MUwIL38Uo';
 interface Coordinate {
   latitude: number,
   longitude: number
+}
+
+function Example() {
+  const [selected, setSelected] = React.useState(1);
+  return <NativeBaseProvider>
+      <Box flex={1} bg="white" safeAreaTop width="100%" maxW="300px" alignSelf="center">
+        <Center flex={1}></Center>
+        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={6}>
+          <Pressable opacity={selected === 0 ? 1 : 0.5} py="3" flex={1} onPress={() => setSelected(0)}>
+            <Center>
+              <Icon mb="1" as={<MaterialCommunityIcons name={selected === 0 ? "home" : "home-outline"} />} color="white" size="sm" />
+              <Text color="white" fontSize="12">
+                Home
+              </Text>
+            </Center>
+          </Pressable>
+          <Pressable opacity={selected === 1 ? 1 : 0.5} py="2" flex={1} onPress={() => setSelected(1)}>
+            <Center>
+              <Icon mb="1" as={<MaterialIcons name="search" />} color="white" size="sm" />
+              <Text color="white" fontSize="12">
+                Search
+              </Text>
+            </Center>
+          </Pressable>
+          <Pressable opacity={selected === 2 ? 1 : 0.6} py="2" flex={1} onPress={() => setSelected(2)}>
+            <Center>
+              <Icon mb="1" as={<MaterialCommunityIcons name={selected === 2 ? "cart" : "cart-outline"} />} color="white" size="sm" />
+              <Text color="white" fontSize="12">
+                Cart
+              </Text>
+            </Center>
+          </Pressable>
+          <Pressable opacity={selected === 3 ? 1 : 0.5} py="2" flex={1} onPress={() => setSelected(3)}>
+            <Center>
+              <Icon mb="1" as={<MaterialCommunityIcons name={selected === 3 ? "account" : "account-outline"} />} color="white" size="sm" />
+              <Text color="white" fontSize="12">
+                Account
+              </Text>
+            </Center>
+          </Pressable>
+        </HStack>
+      </Box>
+    </NativeBaseProvider>;
 }
 
 export default function MapHomeScreen(props: { destination: any, dataRoutes: any, isShowDestinationSheet: boolean }) {
@@ -80,6 +123,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isFriendModelVisible, setFriendModelVisible] = useState(false);
   const [isBusStopVisible, setBusStopVisible] = useState(false);
   const [isCrimeVisible, setCrimesVisible] = useState(true);
+  const [isBottomTabClicked, onBottomTabClicked] = useState(false);
   const locationCrimes: any = [];
 
   // useLayoutEffect(() => {
@@ -129,27 +173,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
     axios.get(`${baseUrl}/crimes-street/all-crime?poly=${polyStr}`)
       .then(response => {
         const crimes: Crimes[] = separateCrimeTypes(response.data);
-
-        // const uniqCrimes: any = []
-        // crimes.forEach((crime: any) => {
-        //   const crimesInCat = crime.crimes;
-        //   const xxxx = uniqCrimes.crimes;
-
-        //   crimesInCat.forEach((element: any) => {
-        //     xxxx.forEach((y: any) => {
-        //       crimesInCat.forEach((x: any) => {
-        //         if (x.latitude !== y.latitude && x.longitude !== y.longitude) {
-
-        //         }
-        //       })
-        //     })
-
-
-        //     if (ttt.length === 0) {
-        //       uniqCrimes.push(element);
-        //     }
-        //   });
-        // })
         initialCrimes(crimes);
         onCrimesRawDataChange(crimes);
       });
@@ -309,7 +332,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           <AlertPopup
             isAlertSheetVisible={isAlertSheetVisible}
             setAlertSheetVisible={setAlertSheetVisible}
-            routeDetail={routesData}
+            // routeDetail={routesData}
           ></AlertPopup>
         </Actionsheet.Content>
       </Actionsheet>
@@ -340,7 +363,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           <AlertPopup
             isAlertSheetVisible={isCheckedInSheetVisible}
             setAlertSheetVisible={setCheckedInSheetVisible}
-            routeDetail={routesData}
+            // routeDetail={routesData}
           ></AlertPopup>
         </Actionsheet.Content>
       </Actionsheet>
@@ -354,6 +377,8 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const friendsList = ['Maya', 'Sawarin', 'Pete', 'Nick']
 	const [filterFriends, onFilterFriendsChange] = useState({ last: '', selected: ['Pete', 'Nick'] });
   const [filterFriendConfirmed, onFilterFriendsConfirmed] = useState({ last: '', selected: ['Pete', 'Nick']})
+
+  // const marker = useRef<Marker>(null);
 
   function openReportCrimeModel() {
     return <Modal isOpen={isReportModelVisible} onClose={() => setReportModelVisible(false)}>
@@ -465,13 +490,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
     </Modal>
   }
 
-  const Loading = () => {
-    return <HStack space={4} justifyContent="center">
-      <Spinner accessibilityLabel="Loading posts" />
-    </HStack>;
-  };
-
-  let previousCat = '';
+  const marker = useRef<Marker>(null)
 
   return (
     <View style={styles.container}>
@@ -489,7 +508,10 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
               setRouteSheetVisible(true)
             } else if (isAlertSheetVisible) {
               setAlertSheetVisible(false);
-              setSecureRouteSheetVisible(true)
+              if (!isBottomTabClicked) {
+                setSecureRouteSheetVisible(true)
+                onBottomTabClicked(false)
+              }
             }  else if (isCheckedInSheetVisible) {
               setRouteSheetVisible(false);
               setAlertSheetVisible(false);
@@ -520,7 +542,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       <GooglePlacesInput onDestinationChange={onDestinationChange} isDestinationChanged={setDestSheetVisible} isFirstVisited={setFirstVisit}/>}
 
       <MapView region={{... isFirstVisit ? currentGeometry : centerGeometry, latitudeDelta: delta.latitudeDelta, longitudeDelta: delta.longitudeDelta}}
-        style={{margin: 0, height: '100%', width: '100%'}}
+        style={{margin: 0, height: Dimensions.get('window').height-70, width: '100%'}}
         showsUserLocation={true}
         provider={PROVIDER_GOOGLE}
         ref={h1Ref}
@@ -544,7 +566,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         }} />
         {crimes.map((crimeTypes: Crimes, index) => {
           return crimeTypes.crimes.map((crime: Crime, d) => {
-            let isShowMarker = false;
             let lat: number = parseFloat(crime.latitude);
             let lng: number = parseFloat(crime.longitude);
             const isShow = filterCrimes.includes(crimeTypes.category);
@@ -574,11 +595,8 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
               lng = lng + Math.random()*Math.random()/10001
             }
 
-            if (isFoundSameCat.length === 0) {
-              isShowMarker = true;
-            }
-
-            return isFoundSameCat.length === 0 ? <Marker
+            return isFoundSameCat.length === 0 ?
+            <Marker
                 key={`${index}${d}`}
                 coordinate={{
                   latitude: lat,
@@ -586,23 +604,31 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
                 }}
                 onPress={() => {
                   if (isCrimeVisible && isShow) {
-                    onOpen()
+                    onOpen();
                   }
                 }}
                 image={crimeTypes.icon}
                 opacity={ isCrimeVisible && isShow ? 1 : 0 }
-            >
+                ref={marker}
+              >
               <Callout
                 tooltip
-                style={{ borderRadius: 20}}>
+                style={{ borderRadius: 10}}
+                onPress={() => { marker.current?.hideCallout() }}
+                >
                 <View style={styles.bubble}>
-                  <View style={{width: 45, height: 45, backgroundColor: "#eee", borderRadius: 50, marginRight: 10 }}></View>
+                  <Image style={{ width: 50, height: 50 }}
+                    source={crimeTypes.icon}
+                    resizeMode='contain'
+                  />
                   <View>
-                    <Text style={{fontSize: 16, marginBottom: 5, textTransform: 'capitalize', fontWeight: '500'}}>{crimeTypes.category}</Text>
-                    <Text>Location: {crime.location} location of crime ocurred</Text>
+                    <Text style={{fontSize: 16, textTransform: 'capitalize', fontWeight: '500'}}>{crimeTypes.category}</Text>
+                    {crime.location ? <Text>Location: {crime.location} </Text> : <></>}
                     <Text>Date: {crime.dateTime}</Text>
                   </View>
-                  <Text>X</Text>
+                  <Icon as={<MaterialCommunityIcons name={"close"} />} color="#bbb" size="20px"
+                    style={{ position:'absolute', right:8, top:15 }}
+                  />
                 </View>
               </Callout>
             </Marker> : <></>
@@ -626,6 +652,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
               opacity={ isBusStopVisible ? 1 : 0 }
               flat={true}
             >
+
             <Callout
               tooltip
               style={{ borderRadius: 20}}>
@@ -644,12 +671,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         destinationRoute ? getMapDirection("hotpink", routesData?.mode, routesData?.waypoints) : <></>}
       </MapView>
 
-      {/* <Overlay
-        isVisible = {isCrimeVisibleDelayed}
-        overlayStyle = {{ opacity: 1, shadowOpacity: 1, backgroundColor: '#fff', borderRadius: 50 }}
-        backdropStyle= {{ backgroundColor: '#000', opacity: 0.7 }}
-      >{Loading()}</Overlay> */}
-
       {isAlertSheetVisible || isCheckedInSheetVisible ? <View style={[styles.overlay, { height: '100%' }]} /> : <></>}
 
       {destination ? openActionSheet() : <></>}
@@ -659,6 +680,42 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       {isCheckedInSheetVisible ? openCheckedInSheet() : <></> }
       {isReportModelVisible ? openReportCrimeModel() : <></> }
       {isFriendModelVisible ? openFriendModel() : <></> }
+
+
+      <Box flex={0} bg="white" width="100%" height="70px" alignSelf="center">
+          <HStack bg="#f2f2f2" alignItems="center" safeAreaBottom shadow={3} style={{ paddingTop: 10 }}>
+            <TouchableOpacity style={{width: '25%'}} onPress={() => {
+                navigation.navigate('MapHomeScreen', {
+                  destination: null,
+                  dataRoutes: null,
+                  isShowDestinationSheet: false,
+                });
+              }}>
+              <Center>
+                <Icon as={<MaterialCommunityIcons name={"home"} />} color="#bbb" size="34px" />
+              </Center>
+            </TouchableOpacity>
+            <TouchableOpacity style={{width: '25%'}} >
+              <Center>
+                <Icon as={<FontAwesome name={"user-plus"} />} color="#bbb" size="30px" />
+              </Center>
+            </TouchableOpacity>
+            <TouchableOpacity style={{width: '25%'}} >
+              <Center>
+                <Icon as={<MaterialCommunityIcons name={"comment-question"} />} color="#bbb" size="32px" />
+              </Center>
+            </TouchableOpacity>
+            <TouchableOpacity style={{width: '25%'}} onPress={() => {
+                onBottomTabClicked(true)
+                setAlertSheetVisible(true)
+              }}>
+              <Center>
+                <Text style={{ color:"#bbb",  fontSize: 24, fontWeight: 'bold', lineHeight: 0 }}>SOS</Text>
+                {/* <Icon as={<MaterialCommunityIcons name={"help"} />} color="#bbb" size="40px" /> */}
+              </Center>
+            </TouchableOpacity>
+          </HStack>
+      </Box>
     </View>
   );
 }
@@ -674,16 +731,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 20
+    paddingRight: 30,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
   },
   name: {
 		width: 40,
 		height: 40,
 		borderRadius: 50,
 		padding: 10,
-		paddingLeft: 14,
+		paddingLeft: 10,
 		marginRight: 5,
     marginTop: 5
 	},

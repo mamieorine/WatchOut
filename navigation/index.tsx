@@ -47,7 +47,7 @@ function RootNavigator(navigationRef: any) {
   );
 }
 
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
+export const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
@@ -84,14 +84,6 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
         }}
       />
-      {/* <BottomTab.Screen
-        name="TabFour"
-        component={AllRoutesScreen}
-        options={{
-          title: 'Search',
-          tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
-        }}
-      /> */}
     </BottomTab.Navigator>
   );
 }
