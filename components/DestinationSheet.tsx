@@ -67,7 +67,7 @@ export default DestinationPopup;
 const styles = StyleSheet.create({
 	modal: {
 		backgroundColor: 'transparent',
-		maxWidth: 370,
+		maxWidth: 360,
 		width: '100%',
 		paddingLeft: 15,
 		paddingRight: 15

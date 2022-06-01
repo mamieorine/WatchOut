@@ -36,7 +36,7 @@ export default function HomeScreen() {
 					}} > Login </Button>
 				<Row>
 					<Text fontSize="sm" style={{ alignItems: 'center' }}>Forgot password? </Text>
-					<Link _text={{ color: '#007AFF'}} href="https://nativebase.io">Remember</Link>
+					<Link _text={{ color: '#6EB3FF'}} href="https://nativebase.io">Remember</Link>
 				</Row>
 			</Stack>
 

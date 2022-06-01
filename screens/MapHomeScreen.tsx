@@ -75,6 +75,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const [isFirstVisit, setFirstVisit] = useState(true);
   const [crimes, initialCrimes] = useState<Crimes[]>([]);
   const [rawCrimesData, onCrimesRawDataChange] = useState<Crimes[]>([]);
+  const [filteredBusStop, setFilteredBusStop] = useState<any[]>([]);
 
   const params: any = location.params;
   const destinationRoute = params?.destination;
@@ -179,10 +180,13 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   }, [polyGeometry]);
 
   useEffect(() => {
-    onCenterGeometryChange({
-      latitude: destination.latitude,
-      longitude: destination.longitude
-    });
+    if (isDestSheetVisible) {
+      onCenterGeometryChange({
+        latitude: destination.latitude,
+        longitude: destination.longitude
+      });
+    }
+
 
     onDeltaChange({
       latitudeDelta: 0.01,
@@ -231,21 +235,36 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 
         ratioDist = Math.min(0.010, ratioDist);
         onPolyGeometryChange([
-          {latitude: originCoord.latitude, longitude: originCoord.longitude + ratioDist/2},
-          {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude + ratioDist/2},
-          {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude + ratioDist/2},
-          {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude - ratioDist/2},
-          {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude - ratioDist/2},
-          {latitude: originCoord.latitude, longitude: originCoord.longitude - ratioDist/2},
+          {latitude: originCoord.latitude, longitude: originCoord.longitude + 0.003},
+          {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude + 0.003},
+          {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude + 0.003},
+          {latitude: destinationCoord.latitude, longitude: destinationCoord.longitude - 0.003},
+          {latitude: centerCoordinates.latitude, longitude: centerCoordinates.longitude - 0.003},
+          {latitude: originCoord.latitude, longitude: originCoord.longitude - 0.003},
         ]);
 
-        const centerLatFocus = (currentGeometry.latitude + destination.latitude) / 2;
-        const centerLngFocus = (currentGeometry.longitude + destination.longitude) / 2;
+        const centerLatFocus = (currentGeometry.latitude + destinationCoord.latitude) / 2;
+        const centerLngFocus = (currentGeometry.longitude + destinationCoord.longitude) / 2;
         onCenterGeometryChange({
           latitude: centerLatFocus,
           longitude: centerLngFocus
         })
 
+        const filtered = busStop.filter((stop: any) => {
+          const busLng = stop.Longitude;
+
+          const fistLng = originCoord.longitude + 0.005;
+          const secondLng = originCoord.longitude - 0.005;
+          const thirdLng = destinationCoord.longitude + 0.005;
+          const ForthLng = destinationCoord.longitude - 0.005;
+
+          const firstCon = busLng > secondLng && busLng < fistLng
+          const secondCon = busLng > ForthLng && busLng < thirdLng
+          // const con3 = busLat < firstLat - 0.0001 && busLat > firstLat + 0.0001;
+          // const con4 = busLat < thirdLat - 0.0001 && busLat > thirdLat + 0.0001;
+          return firstCon && secondCon;
+        })
+        setFilteredBusStop(filtered);
         setBusStopVisible(true);
       }}
       onError={(errorMessage) => {
@@ -322,10 +341,9 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         <Text bold style={{ color: '#FFFFFF', fontSize: 17, textAlign: 'center' }}>This <Text style={{ color: '#FFD747' }}>emergency alert </Text>
           will send the alert to your selected friends to tell them that you’re in danger.</Text>
           <View style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'flex-start', flexDirection: 'row', marginTop: 5, marginBottom: 10, backgroundColor: 'transparent' }}>
-            <Box style={[styles.name, { backgroundColor: '#007AFF5D' } ]} >P</Box>
-            <Box style={[styles.name, { backgroundColor: '#CC52709D' } ]} >N</Box>
-            <Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >M</Box>
-            <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box>
+            <Box style={[styles.name, { backgroundColor: '#E95B77' } ]} ><Center>N</Center></Box>
+            <Box style={[styles.name, { backgroundColor: '#FAD234' } ]} ><Center>M</Center></Box>
+            <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} ><Center>S</Center></Box>
 				</View>
       </Row>
         <Actionsheet.Content>
@@ -353,10 +371,10 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
         <Text bold style={{ color: '#FFFFFF', fontSize: 17, textAlign: 'center', marginTop: -70 }}>This message
           will send the alert to your selected friends to tell them that you’re in danger.</Text>
           <View style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'flex-start', flexDirection: 'row', marginTop: 65, marginBottom: 10, backgroundColor: 'transparent' }}>
-          <Box style={[styles.name, { backgroundColor: '#007AFF5D' } ]} >P</Box>
-            <Box style={[styles.name, { backgroundColor: '#CC52709D' } ]} >N</Box>
-            <Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >M</Box>
-            <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box>
+            <Box style={[styles.name, { backgroundColor: '#6EB3FF' } ]} ><Center>P</Center></Box>
+            <Box style={[styles.name, { backgroundColor: '#E95B77' } ]} ><Center>N</Center></Box>
+            <Box style={[styles.name, { backgroundColor: '#FAD234' } ]} ><Center>M</Center></Box>
+            <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} ><Center>S</Center></Box>
 				</View>
       </Row>
         <Actionsheet.Content>
@@ -369,7 +387,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
       </Actionsheet>
   }
 
-  const crimeTypes = ['Theft', 'Robbery', 'Drugs', 'Vehicle']
+  const crimeTypes = ['Theft', 'Robbery', 'Drugs', 'Vehicle'];
 	const [filterReport, onFilterReportChange] = useState<any>({
     selected: '',
   })
@@ -377,8 +395,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
   const friendsList = ['Maya', 'Sawarin', 'Pete', 'Nick']
 	const [filterFriends, onFilterFriendsChange] = useState({ last: '', selected: ['Pete', 'Nick'] });
   const [filterFriendConfirmed, onFilterFriendsConfirmed] = useState({ last: '', selected: ['Pete', 'Nick']})
-
-  // const marker = useRef<Marker>(null);
 
   function openReportCrimeModel() {
     return <Modal isOpen={isReportModelVisible} onClose={() => setReportModelVisible(false)}>
@@ -394,13 +410,13 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
               <Card containerStyle={[styles.cardContainer, {
                   backgroundColor: filterReport.selected === type ? '#7A949550' : '#fff',
                   borderColor: filterReport.selected === type ? '#7A9495' : '#ddd',
-                  borderWidth: filterReport.selected === type ? 1 : 1
+                  borderWidth: 1
                 }]}>
                 <Row style={{ alignItems: 'center', justifyContent: 'flex-start' }}>
-                <Image style={{ width: 40, height: 40 }}
-                  source={require('../assets/images/bus-icon.png')} />
+                {/* <Image style={{ width: 40, height: 40 }}
+                  source={require('../assets/images/bus-icon-min.png')} /> */}
                 <Text style={{ fontSize: 16, marginLeft: 10,
-                  fontWeight:  filterReport.selected === type ? '600' : '400'}}
+                  fontWeight:  '400'}}
                   >
                   {type}</Text>
                 </Row>
@@ -430,7 +446,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           />
           <Chip containerStyle={styles.chipMode} title="Select All"
             titleStyle={{ color: '#000' }}
-            buttonStyle={{ backgroundColor: '#007AFF26' }}
+            buttonStyle={{ backgroundColor: '#6EB3FF26' }}
             onPress={() => {
               // setSelectedTransit(!isSelectedTransit);
             }} />
@@ -460,8 +476,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
                 }]}>
 
                 <Row style={{ alignItems: 'center', justifyContent: 'flex-start' }}>
-                  <Image style={{ width: 40, height: 40 }}
-                    source={require('../assets/images/bus-icon.png')} />
                   <Text style={{ fontSize: 16, marginLeft: 10,
                     fontWeight: filterFriends.selected.includes(friend) ? '600' : '400'}}>
                     {friend}</Text>
@@ -472,10 +486,10 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
 
           <Row style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'space-between' }}>
             <Row style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'flex-start', marginTop: 5 }}>
-              {filterFriends.selected.includes('Pete') ? <Box style={[styles.name, { backgroundColor: '#007AFF5D' } ]} >P</Box> : <></> }
-              {filterFriends.selected.includes('Nick') ? <Box style={[styles.name, { backgroundColor: '#CC52709D' } ]} >N</Box> : <></> }
-              {filterFriends.selected.includes('Maya') ? <Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >M</Box> : <></> }
-              {filterFriends.selected.includes('Sawarin') ? <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box> : <></> }
+              {filterFriends.selected.includes('Pete') ? <Box style={[styles.name, { backgroundColor: '#6EB3FF' } ]} ><Center>P</Center></Box> : <></> }
+              {filterFriends.selected.includes('Nick') ? <Box style={[styles.name, { backgroundColor: '#E95B77' } ]} ><Center>N</Center></Box> : <></> }
+              {filterFriends.selected.includes('Maya') ? <Box style={[styles.name, { backgroundColor: '#FAD234' } ]} ><Center>M</Center></Box> : <></> }
+              {filterFriends.selected.includes('Sawarin') ? <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} ><Center>S</Center></Box> : <></> }
             </Row>
             <Button title="Add"
               titleStyle={{ fontSize: 17 }}
@@ -551,7 +565,6 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           const lng = e.nativeEvent.coordinate.longitude;
           if (lat.toFixed(3) == currentGeometry.latitude.toFixed(3) ||
           lng.toFixed(3) == currentGeometry.longitude.toFixed(3)) return;
-
           onCurrentGeometryChange({
             latitude: e.nativeEvent.coordinate.latitude,
             longitude: e.nativeEvent.coordinate.longitude
@@ -636,7 +649,7 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
           );
         })}
 
-        {busStop.map((busDetail: any) => {
+        {filteredBusStop.map((busDetail: any) => {
           return <Marker
               key={busDetail.ATCOCode}
               coordinate={{
@@ -648,16 +661,18 @@ export default function MapHomeScreen(props: { destination: any, dataRoutes: any
                   onOpen();
                 }
               }}
-              icon={require('../assets/images/bus-icon-min.png')}
+              icon={require('../assets/images/bus-icon.png')}
               opacity={ isBusStopVisible ? 1 : 0 }
-              flat={true}
             >
 
             <Callout
               tooltip
               style={{ borderRadius: 20}}>
               <View style={styles.bubble}>
-                <View style={{width: 45, height: 45, backgroundColor: "#eee", borderRadius: 50, marginRight: 10 }}></View>
+              <Image style={{ width: 50, height: 50 }}
+                    source={require('../assets/images/bus-icon.png')}
+                    resizeMode='contain'
+                  />
                 <View>
                   <Text style={{fontSize: 16, marginBottom: 5, textTransform: 'capitalize', fontWeight: '500'}}>{busDetail.CommonName}</Text>
                   { busDetail.Street ? <Text>Street: {busDetail.Street}</Text> : <></> }
@@ -740,8 +755,8 @@ const styles = StyleSheet.create({
 		width: 40,
 		height: 40,
 		borderRadius: 50,
-		padding: 10,
-		paddingLeft: 10,
+		paddingTop: 10,
+    textAlign: 'center',
 		marginRight: 5,
     marginTop: 5
 	},
@@ -769,15 +784,9 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 10,
     padding: 10,
-    paddingTop: 4,
-    paddingBottom: 2,
     width: '100%',
     margin: 0,
     marginBottom: 8,
-    // shadowColor: '#000',
-		// shadowOffset: { width: 2, height: 2 },
-		// shadowOpacity: 0.2,
-		// shadowRadius: 1,
   },
   modalSubTitle: {
     fontSize: 16,
@@ -799,9 +808,9 @@ const styles = StyleSheet.create({
   alertButton: {
 		width: 180,
 		height: 180,
+    margin: 10,
 		marginTop: 100,
     marginBottom: 15,
-		paddingLeft: 0,
 		borderRadius: 100,
 		backgroundColor: '#F84D3A',
 		shadowColor: '#333',

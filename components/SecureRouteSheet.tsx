@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import React from 'react';
 import { Button } from 'react-native-elements';
 import { Text, View } from './Themed';
-import { Box } from 'native-base';
+import { Box, Center } from 'native-base';
 
 export type destination = {
 	latitude: Number;
@@ -30,10 +30,10 @@ const SecureRoutePopup = (props: {
 				<View style={{ backgroundColor: 'transparent' }}>
 				<Text style={styles.modalSubTitle}> Tell Friends</Text>
 				<View style={{ flex: 0, flexWrap: 'nowrap', justifyContent: 'flex-start', flexDirection: 'row', marginTop: 5, marginBottom: 10, backgroundColor: 'transparent' }}>
-					{props.filterFriends.selected.includes('Pete') ? <Box style={[styles.name, { backgroundColor: '#007AFF5D' } ]} >P</Box> : <></> }
-					{props.filterFriends.selected.includes('Nick') ? <Box style={[styles.name, { backgroundColor: '#CC52709D' } ]} >N</Box> : <></> }
-					{props.filterFriends.selected.includes('Maya') ? <Box style={[styles.name, { backgroundColor: '#FFC700' } ]} >M</Box> : <></> }
-					{props.filterFriends.selected.includes('Sawarin') ? <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} >S</Box> : <></> }
+					{props.filterFriends.selected.includes('Pete') ? <Box style={[styles.name, { backgroundColor: '#6EB3FF' } ]} ><Center>P</Center></Box> : <></> }
+					{props.filterFriends.selected.includes('Nick') ? <Box style={[styles.name, { backgroundColor: '#E95B77' } ]} ><Center>N</Center></Box> : <></> }
+					{props.filterFriends.selected.includes('Maya') ? <Box style={[styles.name, { backgroundColor: '#FAD234' } ]} ><Center>M</Center></Box> : <></> }
+					{props.filterFriends.selected.includes('Sawarin') ? <Box style={[styles.name, { backgroundColor: '#C4C4C4' } ]} ><Center>S</Center></Box> : <></> }
 					<Button
 						title="+"
 						titleStyle= {{ fontSize: 30, color: '#787880' }}
@@ -67,7 +67,7 @@ export default SecureRoutePopup;
 const styles = StyleSheet.create({
 	modal: {
 		backgroundColor: 'transparent',
-		maxWidth: 370,
+		maxWidth: 360,
 		width: '100%',
 		paddingLeft: 15,
 		paddingRight: 15
@@ -94,8 +94,7 @@ const styles = StyleSheet.create({
 		height: 38,
 		borderRadius: 50,
 		textAlign: 'center',
-		paddingTop: 8,
-		paddingLeft: 13,
+		paddingTop: 10,
 		marginRight: 4
 	},
 	modalButton: {

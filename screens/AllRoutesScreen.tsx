@@ -400,21 +400,21 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
         <Text style={{marginRight: 5}}>Travel Mode: </Text>
         <Chip containerStyle={styles.chipMode} title="Bus"
           titleStyle={{ color: '#000' }}
-          buttonStyle={{ backgroundColor: isSelectedTransit ? '#007AFF4D' : '#ccc'}}
+          buttonStyle={{ backgroundColor: isSelectedTransit ? '#6EB3FF4D' : '#ccc'}}
           onPress={() => {
             setSelectedTransit(!isSelectedTransit);
           }}
         />
         <Chip containerStyle={styles.chipMode} title="Bicycle"
           titleStyle={{ color: '#000' }}
-          buttonStyle={{ backgroundColor: isSelectedBicycle ? '#007AFF4D' : '#ccc'}}
+          buttonStyle={{ backgroundColor: isSelectedBicycle ? '#6EB3FF4D' : '#ccc'}}
           onPress={() => {
             setSelectedBicycle(!isSelectedBicycle);
           }}
           />
         <Chip containerStyle={styles.chipMode} title="Walk"
           titleStyle={{ color: '#000' }}
-          buttonStyle={{ backgroundColor: isSelectedWalking ? '#007AFF4D' : '#ccc'}}
+          buttonStyle={{ backgroundColor: isSelectedWalking ? '#6EB3FF4D' : '#ccc'}}
           onPress={() => {
             setSelectedWalking(!isSelectedWalking);
           }}
@@ -437,7 +437,7 @@ export default function AllRoutesScreen(props: { destination: any, origin: any, 
           <Flex justifyContent={'flex-start'} direction={'row'} alignItems={'flex-start'} style={{ paddingRight: 10 }}>
             <View style={{ width: '22%', marginRight: 10 }}>
               <Center>
-              <Box style={[styles.box]}> {/* , {borderColor: data?.crimes?.value < 20 ? '#007AFF' : '#FF4773', borderWidth: 2 } */}
+              <Box style={[styles.box]}> {/* , {borderColor: data?.crimes?.value < 20 ? '#6EB3FF' : '#FF4773', borderWidth: 2 } */}
                 <Image style={{ width: 75, height: 75, marginTop: -20 }}
                   source={getIcon2(data?.crimes?.name)}
                   resizeMode='cover'

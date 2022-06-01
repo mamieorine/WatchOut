@@ -40,7 +40,7 @@ const RoutePopup = (props: {
 				}} />
 				<Chip containerStyle={[styles.chipMode, {width: 100}]} title="Bus Stop"
 				titleStyle={{ color: '#000' }}
-				buttonStyle={{ backgroundColor: props.isBusStopVisible ? '#007AFF4D' : '#ccc'}}
+				buttonStyle={{ backgroundColor: props.isBusStopVisible ? '#6EB3FF4D' : '#ccc'}}
 				onPress={() => {
 					props.onBusStopVisible(!props.isBusStopVisible);
 				}} />
@@ -70,7 +70,7 @@ export default RoutePopup;
 const styles = StyleSheet.create({
 	modal: {
 		backgroundColor: 'transparent',
-		maxWidth: 370,
+		maxWidth: 360,
 		width: '100%',
 		paddingLeft: 15,
 		paddingRight: 15

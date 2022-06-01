@@ -12,7 +12,6 @@ export type destination = {
 const AlertPopup = (props: {
 	isAlertSheetVisible: boolean;
 	setAlertSheetVisible: any;
-	// routeDetail: any;
 	}) => {
 
 	return (
@@ -25,8 +24,8 @@ const AlertPopup = (props: {
 
 			<Text style={styles.title}>Current location </Text>
 			<Row style={{ flex: 0, justifyContent: 'space-between', flexDirection: 'row', marginTop: 5, backgroundColor: 'transparent' }}>
-				<Text style={styles.subTitle}>Latitude: 4.2304934</Text>
-				<Text style={styles.subTitle}>Longitude: -1.343490</Text>
+				<Text style={styles.subTitle}>Latitude: 50.9110</Text>
+				<Text style={styles.subTitle}>Longitude: -1.4013</Text>
 			</Row>
 		</View>
 	);
